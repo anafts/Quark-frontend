@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 import Navbar from "../components/Navbar";
 import LogoMenu from "../components/LogoMenu";
@@ -29,10 +30,33 @@ import Tooltip from "../components/Tooltip";
 import CardEdit from "../components/Card/CardEdit";
 import editIcon from '../icons/editar.svg';
 import TooltipEdit from "../components/Tooltip/TooltipEdit";
+import { Link, useNavigate } from "react-router-dom";
 
-import dados from "../dados";
 
 function Skills() {
+
+  const [skills, setSkills] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    axios.get("http://localhost:80/skills")
+       .then((response) => {
+        console.log(response.data);
+         setSkills(response.data)
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, []);
+  
+  const handleGoToSkill = (event, skill) => {
+    event.preventDefault()
+    
+    navigate(`/editarskill/${skill.id}`, {
+      state: skill
+    })
+  }
+
   return (
     <>
       <Navbar>
@@ -56,21 +80,21 @@ function Skills() {
         <Titulo>Skills</Titulo>
 
         <GridSkills>
-          {dados.map(skill => (
+          {skills.map(skill => (
             <Card>
-              <CorSkill className="cor" cor={skill.cor} />
+              <CorSkill className="cor" cor={skill.color} />
               
               <CardTilte>
                 <CardLink href="/topicos">
-                  {skill.titulo}
-                  <Tooltip className="tooltipTitulo">{skill.titulo}</Tooltip>
+                  {skill.title}
+                  <Tooltip className="tooltipTitulo">{skill.title}</Tooltip>
                 </CardLink>
               </CardTilte>
 
-              <CardEdit className="editar" href="/editarskill">
-                <img src={editIcon}/>
-                <TooltipEdit className="tooltip">Editar Skill</TooltipEdit>
-              </CardEdit>
+                <CardEdit className="editar" onClick={(event) => handleGoToSkill(event, skill)}>
+                    <img src={editIcon}/>
+                    <TooltipEdit className="tooltip">Editar Skill</TooltipEdit>
+                </CardEdit>
 
               <CardTopicos>3 Tópicos</CardTopicos>
 
@@ -78,8 +102,8 @@ function Skills() {
                 <CardDataTitle>Criado em</CardDataTitle>
                 <CardDataTitle>Editado em</CardDataTitle>
 
-                <CardData>18/05/2022</CardData>
-                <CardData>21/05/2022</CardData>
+                <CardData> {skill.created_at.slice(-25, 10)} </CardData>
+                <CardData> {skill.updated_at.slice(-25, 10)} </CardData>
               </CardDatas>
             </Card>
           ))}
