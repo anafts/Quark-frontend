@@ -1,4 +1,6 @@
-import React from "react";
+import React,  { useState } from "react";
+import axios from "axios";
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 
 import Navbar from "../components/Navbar";
 import LogoMenu from "../components/LogoMenu";
@@ -20,21 +22,30 @@ import CaixaInputCor from "../components/Form/CaixaInputCor";
 
 import SalvarBtn from "../components/Buttons/Salvar";
 
-var corSkill = '#FF9637';
-
-function aterarCor1() {
-  const cor1 = document.getElementById("cor1");
-  const cor2 = document.getElementById("cor2");
-  cor2.value = cor1.value;
-}
-
-function aterarCor2() {
-  const cor2 = document.getElementById("cor2");
-  const cor1 = document.getElementById("cor1");
-  cor1.value = cor2.value.toUpperCase();
-}
-
 function EditarSkills() {
+
+    const navigate = useNavigate();
+    const params = useParams()
+    const location = useLocation()
+    const [title, setTitle] = useState(location.state.title);
+    const [color, setColor] = useState(location.state.color); 
+
+    const updateSkillSubmmit = (event) => {
+      event.preventDefault()
+   
+      axios.put(`http://localhost:80/updateSkill/${params.id}`, {
+               title: title,
+               color: color
+           })
+           .then((response) => {
+               navigate('/skill')
+           })
+           .catch((error) => {
+               navigate('editarskill')
+           })
+    }
+   
+
 
   return (
     <>
@@ -56,14 +67,14 @@ function EditarSkills() {
           <BCLink>Editar Skill</BCLink>
         </Breadcrumbs>
 
-        <Form>
+        <Form onSubmit={updateSkillSubmmit} >
           <Titulo1>Editar Skill</Titulo1>
 
-          <Input type="text" defaultValue="Inteligência Emocional" />
+          <Input type="text" placeholder="Título" onChange={event => setTitle(event.currentTarget.value)} value={title} />
           
           <CaixaInputCor>
-            <InputCor type="text" id="cor1" defaultValue={corSkill} onChange={aterarCor1} />
-            <InputCor type="color" id="cor2" defaultValue={corSkill} onChange={aterarCor2} />
+            <InputCor type="text" onChange={event => setColor(event.currentTarget.value)} value={color} />
+            <InputCor type="color" onChange={event => setColor(event.currentTarget.value)} value={color} />
           </CaixaInputCor>
 
           <SalvarBtn type="Submit">Editar</SalvarBtn>
