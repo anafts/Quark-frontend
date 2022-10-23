@@ -1,0 +1,90 @@
+import React from "react";
+
+import Navbar from "../components/Navbar";
+import LogoMenu from "../components/LogoMenu";
+import PublicarBtn from '../components/Buttons/Publicar';
+
+import BackBtn from '../components/Buttons/Back';
+import backIcon from '../icons/back.svg';
+import TooltipBack from "../components/Tooltip/TooltipBack";
+
+import Breadcrumbs from "../components/Breadcrumbs";
+import BCLink from "../components/Breadcrumbs/Link";
+
+import Caixa from "../components/Caixa";
+
+import CaixaPublicar from "../components/Publicar";
+
+import Titulo from "../components/Titulos/TituloListagens";
+
+import Card from "../components/Card";
+import CorSkill from "../components/Card/CorSkill";
+import CardTilte from "../components/Card/CardTitle";
+import CardLink from "../components/Card/CardLink";
+import Tooltip from "../components/Tooltip";
+import CardTopicos from "../components/Card/CardTopicos";
+import CardDatas from "../components/Card/CardDatas";
+import CardDataTitle from "../components/Card/CardDataTitle";
+import CardData from "../components/Card/CardData";
+
+import CaixaBotoes from "../components/Publicar/CaixaBotoes";
+import Cancelar from "../components/Publicar/Cancelar";
+import Confirmar from "../components/Publicar/Confirmar";
+
+function Publicar() {
+  return (
+    <>
+        <Navbar>
+            <BackBtn href="javascript:history.back()">
+                <img src={backIcon}/>
+                <TooltipBack className="tooltip">Voltar</TooltipBack>
+            </BackBtn>
+        
+            <LogoMenu  href="/skill"></LogoMenu>
+        
+            <PublicarBtn href="/publicar" className="oculto">Publicar</PublicarBtn>
+        </Navbar>
+        
+        <Caixa>
+            <Breadcrumbs>
+                <BCLink href="/skill">Skills</BCLink>
+                <BCLink href="/topicos">Inteligência Emocional</BCLink>
+                <BCLink>Publicar Skill</BCLink>
+            </Breadcrumbs>
+
+            <CaixaPublicar action="/skill">
+                <Titulo>Publicar Skill</Titulo>
+
+                <Card>
+                    <CorSkill className="cor" cor={'#FF9637'} />
+                    
+                    <CardTilte>
+                        <CardLink>Inteligência Emocional
+                            <Tooltip className="tooltipTitulo">Inteligência Emocional</Tooltip>
+                        </CardLink>
+                    </CardTilte>
+
+                    <CardTopicos>3 Tópicos</CardTopicos>
+
+                    <CardDatas>
+                        <CardDataTitle>Criado em</CardDataTitle>
+                        <CardDataTitle>Editado em</CardDataTitle>
+
+                        <CardData>18/05/2022</CardData>
+                        <CardData>21/05/2022</CardData>
+                    </CardDatas>
+                </Card>
+                
+                <CaixaBotoes>
+                    <Cancelar href="javascript:history.back()">Cancelar</Cancelar>
+                    <Confirmar>Confirmar</Confirmar>
+                </CaixaBotoes>
+
+            </CaixaPublicar>
+            
+        </Caixa>
+    </>
+  );
+}
+
+export default Publicar;
