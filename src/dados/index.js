@@ -15,7 +15,7 @@ export default [{
         cor: '#FFCB05'
     },
     {
-        titulo: 'Resoução de Problemas',
+        titulo: 'Resolução de Problemas',
         cor: '#0086CA'
     },
     {
