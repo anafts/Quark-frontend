@@ -42,7 +42,7 @@ const App = () => {
           
           <Route exact path="/skill" element={<Skills/>}/>
           <Route exact path="/criarskill" element={<CriarSkill/>}/>
-          <Route exact path="/editarskill" element={<EditarSkills/>}/>
+          <Route exact path="/editarskill/:id" element={<EditarSkills/>}/>
 
           <Route exact path="/topicos" element={<Topicos/>}/>
           <Route exact path="/criartopico" element={<CriarTopicos/>}/>
