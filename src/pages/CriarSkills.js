@@ -1,4 +1,6 @@
-import React from "react";
+import React,  { useState } from "react";
+import axios from "axios";
+import { useNavigate } from 'react-router-dom'
 
 import Navbar from "../components/Navbar";
 import LogoMenu from "../components/LogoMenu";
@@ -20,19 +22,28 @@ import InputCor from "../components/Form/InputCor";
 import SalvarBtn from "../components/Buttons/Salvar";
 import CaixaInputCor from "../components/Form/CaixaInputCor";
 
-function aterarCor1() {
-  const cor1 = document.getElementById("cor1");
-  const cor2 = document.getElementById("cor2");
-  cor2.value = cor1.value;
-}
-
-function aterarCor2() {
-  const cor2 = document.getElementById("cor2");
-  const cor1 = document.getElementById("cor1");
-  cor1.value = cor2.value.toUpperCase();
-}
 
 function CriarSkills() {
+
+    const [title, setTitle] = useState()
+    const [color, setColor] = useState()
+    const navigate = useNavigate()
+
+ const createSkill = (event) => {
+   event.preventDefault();
+
+   axios.post('http://localhost:80/createSkill', {
+            title: title,
+            color: color
+        })
+        .then((response) => {
+            navigate('/skill')
+        })
+        .catch((error) => {
+            navigate('/criarskill')
+        })
+ }
+
   return (
     <>
       <Navbar>
@@ -52,14 +63,14 @@ function CriarSkills() {
           <BCLink>Criar Skill</BCLink>
         </Breadcrumbs>
 
-        <Form>
+        <Form onSubmit={createSkill} >
           <Titulo1>Criar Skill</Titulo1>
 
-          <Input placeholder="Título" />
+          <Input type="text" placeholder="Título" onChange={event => setTitle(event.currentTarget.value)} value={title} />
           
           <CaixaInputCor>
-            <InputCor type="text" id="cor1" placeholder="Cor" onChange={aterarCor1} />
-            <InputCor type="color" id="cor2" defaultValue="#7D71DA" onChange={aterarCor2} />
+            <InputCor type="text" id="cor1" placeholder="Cor" onChange={event => setColor(event.currentTarget.value)} value={color} />
+            <InputCor type="color" id="cor2" defaultValue="#7D71DA" onChange={event => setColor(event.currentTarget.value)} value={color} />
           </CaixaInputCor>
 
           <SalvarBtn type="Submit">Salvar</SalvarBtn>
