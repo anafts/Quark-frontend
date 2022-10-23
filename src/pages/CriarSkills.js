@@ -30,7 +30,7 @@ function CriarSkills() {
     const navigate = useNavigate()
 
  const createSkill = (event) => {
-   event.preventDefault();
+   event.preventDefault()
 
    axios.post('http://localhost:80/createSkill', {
             title: title,
@@ -69,8 +69,8 @@ function CriarSkills() {
           <Input type="text" placeholder="Título" onChange={event => setTitle(event.currentTarget.value)} value={title} />
           
           <CaixaInputCor>
-            <InputCor type="text" id="cor1" placeholder="Cor" onChange={event => setColor(event.currentTarget.value)} value={color} />
-            <InputCor type="color" id="cor2" defaultValue="#7D71DA" onChange={event => setColor(event.currentTarget.value)} value={color} />
+            <InputCor type="text"  placeholder="Cor" onChange={event => setColor(event.currentTarget.value)} value={color} />
+            <InputCor type="color" defaultValue="#7D71DA" onChange={event => setColor(event.currentTarget.value)} value={color} />
           </CaixaInputCor>
 
           <SalvarBtn type="Submit">Salvar</SalvarBtn>
