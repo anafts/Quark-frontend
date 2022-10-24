@@ -1,6 +1,7 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const AddSkillBtn = styled.a `
+const AddSkillBtn = styled(Link) `
     position: fixed;
     width: 40px;
     height: 40px;
