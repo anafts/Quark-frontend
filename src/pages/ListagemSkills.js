@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import Navbar from "../components/Navbar";
@@ -30,7 +31,6 @@ import Tooltip from "../components/Tooltip";
 import CardEdit from "../components/Card/CardEdit";
 import editIcon from '../icons/editar.svg';
 import TooltipEdit from "../components/Tooltip/TooltipEdit";
-import { Link, useNavigate } from "react-router-dom";
 
 
 function Skills() {
@@ -41,7 +41,6 @@ function Skills() {
   useEffect(() => {
     axios.get("http://localhost:80/skills")
        .then((response) => {
-        console.log(response.data);
          setSkills(response.data)
       })
       .catch((err) => {
@@ -85,7 +84,7 @@ function Skills() {
               <CorSkill className="cor" cor={skill.color} />
               
               <CardTilte>
-                <CardLink href="/topicos">
+                <CardLink to={`/topicos/${skill.id}`}>
                   {skill.title}
                   <Tooltip className="tooltipTitulo">{skill.title}</Tooltip>
                 </CardLink>
@@ -96,7 +95,7 @@ function Skills() {
                     <TooltipEdit className="tooltip">Editar Skill</TooltipEdit>
                 </CardEdit>
 
-              <CardTopicos>3 Tópicos</CardTopicos>
+              <CardTopicos> 3 Tópicos</CardTopicos>
 
               <CardDatas>
                 <CardDataTitle>Criado em</CardDataTitle>
