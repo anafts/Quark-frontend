@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import {  useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
 
 import Navbar from "../components/Navbar";
 import LogoMenu from "../components/LogoMenu";
@@ -33,6 +35,29 @@ import editIcon from '../icons/editar.svg';
 import TooltipEdit from "../components/Tooltip/TooltipEdit";
 
 function Topicos() {
+
+    const [topics, setTopics] = useState([]);
+    const navigate = useNavigate();
+    const params = useParams();
+
+    useEffect(() => {
+        axios.get("http://localhost:80/topics")
+           .then((response) => {
+             setTopics(response.data)
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+      }, []);
+
+      const handleGoToTopics= (event, topic) => {
+        event.preventDefault()
+        
+        navigate(`/editartopico/${topic.id}`, {
+          state: topic
+        })
+      }
+
   return (
     <>
         <Navbar>
@@ -46,7 +71,7 @@ function Topicos() {
             <PublicarBtn href="/publicar">Publicar</PublicarBtn>
         </Navbar>
 
-        <AddTopicoBtn href="/criartopico">
+        <AddTopicoBtn to={`/criartopico/${params.skillId}`}>
             <img src={addIcon}/>
             <TooltipAdd className="tooltip">Criar Tópico</TooltipAdd>
         </AddTopicoBtn>
@@ -62,14 +87,16 @@ function Topicos() {
             <TituloListagens>Inteligência Emocional</TituloListagens>
             
             <GridTopicos>
+            {topics.map(topic => (
                 <Card>
                     <CardTilte>
-                        <CardLink href="/subtopicos">Introdução
-                            <Tooltip className="tooltipTitulo">Introdução</Tooltip>
+                        <CardLink href="/subtopicos"> 
+                        {topic.title}
+                            <Tooltip className="tooltipTitulo"> {topic.title} </Tooltip>
                         </CardLink>
                     </CardTilte>
 
-                    <CardEdit className="editar" href="/editartopico">
+                    <CardEdit className="editar" onClick={(event) => handleGoToTopics(event, topic)} >
                         <img src={editIcon}/>
                         <TooltipEdit className="tooltip">Editar Tópico</TooltipEdit>
                     </CardEdit>
@@ -80,56 +107,11 @@ function Topicos() {
                         <CardDataTitle>Criado em</CardDataTitle>
                         <CardDataTitle>Editado em</CardDataTitle>
 
-                        <CardData>18/05/2022</CardData>
-                        <CardData>21/05/2022</CardData>
+                        <CardData> {topic.created_at.slice(-25, 10)} </CardData>
+                        <CardData> {topic.updated_at.slice(-25, 10)} </CardData>
                     </CardDatas>
                 </Card>
-
-                <Card>
-                    <CardTilte>
-                        <CardLink href="/subtopicos">Perfil Comportamental
-                            <Tooltip className="tooltipTitulo">Perfil Comportamental</Tooltip>
-                        </CardLink>
-                    </CardTilte>
-
-                    <CardEdit className="editar" href="/editartopico">
-                        <img src={editIcon}/>
-                        <TooltipEdit className="tooltip">Editar Tópico</TooltipEdit>
-                    </CardEdit>
-
-                    <CardTopicos>3 Subtópicos</CardTopicos>
-
-                    <CardDatas>
-                        <CardDataTitle>Criado em</CardDataTitle>
-                        <CardDataTitle>Editado em</CardDataTitle>
-
-                        <CardData>18/05/2022</CardData>
-                        <CardData>21/05/2022</CardData>
-                    </CardDatas>
-                </Card>
-
-                <Card>
-                    <CardTilte>
-                        <CardLink href="/subtopicos">Feedback
-                            <Tooltip className="tooltipTitulo">Feedback</Tooltip>
-                        </CardLink>
-                    </CardTilte>
-
-                    <CardEdit className="editar" href="/editartopico">
-                        <img src={editIcon}/>
-                        <TooltipEdit className="tooltip">Editar Tópico</TooltipEdit>
-                    </CardEdit>
-
-                    <CardTopicos>3 Subtópicos</CardTopicos>
-
-                    <CardDatas>
-                        <CardDataTitle>Criado em</CardDataTitle>
-                        <CardDataTitle>Editado em</CardDataTitle>
-
-                        <CardData>18/05/2022</CardData>
-                        <CardData>21/05/2022</CardData>
-                    </CardDatas>
-                </Card>
+                ))}
             </GridTopicos>
         </Caixa>
     </>
