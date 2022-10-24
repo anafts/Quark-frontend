@@ -44,9 +44,9 @@ const App = () => {
           <Route exact path="/criarskill" element={<CriarSkill/>}/>
           <Route exact path="/editarskill/:id" element={<EditarSkills/>}/>
 
-          <Route exact path="/topicos" element={<Topicos/>}/>
-          <Route exact path="/criartopico" element={<CriarTopicos/>}/>
-          <Route exact path="/editartopico" element={<EditarTopicos/>}/>
+          <Route exact path="/topicos/:skillId" element={<Topicos/>}/>
+          <Route exact path="/criartopico/:skillId" element={<CriarTopicos/>}/>
+          <Route exact path="/editartopico/:id" element={<EditarTopicos/>}/>
 
           <Route exact path="/subtopicos" element={<Subtopicos/>}/>
           <Route exact path="/criarsubtopico" element={<CriarSubtopicos/>}/>
