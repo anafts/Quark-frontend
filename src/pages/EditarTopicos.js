@@ -1,4 +1,6 @@
-import React from "react";
+import React,  { useState } from "react";
+import axios from "axios";
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 
 import Navbar from "../components/Navbar";
 import LogoMenu from "../components/LogoMenu";
@@ -18,6 +20,33 @@ import SalvarBtn from "../components/Buttons/Salvar";
 import Input from "../components/Form/Input";
 
 function EditarTopicos() {
+
+    const navigate = useNavigate();
+    const params = useParams();
+    const location = useLocation();
+
+    const [ title, setTitle ] = useState(location.state.title);
+    const [ order, setOrder ] = useState(location.state.order);
+    const [ active_icon, setActiveIcon ] = useState(location.state.active_icon);
+    const [ disabled_icon, setDisabledIcon ] = useState(location.state.disabled_icon);
+
+    const updateTopicsSubmmit = (event) => {
+      event.preventDefault()
+   
+      axios.put(`http://localhost:80/updateTopics/${params.id}`, {
+          title: title,
+          order: order,
+          active_icon: active_icon,
+          disabled_icon: disabled_icon
+           })
+           .then((response) => {
+               navigate(`/topicos/${params.skillId}`)
+           })
+           .catch((error) => {
+               navigate(`/editartopico/${params.id}`)
+           })
+    }
+
   return (
     <>
       <Navbar>
@@ -39,12 +68,12 @@ function EditarTopicos() {
           <BCLink>Editar Tópico</BCLink>
         </Breadcrumbs>
 
-        <Form>
+        <Form onSubmit={updateTopicsSubmmit} >
           <Titulo1>Editar Tópico</Titulo1>
-          <Input type="text" defaultValue="Introdução"/>
-          <Input type="number" defaultValue="1"/>
-          <Input type="url" defaultValue="/icons/inteligencia-emocional.svg"/>
-          <Input type="url" defaultValue="/icons/inteligencia-emocional-desativado.svg"/>
+          <Input type="text"  onChange={event => setTitle(event.currentTarget.value)} value={title} />
+          <Input type="number" onChange={event => setOrder(event.currentTarget.value)} value={order} />
+          <Input onChange={event => setActiveIcon(event.currentTarget.value)} value={active_icon}/>
+          <Input onChange={event => setActiveIcon(event.currentTarget.value)} value={active_icon} />
           
           <SalvarBtn type="Submit">Salvar</SalvarBtn>
         </Form>        
