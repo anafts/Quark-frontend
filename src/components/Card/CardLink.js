@@ -1,6 +1,7 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 
-const CardLink = styled.a `
+const CardLink = styled(Link)`
     font-family: 'Rubik', sans-serif;
     font-weight: 600;
     text-decoration: none;
