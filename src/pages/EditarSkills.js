@@ -41,7 +41,7 @@ function EditarSkills() {
                navigate('/skill')
            })
            .catch((error) => {
-               navigate('editarskill')
+               navigate(`editarskill${params.id}`)
            })
     }
    
