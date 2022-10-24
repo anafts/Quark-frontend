@@ -25,23 +25,25 @@ import CaixaInputCor from "../components/Form/CaixaInputCor";
 
 function CriarSkills() {
 
-    const [title, setTitle] = useState()
-    const [color, setColor] = useState()
-    const navigate = useNavigate()
+  const navigate = useNavigate();
 
- const createSkill = (event) => {
-   event.preventDefault()
+  const [title, setTitle] = useState();
+  const [color, setColor] = useState();
 
-   axios.post('http://localhost:80/createSkill', {
-            title: title,
-            color: color
-        })
-        .then((response) => {
-            navigate('/skill')
-        })
-        .catch((error) => {
-            navigate('/criarskill')
-        })
+    const createSkill = (event) => {
+      event.preventDefault();
+
+      axios.post('http://localhost:80/createSkill', {
+       title: title,
+       color: color
+
+      })
+     .then((response) => {
+        navigate('/skill')
+      })
+      .catch((error) => {
+        navigate('/criarskill')
+      })
  }
 
   return (
