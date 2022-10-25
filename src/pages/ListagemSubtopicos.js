@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import {  useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
 
 import Navbar from "../components/Navbar";
 import LogoMenu from "../components/LogoMenu";
@@ -33,6 +35,31 @@ import editIcon from '../icons/editar.svg';
 import TooltipEdit from "../components/Tooltip/TooltipEdit";
 
 function Subtopicos() {
+
+    const [subtopics, setSubTopics] = useState([]);
+    const navigate = useNavigate();
+    const params = useParams();
+
+    useEffect(() => {
+        axios.get("http://localhost:80/subtopics")
+           .then((response) => {
+             setSubTopics(response.data)
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+      }, []);
+
+      const handleGoToSubTopics= (event, subtopics) => {
+        event.preventDefault()
+        
+        navigate(`/editarsubtopico/${subtopics.id}`, {
+          state: subtopics
+        })
+      }
+
+
+
   return (
     <>
         <Navbar>
@@ -46,7 +73,7 @@ function Subtopicos() {
             <PublicarBtn href="/publicar">Publicar</PublicarBtn>
         </Navbar>
 
-        <AddTopicoBtn href="/criarsubtopico">
+        <AddTopicoBtn to={`/criarsubtopico/${params.topicsId}`}>
             <img src={addIcon}/>
             <TooltipAdd className="tooltip">Criar Subtópico</TooltipAdd>
         </AddTopicoBtn>
@@ -63,14 +90,16 @@ function Subtopicos() {
             <TituloListagens>Introdução</TituloListagens>
             
             <GridSubtopicos>
+            {subtopics.map(subtopic => (
                 <Card>
                     <CardTilte>
-                        <CardLink href="/objetosaprendizagem" className="titulo">O que vamos tratar no módulo?
-                            <Tooltip className="tooltipTitulo">O que vamos tratar no módulo?</Tooltip>
+                        <CardLink href="/objetosaprendizagem" className="titulo">
+                        {subtopic.title} 
+                            <Tooltip className="tooltipTitulo"> {subtopic.title} </Tooltip>
                         </CardLink>
                     </CardTilte>
                     
-                    <CardEdit className="editar" href="/editarsubtopico">
+                    <CardEdit className="editar" onClick={(event) => handleGoToSubTopics(event, subtopic)} >
                         <img src={editIcon}/>
                         <TooltipEdit className="tooltip">Editar Subtópico</TooltipEdit>
                     </CardEdit>
@@ -81,171 +110,11 @@ function Subtopicos() {
                         <CardDataTitle>Criado em</CardDataTitle>
                         <CardDataTitle>Editado em</CardDataTitle>
 
-                        <CardData>18/05/2022</CardData>
-                        <CardData>21/05/2022</CardData>
+                        <CardData> {subtopic.created_at.slice(-25, 10)} </CardData>
+                        <CardData> {subtopic.updated_at.slice(-25, 10)} </CardData>
                     </CardDatas>
                 </Card>
-
-                <Card>
-                    <CardTilte>
-                        <CardLink href="/objetosaprendizagem" className="titulo">O que é liderança
-                            <Tooltip className="tooltipTitulo">O que é liderança</Tooltip>
-                        </CardLink>
-                    </CardTilte>
-                    
-                    <CardEdit className="editar" href="/editarsubtopico">
-                        <img src={editIcon}/>
-                        <TooltipEdit className="tooltip">Editar Subtópico</TooltipEdit>
-                    </CardEdit>
-
-                    <CardTopicos>4 Objetos</CardTopicos>
-
-                    <CardDatas>
-                        <CardDataTitle>Criado em</CardDataTitle>
-                        <CardDataTitle>Editado em</CardDataTitle>
-
-                        <CardData>18/05/2022</CardData>
-                        <CardData>21/05/2022</CardData>
-                    </CardDatas>
-                </Card>
-
-                <Card>
-                    <CardTilte>
-                        <CardLink href="/objetosaprendizagem" className="titulo">Liderança e Vulnerabilidade
-                            <Tooltip className="tooltipTitulo">Liderança e Vulnerabilidade</Tooltip>
-                        </CardLink>
-                    </CardTilte>
-                    
-                    <CardEdit className="editar" href="/editarsubtopico">
-                        <img src={editIcon}/>
-                        <TooltipEdit className="tooltip">Editar Subtópico</TooltipEdit>
-                    </CardEdit>
-
-                    <CardTopicos>4 Objetos</CardTopicos>
-
-                    <CardDatas>
-                        <CardDataTitle>Criado em</CardDataTitle>
-                        <CardDataTitle>Editado em</CardDataTitle>
-
-                        <CardData>18/05/2022</CardData>
-                        <CardData>21/05/2022</CardData>
-                    </CardDatas>
-                </Card>
-
-                <Card>
-                    <CardTilte>
-                        <CardLink href="/objetosaprendizagem" className="titulo">Tipos de Liderança
-                            <Tooltip className="tooltipTitulo">Tipos de Liderança</Tooltip>
-                        </CardLink>
-                    </CardTilte>
-                    
-                    <CardEdit className="editar" href="/editarsubtopico">
-                        <img src={editIcon}/>
-                        <TooltipEdit className="tooltip">Editar Subtópico</TooltipEdit>
-                    </CardEdit>
-
-                    <CardTopicos>4 Objetos</CardTopicos>
-
-                    <CardDatas>
-                        <CardDataTitle>Criado em</CardDataTitle>
-                        <CardDataTitle>Editado em</CardDataTitle>
-
-                        <CardData>18/05/2022</CardData>
-                        <CardData>21/05/2022</CardData>
-                    </CardDatas>
-                </Card>
-
-                <Card>
-                    <CardTilte>
-                        <CardLink href="/objetosaprendizagem" className="titulo">Como exercitar a liderança no dia a dia
-                            <Tooltip className="tooltipTitulo">Como exercitar a liderança no dia a dia</Tooltip>
-                        </CardLink>
-                    </CardTilte>
-                    
-                    <CardEdit className="editar" href="/editarsubtopico">
-                        <img src={editIcon}/>
-                        <TooltipEdit className="tooltip">Editar Subtópico</TooltipEdit>
-                    </CardEdit>
-
-                    <CardTopicos>4 Objetos</CardTopicos>
-
-                    <CardDatas>
-                        <CardDataTitle>Criado em</CardDataTitle>
-                        <CardDataTitle>Editado em</CardDataTitle>
-
-                        <CardData>18/05/2022</CardData>
-                        <CardData>21/05/2022</CardData>
-                    </CardDatas>
-                </Card>
-
-                <Card>
-                    <CardTilte>
-                        <CardLink href="/objetosaprendizagem" className="titulo">Lider x Chefe
-                            <Tooltip className="tooltipTitulo">Lider x Chefe</Tooltip>
-                        </CardLink>
-                    </CardTilte>
-                    
-                    <CardEdit className="editar" href="/editarsubtopico">
-                        <img src={editIcon}/>
-                        <TooltipEdit className="tooltip">Editar Subtópico</TooltipEdit>
-                    </CardEdit>
-
-                    <CardTopicos>4 Objetos</CardTopicos>
-
-                    <CardDatas>
-                        <CardDataTitle>Criado em</CardDataTitle>
-                        <CardDataTitle>Editado em</CardDataTitle>
-
-                        <CardData>18/05/2022</CardData>
-                        <CardData>21/05/2022</CardData>
-                    </CardDatas>
-                </Card>
-
-                <Card>
-                    <CardTilte>
-                        <CardLink href="/objetosaprendizagem" className="titulo">Exemplos de liderança
-                            <Tooltip className="tooltipTitulo">Exemplos de liderança</Tooltip>
-                        </CardLink>
-                    </CardTilte>
-                    
-                    <CardEdit className="editar" href="/editarsubtopico">
-                        <img src={editIcon}/>
-                        <TooltipEdit className="tooltip">Editar Subtópico</TooltipEdit>
-                    </CardEdit>
-
-                    <CardTopicos>4 Objetos</CardTopicos>
-
-                    <CardDatas>
-                        <CardDataTitle>Criado em</CardDataTitle>
-                        <CardDataTitle>Editado em</CardDataTitle>
-
-                        <CardData>18/05/2022</CardData>
-                        <CardData>21/05/2022</CardData>
-                    </CardDatas>
-                </Card>
-
-                <Card>
-                    <CardTilte>
-                        <CardLink href="/objetosaprendizagem" className="titulo">Lições Aprendidas
-                            <Tooltip className="tooltipTitulo">Lições Aprendidas</Tooltip>
-                        </CardLink>
-                    </CardTilte>
-                    
-                    <CardEdit className="editar" href="/editarsubtopico">
-                        <img src={editIcon}/>
-                        <TooltipEdit className="tooltip">Editar Subtópico</TooltipEdit>
-                    </CardEdit>
-
-                    <CardTopicos>4 Objetos</CardTopicos>
-
-                    <CardDatas>
-                        <CardDataTitle>Criado em</CardDataTitle>
-                        <CardDataTitle>Editado em</CardDataTitle>
-
-                        <CardData>18/05/2022</CardData>
-                        <CardData>21/05/2022</CardData>
-                    </CardDatas>
-                </Card>
+                ))}
             </GridSubtopicos>
         </Caixa>
     </>
