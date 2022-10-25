@@ -90,7 +90,7 @@ function Topicos() {
             {topics.map(topic => (
                 <Card>
                     <CardTilte>
-                        <CardLink href="/subtopicos"> 
+                        <CardLink to={`/subtopicos/${topic.id}`}> 
                         {topic.title}
                             <Tooltip className="tooltipTitulo"> {topic.title} </Tooltip>
                         </CardLink>
