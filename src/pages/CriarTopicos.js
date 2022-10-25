@@ -34,7 +34,7 @@ function CriarTopicos() {
 
       axios.post(`http://localhost:80/createTopics/${params.skillId}`, {
         title: title,
-        order, order,
+        order: order,
         active_icon: active_icon,
         disabled_icon: disabled_icon
 
@@ -71,9 +71,9 @@ function CriarTopicos() {
           <Titulo1>Criar Tópico</Titulo1>
 
           <Input placeholder="Título" onChange={event => setTitle(event.currentTarget.value)} value={title}  />
-          <Input  placeholder="Ordem" type="number" onChange={event => setTitle(event.currentTarget.value)} value={title}  />
+          <Input  placeholder="Ordem" type="number" onChange={event => setOrder(event.currentTarget.value)} value={order}  />
           <Input  placeholder="Ícone Ativo" onChange={event => setActiveIcon(event.currentTarget.value)} value={active_icon} />
-          <Input  placeholder="Ícone Desativado" onChange={event => setActiveIcon(event.currentTarget.value)} value={active_icon}/>
+          <Input  placeholder="Ícone Desativado" onChange={event => setDisabledIcon(event.currentTarget.value)} value={disabled_icon}/>
 
           <SalvarBtn type="Submit">Salvar</SalvarBtn>
         </Form>        
