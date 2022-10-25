@@ -73,7 +73,7 @@ function EditarTopicos() {
           <Input type="text"  onChange={event => setTitle(event.currentTarget.value)} value={title} />
           <Input type="number" onChange={event => setOrder(event.currentTarget.value)} value={order} />
           <Input onChange={event => setActiveIcon(event.currentTarget.value)} value={active_icon}/>
-          <Input onChange={event => setActiveIcon(event.currentTarget.value)} value={active_icon} />
+          <Input onChange={event => setDisabledIcon(event.currentTarget.value)} value={disabled_icon} />
           
           <SalvarBtn type="Submit">Salvar</SalvarBtn>
         </Form>        
