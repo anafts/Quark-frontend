@@ -1,4 +1,6 @@
-import React from "react";
+import React,  { useState } from "react";
+import axios from "axios";
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 
 import Navbar from "../components/Navbar";
 import LogoMenu from "../components/LogoMenu";
@@ -18,6 +20,28 @@ import SalvarBtn from "../components/Buttons/Salvar";
 import Input from "../components/Form/Input";
 
 function EditarSubtopicos() {
+
+  const navigate = useNavigate();
+  const params = useParams();
+  const location = useLocation();
+
+  const [ title, setTitle ] = useState(location.state.title);
+  const [ order, setOrder ] = useState(location.state.order);
+
+  const updateSubTopicsSubmmit = (event) => {
+    event.preventDefault()
+ 
+    axios.put(`http://localhost:80/updateSubTopics/${params.id}`, {
+        title: title,
+        order: order,
+         })
+         .then((response) => {
+             navigate(`/subtopicos/${params.topicsId}`)
+         })
+         .catch((error) => {
+             navigate(`/editarsubtopico/${params.id}`)
+         })
+  }
   return (
     <>
       <Navbar>
@@ -39,11 +63,11 @@ function EditarSubtopicos() {
           <BCLink>Editar subtópico</BCLink>
         </Breadcrumbs>
 
-        <Form>
+        <Form onSubmit={updateSubTopicsSubmmit}  >
           <Titulo1>Editar Subtópico</Titulo1>
 
-          <Input defaultValue="O que vamos tratar no módulo?" />
-          <Input  defaultValue="1" type="number" />
+          <Input  onChange={event => setTitle(event.currentTarget.value)} value={title}  />
+          <Input  type="number" onChange={event => setOrder(event.currentTarget.value)} value={order} />
           <SalvarBtn type="Submit">Salvar</SalvarBtn>
           
         </Form>        
