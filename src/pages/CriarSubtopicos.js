@@ -1,4 +1,6 @@
-import React from "react";
+import React,  { useState } from "react";
+import axios from "axios";
+import { useNavigate, useParams } from 'react-router-dom'
 
 import Navbar from "../components/Navbar";
 import LogoMenu from "../components/LogoMenu";
@@ -18,6 +20,30 @@ import SalvarBtn from "../components/Buttons/Salvar";
 import Input from "../components/Form/Input";
 
 function CriarSubtopicos() {
+
+  const navigate = useNavigate();
+  const params = useParams();
+
+  const [ title, setTitle ] = useState();
+  const [ order, setOrder ] = useState();
+
+  const createSubTopics = (event) => {
+    event.preventDefault();
+
+    axios.post(`http://localhost:80/createSubTopics/${params.topicsId}`, {
+      title: title,
+      order: order
+
+    })
+    .then((response) => {
+      navigate(`/subtopicos/${params.topicsId}`)
+    })
+    .catch((error) => {
+      navigate(`/criarsubtopico/${params.topicsId}`)
+  })
+}
+
+
   return (
     <>
       <Navbar>
@@ -39,11 +65,11 @@ function CriarSubtopicos() {
           <BCLink href="#">Criar subtópico</BCLink>
         </Breadcrumbs>
 
-        <Form>
+        <Form onSubmit={createSubTopics} >
           <Titulo1>Criar Subtópico</Titulo1>
 
-          <Input placeholder="Título" />
-          <Input  placeholder="Ordem" type="number" />
+          <Input placeholder="Título" onChange={event => setTitle(event.currentTarget.value)} value={title}  />
+          <Input  placeholder="Ordem" type="number" onChange={event => setOrder(event.currentTarget.value)} value={order} />
           <SalvarBtn type="Submit">Salvar</SalvarBtn>
           
         </Form>        
