@@ -66,7 +66,7 @@ function Skills() {
         <PublicarBtn href="/publicar" className="oculto">Publicar</PublicarBtn>
       </Navbar>
 
-      <AddSkillBtn href="/criarskill">
+      <AddSkillBtn to={'/criarskill'}>
         <img src={addIcon}/>
         <TooltipAdd className="tooltip">Criar Skill</TooltipAdd>
       </AddSkillBtn>
