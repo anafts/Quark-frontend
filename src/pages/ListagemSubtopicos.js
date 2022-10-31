@@ -91,9 +91,9 @@ function Subtopicos() {
             
             <GridSubtopicos>
             {subtopics.map(subtopic => (
-                <Card>
+                <Card key={subtopic.id}>
                     <CardTilte>
-                        <CardLink href="/objetosaprendizagem" className="titulo">
+                        <CardLink to={`/objetosaprendizagem/${subtopic.id}`} className="titulo">
                         {subtopic.title} 
                             <Tooltip className="tooltipTitulo"> {subtopic.title} </Tooltip>
                         </CardLink>
