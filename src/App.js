@@ -52,9 +52,9 @@ const App = () => {
           <Route exact path="/criarsubtopico/:topicsId" element={<CriarSubtopicos/>}/>
           <Route exact path="/editarsubtopico/:id" element={<EditarSubtopicos/>}/>
 
-          <Route exact path="/objetosaprendizagem" element={<ObjetosAprendizagem/>}/>
-          <Route exact path="/criarobjetos" element={<CriarObjetos/>}/>
-          <Route exact path="/editarobjetos" element={<EditarObjetos/>}/>
+          <Route exact path="/objetosaprendizagem/:subtopicsId" element={<ObjetosAprendizagem/>}/>
+          <Route exact path="/criarobjeto/:subtopicsId" element={<CriarObjetos/>}/>
+          <Route exact path="/editarobjetos/:id" element={<EditarObjetos/>}/>
 
           <Route exact path="/conteudos" element={<Conteudos/>}/>
           <Route exact path="/adicionarconteudo" element={<AdicionarConteudo/>}/>
