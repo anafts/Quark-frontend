@@ -88,7 +88,7 @@ function Topicos() {
             
             <GridTopicos>
             {topics.map(topic => (
-                <Card>
+                <Card key={topic.id}>
                     <CardTilte>
                         <CardLink to={`/subtopicos/${topic.id}`}> 
                         {topic.title}
