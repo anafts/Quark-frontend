@@ -80,7 +80,7 @@ function Skills() {
 
         <GridSkills>
           {skills.map(skill => (
-            <Card>
+            <Card key={skill.id}>
               <CorSkill className="cor" cor={skill.color} />
               
               <CardTilte>
