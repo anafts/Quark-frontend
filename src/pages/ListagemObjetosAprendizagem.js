@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import {  useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
 
 import Navbar from "../components/Navbar";
 import LogoMenu from "../components/LogoMenu";
@@ -38,8 +40,33 @@ import ObjetoRodape from "../components/ObjetoDeAprendizagem/ObjetoRodape";
 import ObjetoDatas from "../components/ObjetoDeAprendizagem/ObjetoDatas";
 import DataTitle from "../components/Card/CardDataTitle";
 import ObjetoData from "../components/Card/CardData";
+import Card from "../components/Card/CardInterno";
 
 export default function ObjetosAprendizagem(){
+
+    const [methods, setMethods] = useState([]);
+    const navigate = useNavigate();
+    const params = useParams();
+
+    useEffect(() => {
+        axios.get("http://localhost:80/methods")
+           .then((response) => {
+             setMethods(response.data)
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+      }, []);
+
+      const handleGoToMethods= (event, methods) => {
+        event.preventDefault()
+        
+        navigate(`/editarobjetos/${methods.id}`, {
+          state: methods
+        })
+      }
+
+
     return(
         <>
             <Navbar>
@@ -53,7 +80,7 @@ export default function ObjetosAprendizagem(){
                 <PublicarBtn href="/publicar">Publicar</PublicarBtn>
             </Navbar>
             
-            <AddObjetoBtn href="/criarobjetos">
+            <AddObjetoBtn  to={`/criarobjeto/${params.methodsId}`}>
                 <img src={addIcon}/>
                 <TooltipAdd className="tooltip">Criar Objeto de Aprendizagem</TooltipAdd>
             </AddObjetoBtn>
@@ -69,141 +96,47 @@ export default function ObjetosAprendizagem(){
                 <TituloListagemObjetos>O que vamos tratar no módulo?</TituloListagemObjetos>
                 
                 <ObjetoDeAprendizagem className="primeiro">
-                    <ObjetoTitle className="TituloObjetoAprendizagem">
-                        <CardLink href="/conteudos">O que vamos falar nesse módulo?
-                            <TooltipObjeto className="tooltipTitulo">O que vamos falar nesse módulo?</TooltipObjeto>
+                {methods.map(method => (
+                <>
+                
+                    <ObjetoTitle key={method.id} className="TituloObjetoAprendizagem"> 
+                        <CardLink href="/conteudos">
+                        {method.title}
+                            <TooltipObjeto className="tooltipTitulo"> {method.title} </TooltipObjeto>
                         </CardLink>
                     </ObjetoTitle>
 
-                    <ObjetoEdit className="editar" href="/editarobjetos">
+                    <ObjetoEdit className="editar" onClick={(event) => handleGoToMethods(event, method)} >
                         <img src={editIcon}/>
                         <TooltipEdit className="tooltip">Editar Objeto de Aprendizagem</TooltipEdit>
                     </ObjetoEdit>
 
                     <ObjetoDescricao>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    {method.description}
                     </ObjetoDescricao>
 
                     <ObjetoRodape>
                         <ObjetoDatas>
                             <DataTitle>Criado em</DataTitle>
-                            <ObjetoData>21/05/2022</ObjetoData>
+                            <ObjetoData> {method.created_at.slice(-25, 10)} </ObjetoData>
                         </ObjetoDatas>
 
                         <ObjetoDatas>
                             <DataTitle>Editado em</DataTitle>
-                            <ObjetoData>18/05/2022</ObjetoData>
+                            <ObjetoData> {method.created_at.slice(-25, 10)} </ObjetoData>
                         </ObjetoDatas>
 
                         <ObjetoIcons>
                             <img className="book" src={bookIcon}/>
                             <img className="video" src={videoIcon}/>
                             <img className="audio" src={audioIcon}/>
+
                         </ObjetoIcons>
                     </ObjetoRodape>
+                 </>
+                    ))}
                 </ObjetoDeAprendizagem>
-
-                <ObjetoDeAprendizagem>
-                    <ObjetoTitle className="TituloObjetoAprendizagem">
-                        <CardLink href="/quiz">Que conhecimentos prévios são importantes?
-                            <TooltipObjeto className="tooltipTitulo">Que conhecimentos prévios são importantes?</TooltipObjeto>
-                        </CardLink>
-                    </ObjetoTitle>
-
-                    <ObjetoEdit className="editar" href="/editarobjetos">
-                        <img src={editIcon}/>
-                        <TooltipEdit className="tooltip">Editar Objeto de Aprendizagem</TooltipEdit>
-                    </ObjetoEdit>
-
-                    <ObjetoDescricao>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    </ObjetoDescricao>
-
-                    <ObjetoRodape>
-                        <ObjetoDatas>
-                            <DataTitle>Criado em</DataTitle>
-                            <ObjetoData>21/05/2022</ObjetoData>
-                        </ObjetoDatas>
-
-                        <ObjetoDatas>
-                            <DataTitle>Editado em</DataTitle>
-                            <ObjetoData>18/05/2022</ObjetoData>
-                        </ObjetoDatas>
-
-                        <ObjetoIcons>
-                            <img className="quiz" src={quizIcon}/>
-                        </ObjetoIcons>
-                    </ObjetoRodape>
-                </ObjetoDeAprendizagem>
-
-                <ObjetoDeAprendizagem>
-                    <ObjetoTitle className="TituloObjetoAprendizagem">
-                        <CardLink href="/conteudos">O que esperamos aprender no final do módulo?
-                            <TooltipObjeto className="tooltipTitulo">O que esperamos aprender no final do módulo?</TooltipObjeto>
-                        </CardLink>
-                    </ObjetoTitle>
-
-                    <ObjetoEdit className="editar" href="/editarobjetos">
-                        <img src={editIcon}/>
-                        <TooltipEdit className="tooltip">Editar Objeto de Aprendizagem</TooltipEdit>
-                    </ObjetoEdit>
-
-                    <ObjetoDescricao>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    </ObjetoDescricao>
-
-                    <ObjetoRodape>
-                        <ObjetoDatas>
-                            <DataTitle>Criado em</DataTitle>
-                            <ObjetoData>21/05/2022</ObjetoData>
-                        </ObjetoDatas>
-
-                        <ObjetoDatas>
-                            <DataTitle>Editado em</DataTitle>
-                            <ObjetoData>18/05/2022</ObjetoData>
-                        </ObjetoDatas>
-
-                        <ObjetoIcons>
-                            <img className="book" src={bookIcon}/>
-                            <img className="video" src={videoIcon}/>
-                            <img className="audio" src={audioIcon}/>
-                        </ObjetoIcons>
-                    </ObjetoRodape>
-                </ObjetoDeAprendizagem>
-
-                <ObjetoDeAprendizagem>
-                    <ObjetoTitle className="TituloObjetoAprendizagem">
-                        <CardLink href="/conteudos">CASE: como isso acontece na prática?
-                            <TooltipObjeto className="tooltipTitulo">CASE: como isso acontece na prática?</TooltipObjeto>
-                        </CardLink>
-                    </ObjetoTitle>
-
-                    <ObjetoEdit className="editar" href="/editarobjetos">
-                        <img src={editIcon}/>
-                        <TooltipEdit className="tooltip">Editar Objeto de Aprendizagem</TooltipEdit>
-                    </ObjetoEdit>
-
-                    <ObjetoDescricao>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    </ObjetoDescricao>
-
-                    <ObjetoRodape>
-                        <ObjetoDatas>
-                            <DataTitle>Criado em</DataTitle>
-                            <ObjetoData>21/05/2022</ObjetoData>
-                        </ObjetoDatas>
-
-                        <ObjetoDatas>
-                            <DataTitle>Editado em</DataTitle>
-                            <ObjetoData>18/05/2022</ObjetoData>
-                        </ObjetoDatas>
-
-                        <ObjetoIcons>
-                            <img className="video" src={videoIcon}/>
-                            <img className="audio" src={audioIcon}/>
-                        </ObjetoIcons>
-                    </ObjetoRodape>
-                </ObjetoDeAprendizagem>
+              
             </Caixa>
         </>
     );
