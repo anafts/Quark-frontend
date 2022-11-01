@@ -50,11 +50,11 @@ function Subtopicos() {
           });
       }, []);
 
-      const handleGoToSubTopics= (event, subtopics) => {
+      const handleGoToSubTopics= (event, subtopic) => {
         event.preventDefault()
         
-        navigate(`/editarsubtopico/${subtopics.id}`, {
-          state: subtopics
+        navigate(`/editarsubtopico/${subtopic.id}`, {
+          state: subtopic
         })
       }
 
