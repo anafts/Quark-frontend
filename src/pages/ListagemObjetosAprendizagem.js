@@ -80,7 +80,7 @@ export default function ObjetosAprendizagem(){
                 <PublicarBtn href="/publicar">Publicar</PublicarBtn>
             </Navbar>
             
-            <AddObjetoBtn  to={`/criarobjeto/${params.methodsId}`}>
+            <AddObjetoBtn  to={`/criarobjeto/${params.subtopicsId}`}>
                 <img src={addIcon}/>
                 <TooltipAdd className="tooltip">Criar Objeto de Aprendizagem</TooltipAdd>
             </AddObjetoBtn>
@@ -95,9 +95,9 @@ export default function ObjetosAprendizagem(){
 
                 <TituloListagemObjetos>O que vamos tratar no módulo?</TituloListagemObjetos>
                 
-                <ObjetoDeAprendizagem className="primeiro">
-                {methods.map(method => (
                 <>
+                {methods.map(method => (
+                <ObjetoDeAprendizagem className="primeiro">
                 
                     <ObjetoTitle key={method.id} className="TituloObjetoAprendizagem"> 
                         <CardLink href="/conteudos">
@@ -133,10 +133,12 @@ export default function ObjetosAprendizagem(){
 
                         </ObjetoIcons>
                     </ObjetoRodape>
-                 </>
-                    ))}
+                 
+                
                 </ObjetoDeAprendizagem>
-              
+                ))}
+                </>
+
             </Caixa>
         </>
     );
