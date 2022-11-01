@@ -1,4 +1,6 @@
-import React from "react";
+import React,  { useState } from "react";
+import axios from "axios";
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
 import Navbar from "../components/Navbar";
 import LogoMenu from "../components/LogoMenu";
@@ -17,6 +19,31 @@ import Input from "../components/Form/Input";
 import DescriptionText from "../components/Form/TextArea";
 
 function EditarObjetos() {
+
+  const navigate = useNavigate();
+  const params = useParams();
+  const location = useLocation();
+
+  const [ title, setTitle ] = useState(location.state.title);
+  const [ order, setOrder ] = useState(location.state.order);
+  const [ description, setDescription ] = useState(location.state.description);
+
+  const updateMethodsSubmmit = (event) => {
+    event.preventDefault()
+ 
+    axios.put(`http://localhost:80/updateMethods/${params.id}`, {
+        title: title,
+        order: order,
+        description: description
+         })
+         .then((response) => {
+             navigate(`/objetosaprendizagem/${params.subtopicsId}`)
+         })
+         .catch((error) => {
+             navigate(`/editarobjetos/${params.id}`)
+         })
+  }
+
   return (
     <>
       <Navbar>
@@ -38,12 +65,12 @@ function EditarObjetos() {
         <BCLink>Editar Objeto de Aprendizagem</BCLink>
         </Breadcrumbs>
 
-        <Form>
+        <Form onSubmit={updateMethodsSubmmit} >
           <Titulo1>Editar Objeto de Aprendizagem</Titulo1>
 
-          <Input defaultValue="Exemplo de Titulo" />
-          <Input defaultValue="1" type="number" />
-          <DescriptionText defaultValue="At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non pr..."/>
+          <Input  onChange={event => setTitle(event.currentTarget.value)} value={title}  />
+          <Input type="number"  onChange={event => setOrder(event.currentTarget.value)} value={order} />
+          <DescriptionText onChange={event => setDescription(event.currentTarget.value)} value={description} />
           <SalvarBtn type="Submit">Salvar</SalvarBtn>
 
         </Form>        
