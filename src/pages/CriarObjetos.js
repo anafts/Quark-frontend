@@ -1,4 +1,6 @@
-import React from "react";
+import React,  { useState } from "react";
+import axios from "axios";
+import { useNavigate, useParams } from 'react-router-dom';
 
 import Navbar from "../components/Navbar";
 import LogoMenu from "../components/LogoMenu";
@@ -17,6 +19,32 @@ import Input from "../components/Form/Input";
 import DescriptionText from "../components/Form/TextArea";
 
 function CriarObjetos() {
+
+  const navigate = useNavigate();
+  const params = useParams();
+
+  const [ title, setTitle ] = useState();
+  const [ order, setOrder ] = useState();
+  const [ description, setDescription ] = useState();
+
+
+  const createMethods = (event) => {
+    event.preventDefault();
+
+    axios.post(`http://localhost:80/createMethods/${params.subtopicsId}`, {
+      title: title,
+      order: order,
+      description: description
+
+    })
+    .then((response) => {
+      navigate(`/objetosaprendizagem/${params.subtopicsId}`)
+    })
+    .catch((error) => {
+      navigate(`/criarobjeto/${params.subtopicsId}`)
+  })
+}
+
   return (
     <>
       <Navbar>
@@ -30,20 +58,21 @@ function CriarObjetos() {
       </Navbar>
       
       <Caixa>
+
         <Breadcrumbs>
         <BCLink href="/skill">Skills</BCLink>
         <BCLink href="/topicos">Inteligência Emocional</BCLink>
         <BCLink href="/subtopicos">Introdução</BCLink>
         <BCLink href="/objetosaprendizagem">O que vamos tratar no módulo?</BCLink>
-          <BCLink>Criar Objeto de Aprendizagem</BCLink>
+        <BCLink>Criar Objeto de Aprendizagem</BCLink>
         </Breadcrumbs>
 
-        <Form>
+        <Form onSubmit={createMethods} >
 
           <Titulo1>Criar Objeto de Aprendizagem</Titulo1>
-          <Input placeholder="Título" />
-          <Input placeholder="Ordem" type="number" />
-          <DescriptionText placeholder="Descrição"/>
+          <Input placeholder="Título" onChange={event => setTitle(event.currentTarget.value)} value={title} />
+          <Input placeholder="Ordem" type="number"  onChange={event => setOrder(event.currentTarget.value)} value={order}/>
+          <DescriptionText placeholder="Descrição"  onChange={event => setDescription(event.currentTarget.value)} value={description} />
           <SalvarBtn type="Submit">Salvar</SalvarBtn>
 
         </Form>        
