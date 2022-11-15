@@ -1,4 +1,6 @@
-import React from "react";
+import React,  { useState } from "react";
+import axios from "axios";
+import { useNavigate, useParams } from 'react-router-dom'
 
 import Navbar from "../components/Navbar";
 import LogoMenu from "../components/LogoMenu";
@@ -26,21 +28,45 @@ import InputArquivo from "../components/Form/InputArquivo";
 import addAudio from "../icons/add_audio.svg";
 import addVideo from "../icons/add_video.svg";
 
-function alterarNomeArquivoVideo() {
-  const arquivo = document.getElementById("arquivoVideo");
-  const nomeArquivo = document.getElementById("nomeArquivoVideo");
-  var fileName = arquivo.value.split('/').pop().split('\\').pop();
-  nomeArquivo.value = fileName;
-}
-
-function alterarNomeArquivoAudio() {
-  const arquivo = document.getElementById("arquivoAudio");
-  const nomeArquivo = document.getElementById("nomeArquivoAudio");
-  var fileName = arquivo.value.split('/').pop().split('\\').pop();
-  nomeArquivo.value = fileName;
-}
 
 function AdicionarConteudo() {
+  const [ video, setVideo ] = useState();
+  const [ audio, setAudio ] = useState();
+  const [ text, setText ] = useState();
+
+  const params = useParams()
+  const navigate = useNavigate();
+
+  const handleFileInputChange = (event) => {
+    const files = event.currentTarget.files
+    
+    if (files.length) {
+      const file = files[0]
+
+      if (event.currentTarget.name === 'video') setVideo(file)
+      if (event.currentTarget.name === 'audio') setAudio(file)
+
+    }
+  }
+
+  const handleButtonClick = (event) => {
+    event.preventDefault()
+
+    const formData = new FormData()
+
+    if (video) formData.append('video', video)
+    if (audio) formData.append('audio', audio)
+    if (text) formData.append('text', text)
+
+    axios.post(`http://localhost:80/createContent/${params.methodsId}`, formData)
+      .then((response) => {
+        navigate(`/conteudos/${params.methodsId}`)
+      })
+      .catch((error) => {
+        navigate(`/adicionarconteudo/${params.methodsId}`)
+      })
+  }
+
   return (
     <>
       <Navbar>
@@ -72,7 +98,7 @@ function AdicionarConteudo() {
             <LabelInputArquivo for="arquivoVideo">
               <img src={addVideo} />
             </LabelInputArquivo>
-            <InputArquivo type="file" id="arquivoVideo" onChange={alterarNomeArquivoVideo} accept="video/mp4" />
+            <InputArquivo name="video" type="file" id="arquivoVideo" onChange={handleFileInputChange} value={video}  accept="video/mp4" />
           </CaixaInputArquivo>
 
           <CaixaInputArquivo>
@@ -80,11 +106,11 @@ function AdicionarConteudo() {
             <LabelInputArquivo for="arquivoAudio">
               <img src={addAudio} />
             </LabelInputArquivo>
-            <InputArquivo type="file" id="arquivoAudio" onChange={alterarNomeArquivoAudio} accept="audio/mp3" />
+            <InputArquivo name="audio" type="file" id="arquivoAudio" onChange={handleFileInputChange} value={audio} accept="audio/mp3" />
           </CaixaInputArquivo>
 
-          <DescriptionText placeholder="Adicionar Texto"/>
-          <SalvarBtn type="Submit">Salvar</SalvarBtn>
+          <DescriptionText placeholder="Adicionar Texto" onChange={event => setText(event.currentTarget.value)} value={text} />
+          <SalvarBtn type="Submit" onClick={handleButtonClick}>Salvar</SalvarBtn>
 
         </Form>        
       </Caixa>
