@@ -56,13 +56,13 @@ const App = () => {
           <Route exact path="/criarobjeto/:subtopicsId" element={<CriarObjetos/>}/>
           <Route exact path="/editarobjetos/:id" element={<EditarObjetos/>}/>
 
-          <Route exact path="/conteudos" element={<Conteudos/>}/>
-          <Route exact path="/adicionarconteudo" element={<AdicionarConteudo/>}/>
-          <Route exact path="/editarconteudo" element={<EditarConteudo/>}/>
+          <Route exact path="/conteudos/:methodsId" element={<Conteudos/>}/>
+          <Route exact path="/adicionarconteudo/:methodsId" element={<AdicionarConteudo/>}/>
+          <Route exact path="/editarconteudo/:id" element={<EditarConteudo/>}/>
 
-          <Route exact path="/quiz" element={<Quiz/>}/>
-          <Route exact path="/adicionarquiz" element={<AdicionarQuiz/>}/>
-          <Route exact path="/editarquiz" element={<EditarQuiz/>}/>
+          <Route exact path="/quiz/:contentId" element={<Quiz/>}/>
+          <Route exact path="/adicionarquiz/:contentId" element={<AdicionarQuiz/>}/>
+          <Route exact path="/editarquiz/:id" element={<EditarQuiz/>}/>
 
           <Route exact path="/publicar" element={<Publicar/>}/>
 
