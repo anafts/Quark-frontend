@@ -36,7 +36,7 @@ function EditarSubtopicos() {
         order: order,
          })
          .then((response) => {
-             navigate(`/subtopicos/${params.topicsId}`)
+             navigate(`/subtopicos/${params.id}`)
          })
          .catch((error) => {
              navigate(`/editarsubtopico/${params.id}`)
