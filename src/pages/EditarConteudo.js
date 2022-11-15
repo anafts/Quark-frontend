@@ -1,4 +1,6 @@
-import React from "react";
+import React,  { useState } from "react";
+import axios from "axios";
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
 import Navbar from "../components/Navbar";
 import LogoMenu from "../components/LogoMenu";
@@ -26,21 +28,47 @@ import InputArquivo from "../components/Form/InputArquivo";
 import addAudio from "../icons/add_audio.svg";
 import addVideo from "../icons/add_video.svg";
 
-function alterarNomeArquivoVideo() {
-  const arquivo = document.getElementById("arquivoVideo");
-  const nomeArquivo = document.getElementById("nomeArquivoVideo");
-  var fileName = arquivo.value.split('/').pop().split('\\').pop();
-  nomeArquivo.value = fileName;
-}
-
-function alterarNomeArquivoAudio() {
-  const arquivo = document.getElementById("arquivoAudio");
-  const nomeArquivo = document.getElementById("nomeArquivoAudio");
-  var fileName = arquivo.value.split('/').pop().split('\\').pop();
-  nomeArquivo.value = fileName;
-}
 
 function EditarConteudo() {
+
+  const navigate = useNavigate();
+  const params = useParams();
+  const location = useLocation();
+
+  const [ video, setVideo ] = useState();
+  const [ audio, setAudio ] = useState();
+  const [ text, setText ] = useState(location.state?.text);
+
+  const handleFileInputChange = (event) => {
+    const files = event.currentTarget.files
+    
+    if (files.length) {
+      const file = files[0]
+
+      if (event.currentTarget.name === 'video') setVideo(file)
+      if (event.currentTarget.name === 'audio') setAudio(file)
+
+    }
+  }
+
+  const updateContentSubmmit = (event) => {
+    event.preventDefault()
+
+    const formData = new FormData()
+
+    if (video) formData.append('video', video)
+    if (audio) formData.append('audio', audio)
+    if (text) formData.append('text', text)
+
+    axios.put(`http://localhost:80/updateContent/${params.id}`, formData)
+      .then((response) => {
+        navigate(`/conteudos/${params.id}`)
+      })
+      .catch((error) => {
+        navigate(`/editarconteudo/${params.id}`)
+      })
+  }
+
   return (
     <>
       <Navbar>
@@ -68,25 +96,23 @@ function EditarConteudo() {
           <Titulo1>Alterar conteúdos</Titulo1>
           
           <CaixaInputArquivo>
-            <NomeArquivo id="nomeArquivoVideo" placeholder="Video_experimental.mp4" disabled/>
+            <NomeArquivo id="nomeArquivoVideo"/>
             <LabelInputArquivo for="arquivoVideo">
               <img src={addVideo} />
             </LabelInputArquivo>
-            <InputArquivo type="file" id="arquivoVideo" onChange={alterarNomeArquivoVideo} accept="video/mp4" />
+            <InputArquivo type="file" id="arquivoVideo" onChange={handleFileInputChange} name="video" accept="video/mp4" />
           </CaixaInputArquivo>
 
           <CaixaInputArquivo>
-            <NomeArquivo id="nomeArquivoAudio" placeholder="Audio_experimental.mp3" disabled/>
+            <NomeArquivo id="nomeArquivoAudio"/>
             <LabelInputArquivo for="arquivoAudio">
               <img src={addAudio} />
             </LabelInputArquivo>
-            <InputArquivo type="file" id="arquivoAudio" onChange={alterarNomeArquivoAudio} accept="audio/mp3" />
+            <InputArquivo type="file" id="arquivoAudio" onChange={handleFileInputChange} name="audio" accept="audio/mp3" />
           </CaixaInputArquivo>
 
-          <DescriptionText defaultValue="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."/>
-          <SalvarBtn type="Submit">Salvar</SalvarBtn>
+          <DescriptionText onChange={event => setText(event.currentTarget.value)} value={text} />
+          <SalvarBtn type="Submit" onClick={updateContentSubmmit}> Salvar </SalvarBtn>
 
         </Form>        
       </Caixa>
