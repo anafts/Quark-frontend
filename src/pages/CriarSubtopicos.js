@@ -32,7 +32,7 @@ function CriarSubtopicos() {
 
     axios.post(`http://localhost:80/createSubTopics/${params.topicsId}`, {
       title: title,
-      order: order
+      order: order  
 
     })
     .then((response) => {
