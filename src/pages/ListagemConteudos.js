@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import {  useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
+
 import Navbar from "../components/Navbar";
 import LogoMenu from "../components/LogoMenu";
 
@@ -43,6 +46,29 @@ function dropdownVisivel() {
 }
 
 export default function ObjetosAprendizagem(){
+
+    const [contents, setContent] = useState([]);
+    const navigate = useNavigate();
+    const params = useParams();
+
+    useEffect(() => {
+        axios.get("http://localhost:80/content")
+           .then((response) => {
+             setContent(response.data)
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+      }, []);
+
+      const handleGoToContent= (event, content) => {
+        event.preventDefault()
+        
+        navigate(`/editarconteudo/${content.id}`, {
+          state: content
+        })
+      }
+
     return(
         <>
             <Navbar>
@@ -63,8 +89,8 @@ export default function ObjetosAprendizagem(){
                 </AddConteudoBtn>
 
                 <DropdownConteudos id="dropdown">
-                    <LinkConteudos href="/adicionarconteudo">Adicionar Conteúdo</LinkConteudos>
-                    <LinkConteudos href="/adicionarquiz">Adicionar Quiz</LinkConteudos>
+                    <LinkConteudos to={`/adicionarconteudo/${params.methodsId}`}> Adicionar Conteúdo </LinkConteudos>
+                    <LinkConteudos to={`/adicionarquiz/${params.contentId}`}>Adicionar Quiz</LinkConteudos>
                 </DropdownConteudos>
             </CaixaConteudos>
 
@@ -79,37 +105,37 @@ export default function ObjetosAprendizagem(){
                     <BCLink>O que vamos falar nesse módulo?</BCLink>
                 </Breadcrumbs>
 
-                <CaixaTitulo>
+                
+                {contents.map(content => (
+                    <>
+                <CaixaTitulo key={content.id}>
                     <TituloConteudos>O que vamos falar nesse módulo?</TituloConteudos>
-                    
-                    <EditConteudo href="/editarconteudo">
+                    <EditConteudo onClick={(event) => handleGoToContent(event, content)} >
                         <img src={editIcon}/>
                         <TooltipEdit className="tooltip">Alterar Conteúdos</TooltipEdit>
                     </EditConteudo>
                 </CaixaTitulo>
                 
                 <Datas>
-                    <h1>Criado em 10/08/2020</h1>
-                    <h1>Editado em 07/06/2022</h1>
+                    <h1> Criado em {content.created_at.slice(-25, 10)}</h1>
+                    <h1>Editado em {content.updated_at.slice(-25, 10)}</h1>
                 </Datas>
 
                 <Video controls controlsList="nodownload">
-                    <source src={video1} type="video/mp4" />
+                    <source src={content.videoURL} type="video/mp4" />
                 </Video>
 
                 <Audio controls controlsList="nodownload">
-                    <source src={audio1} type="audio/mpeg" />
+                    <source src={content.audioURL} type="audio/mpeg" />
                 </Audio>
                 
                 <CaixaTexto>
                     <Texto>
-                        Lorem Ipsum is <strong>simply</strong> dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the <strong>1500s</strong>, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into <strong>electronic typesetting</strong>, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem <strong>Ipsum passages</strong>, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                    </Texto>
-
-                    <Texto>
-                        Lorem Ipsum is <strong>simply</strong> dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the <strong>1500s</strong>, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into <strong>electronic typesetting</strong>, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem <strong>Ipsum passages</strong>, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                        {content.text}
                     </Texto>
                 </CaixaTexto>
+                </>
+                ))}
             </Caixa>
         </>
     );
