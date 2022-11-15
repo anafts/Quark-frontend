@@ -100,7 +100,7 @@ export default function ObjetosAprendizagem(){
                 <ObjetoDeAprendizagem className="primeiro">
                 
                     <ObjetoTitle key={method.id} className="TituloObjetoAprendizagem"> 
-                        <CardLink href="/conteudos">
+                        <CardLink to={`/conteudos/${method.id}`} >
                         {method.title}
                             <TooltipObjeto className="tooltipTitulo"> {method.title} </TooltipObjeto>
                         </CardLink>
@@ -123,7 +123,7 @@ export default function ObjetosAprendizagem(){
 
                         <ObjetoDatas>
                             <DataTitle>Editado em</DataTitle>
-                            <ObjetoData> {method.created_at.slice(-25, 10)} </ObjetoData>
+                            <ObjetoData> {method.updated_at.slice(-25, 10)} </ObjetoData>
                         </ObjetoDatas>
 
                         <ObjetoIcons>
