@@ -1,6 +1,7 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const LinkConteudos = styled.a `
+const LinkConteudos = styled(Link)`
     width: max-content;
     position: absolute;
     right: 0vw;
