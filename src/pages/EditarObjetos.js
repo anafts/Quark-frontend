@@ -37,7 +37,7 @@ function EditarObjetos() {
         description: description
          })
          .then((response) => {
-             navigate(`/objetosaprendizagem/${params.subtopicsId}`)
+             navigate(`/objetosaprendizagem/${params.id}`)
          })
          .catch((error) => {
              navigate(`/editarobjetos/${params.id}`)
