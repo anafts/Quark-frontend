@@ -40,7 +40,7 @@ function EditarTopicos() {
           disabled_icon: disabled_icon
            })
            .then((response) => {
-               navigate(`/topicos/${params.skillId}`)
+               navigate(`/topicos/${params.id}`)
            })
            .catch((error) => {
                navigate(`/editartopico/${params.id}`)
