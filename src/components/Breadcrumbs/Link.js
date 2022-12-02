@@ -1,6 +1,7 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 
-const BCLink = styled.a `
+const BCLink = styled(Link) `
     display: flex;
     font-size: 16px;
     color: #736F8A;
