@@ -32,22 +32,28 @@ import editIcon from "../icons/editar.svg";
 import TooltipEdit from "../components/Tooltip/TooltipEdit";
 
 import Video from "../components/ObjetoDeAprendizagem/Video";
-import video1 from "../videos/video1.mp4";
-
 import Audio from "../components/ObjetoDeAprendizagem/Audio";
-import audio1 from "../audios/audio1.mp3";
 
 import CaixaTexto from "../components/ObjetoDeAprendizagem/CaixaTexto";
 import Texto from "../components/ObjetoDeAprendizagem/Texto";
 
-function dropdownVisivel() {
-    const dropdown = document.getElementById("dropdown");
-    dropdown.classList.toggle("show");
-}
+import CaixaQuiz from "../components/Quiz";
+import Questao from "../components/Quiz/Questao";
+import TituloPergunta from "../components/Quiz/TituloPergunta";
+import Alternativas from "../components/Quiz/Alternativas";
+import Alternativa from "../components/Quiz/Alternativa";
 
 export default function ObjetosAprendizagem(){
 
+    const [ isOpen, setIsOpen ] = useState(false);
+
+    function handleOpenDropdown() {
+        setIsOpen(!isOpen)
+    }
+
     const [contents, setContent] = useState([]);
+    const [quizzes, setQuizzes] = useState();
+
     const navigate = useNavigate();
     const params = useParams();
 
@@ -60,12 +66,30 @@ export default function ObjetosAprendizagem(){
             console.error(err);
           });
       }, []);
+    
+      useEffect(() => {
+        axios.get(`http://localhost:80/quizzes/${contents[0]?.id}`)
+           .then((response) => {
+             setQuizzes(response.data)
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+      }, [contents]);
 
       const handleGoToContent= (event, content) => {
         event.preventDefault()
         
         navigate(`/editarconteudo/${content.id}`, {
           state: content
+        })
+      }
+
+      const handleGoToQuizzes = (event, quizzes) => {
+        event.preventDefault()
+        
+        navigate(`/editarquiz/${quizzes.id}`, {
+          state: quizzes
         })
       }
 
@@ -83,14 +107,16 @@ export default function ObjetosAprendizagem(){
             </Navbar>
             
             <CaixaConteudos>
-                <AddConteudoBtn onClick={dropdownVisivel}>
+                <AddConteudoBtn onClick={handleOpenDropdown}>
                     <img src={addIcon}/>
                     <TooltipAdd className="tooltip">Adicionar Conteúdos</TooltipAdd>
                 </AddConteudoBtn>
 
-                <DropdownConteudos id="dropdown">
+                <DropdownConteudos className={isOpen ? 'show' : ''}>
                     <LinkConteudos to={`/adicionarconteudo/${params.methodsId}`}> Adicionar Conteúdo </LinkConteudos>
-                    <LinkConteudos to={`/adicionarquiz/${params.contentId}`}>Adicionar Quiz</LinkConteudos>
+                    <LinkConteudos style={{
+                        display: quizzes ? 'none' : 'block'
+                    }} to={`/adicionarquiz/${contents[0]?.id}`}> Adicionar Quiz </LinkConteudos>
                 </DropdownConteudos>
             </CaixaConteudos>
 
@@ -98,11 +124,11 @@ export default function ObjetosAprendizagem(){
 
             <Caixa>
                 <Breadcrumbs>
-                    <BCLink href="/skill">Skills</BCLink>
-                    <BCLink href="/topicos">Inteligência Emocional</BCLink>
-                    <BCLink href="/subtopicos">Introdução</BCLink>
-                    <BCLink href="/objetosaprendizagem">O que vamos tratar no módulo?</BCLink>
-                    <BCLink>O que vamos falar nesse módulo?</BCLink>
+                    <BCLink to={'/skill'}> Skills </BCLink>
+                    <BCLink to={`/topicos/:skillId`} >Inteligência Emocional</BCLink>
+                    <BCLink to={`/subtopicos/:topicsId`} >Introdução</BCLink>
+                    <BCLink to={`/objetosaprendizagem/:subtopicsId`}>O que vamos tratar no módulo?</BCLink>
+                    <BCLink> O que vamos falar nesse módulo? </BCLink>
                 </Breadcrumbs>
 
                 
@@ -136,7 +162,38 @@ export default function ObjetosAprendizagem(){
                 </CaixaTexto>
                 </>
                 ))}
-            </Caixa>
+           
+                <CaixaTitulo key={quizzes?.id}>
+                    <TituloConteudos> Quiz </TituloConteudos>
+                    <EditConteudo onClick={(event) => handleGoToQuizzes(event, quizzes)} >
+                        <img src={editIcon}/>
+                        <TooltipEdit className="tooltip"> Alterar Quiz </TooltipEdit>
+                    </EditConteudo>
+                </CaixaTitulo>
+
+                 {quizzes?.questions.map(quiz => (
+                    <>
+                <CaixaQuiz>
+
+                    <Questao>
+                        <TituloPergunta key={quiz.id}> {quiz.question} </TituloPergunta>
+
+                        <Alternativas>
+                        {quiz.alternatives.map( alt => (
+
+                            <Alternativa>
+                            <label for="alternative"><input type="checkbox" checked={alt.correct} disabled /> 
+                            {alt.alternative}
+                            </label>
+                            </Alternativa>
+                        ))}
+                        </Alternativas>
+                    </Questao>
+                </CaixaQuiz>
+                </>
+                ))}
+                </Caixa>
         </>
+
     );
 };
