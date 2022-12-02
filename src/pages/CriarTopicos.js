@@ -62,12 +62,12 @@ function CriarTopicos() {
       
       <Caixa>
         <Breadcrumbs>
-          <BCLink href="/skill">Skills</BCLink>
-          <BCLink href="/topicos">Inteligência Emocional</BCLink>
-          <BCLink href="#">Criar Tópico</BCLink>
+          <BCLink to={'/skill'}> Skills </BCLink>
+          <BCLink to={`/topicos/:skillId`}> Inteligência Emocional </BCLink>
+          <BCLink href="#"> Criar Tópico </BCLink>
         </Breadcrumbs>
 
-        <Form onSubmit={createTopics} >
+        <Form onSubmit={createTopics}>
           <Titulo1>Criar Tópico</Titulo1>
 
           <Input placeholder="Título" onChange={event => setTitle(event.currentTarget.value)} value={title}  />
