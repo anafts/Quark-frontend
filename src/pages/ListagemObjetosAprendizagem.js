@@ -40,7 +40,6 @@ import ObjetoRodape from "../components/ObjetoDeAprendizagem/ObjetoRodape";
 import ObjetoDatas from "../components/ObjetoDeAprendizagem/ObjetoDatas";
 import DataTitle from "../components/Card/CardDataTitle";
 import ObjetoData from "../components/Card/CardData";
-import Card from "../components/Card/CardInterno";
 
 export default function ObjetosAprendizagem(){
 
@@ -80,16 +79,17 @@ export default function ObjetosAprendizagem(){
                 <PublicarBtn href="/publicar">Publicar</PublicarBtn>
             </Navbar>
             
-            <AddObjetoBtn  to={`/criarobjeto/${params.subtopicsId}`}>
+            <AddObjetoBtn to={`/criarobjeto/${params.subtopicsId}`}>
                 <img src={addIcon}/>
                 <TooltipAdd className="tooltip">Criar Objeto de Aprendizagem</TooltipAdd>
             </AddObjetoBtn>
 
             <Caixa>
                 <Breadcrumbs>
-                    <BCLink href="/skill">Skills</BCLink>
-                    <BCLink href="/topicos">Inteligência Emocional</BCLink>
-                    <BCLink href="/subtopicos">Introdução</BCLink>
+                    <BCLink to={'/skill'}> Skills </BCLink>
+                    <BCLink to={`/topicos/:skillId`} >Inteligência Emocional</BCLink>
+                    <BCLink to={`/subtopicos/:topicsId`} >Introdução</BCLink>
+
                     <BCLink href="#">O que vamos tratar no módulo?</BCLink>
                 </Breadcrumbs>
 
@@ -130,8 +130,9 @@ export default function ObjetosAprendizagem(){
                             <img className="book" src={bookIcon}/>
                             <img className="video" src={videoIcon}/>
                             <img className="audio" src={audioIcon}/>
-
+                            <img className="quiz" src={quizIcon}/>
                         </ObjetoIcons>
+                        
                     </ObjetoRodape>
                  
                 
