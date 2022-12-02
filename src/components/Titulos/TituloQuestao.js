@@ -9,6 +9,7 @@ const TituloQuestao = styled.h2 `
     color: #342D68;    
     margin-top: -1.5vh;
     margin-bottom: 1vh;
+    margin-top: 10px;
 `
 
 export default TituloQuestao;
