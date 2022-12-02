@@ -62,9 +62,8 @@ function EditarTopicos() {
       
       <Caixa>
         <Breadcrumbs>
-          <BCLink href="/skill">Skills</BCLink>
-          <BCLink href="/topicos">Inteligência Emocional</BCLink>
-          <BCLink href="/subtopicos">Introdução</BCLink>
+          <BCLink to={'/skill'}> Skills </BCLink>
+          <BCLink to={`/topicos/:skillId`}> Inteligência Emocional </BCLink>
           <BCLink>Editar Tópico</BCLink>
         </Breadcrumbs>
 
