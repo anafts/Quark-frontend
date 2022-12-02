@@ -1,4 +1,6 @@
-import React from "react";
+import React,  { useState, useEffect } from "react";
+import axios from "axios";
+import { useNavigate, useParams } from 'react-router-dom'
 
 import Navbar from "../components/Navbar";
 import LogoMenu from "../components/LogoMenu";
@@ -23,6 +25,130 @@ import AddOpcao from "../components/Buttons/AddOpcao";
 import AddQuestao from "../components/Buttons/AddQuestao";
 
 function AdicionarQuiz() {
+
+  const params = useParams();
+  const navigate = useNavigate();
+
+  const [ quizzes, setQuizzes ] = useState();
+
+  const updateQuiz = (event) => {
+    event.preventDefault();
+
+    axios.put(`http://localhost:80/updateQuizzes/${params.id}`, quizzes)
+    .then((response) => {
+      navigate(`/conteudos/${params.id}`)
+    })
+    .catch((error) => {
+      navigate(`/editarquiz/${params.id}`)
+  })
+  }
+
+    useEffect(() => {
+      axios.get(`http://localhost:80/quiz/${params.id}`)
+      .then((response) => {
+        setQuizzes(response.data)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+    }, [params.id]);
+
+    const handleAddQuestion = () => {
+      setQuizzes([
+        ...quizzes,
+        {
+          id: new Date().getTime(),
+          question: 'Question',
+          alternatives: []
+        }
+      ])
+    }
+  
+    const handleAddAlternative = (questionId) => {
+      const newQuizzes = quizzes.map(quiz => {
+        if (quiz.id === questionId) {
+          return {
+            ...quiz,
+            alternatives: [
+              ...quiz.alternatives,
+              { id: `alternative ${new Date().getTime()}`, value: '', correct: false }
+            ]
+          }
+        }
+  
+        return quiz
+      })
+  
+      setQuizzes(newQuizzes)
+    }
+  
+    const handleQuestionNameChange = (event, questionId) => {
+      const newQuizzes = quizzes.map(quiz => {
+        if (quiz.id === questionId) {
+          return {
+            ...quiz,
+            question: event.currentTarget.value
+          }
+        }
+  
+        return quiz
+      })
+  
+      setQuizzes(newQuizzes)
+    }
+  
+    const handleInputChange = (event, questionId) => {
+      const name = event.currentTarget.name
+  
+      const newQuizzes = quizzes.map(quiz => {
+        if (quiz.id === questionId) {
+          return {
+            ...quiz,
+            alternatives: quiz.alternatives.map(alt => {
+              if (alt.id.toString() === name) {
+                return {
+                  ...alt,
+                  value: event.currentTarget.value
+                }
+              }
+  
+              return alt
+            })
+          }
+        }
+  
+        return quiz
+      })
+  
+      setQuizzes(newQuizzes)
+    }
+    
+    const handleCheckboxChange = (event, questionId) => {
+      const name = event.target.name
+  
+      const newQuizzes = quizzes.map(quiz => {
+        if (quiz.id === questionId) {
+          return {
+            ...quiz,
+            alternatives: quiz.alternatives.map(alt => {
+              if (alt.id.toString() === name) {
+                return {
+                  ...alt,
+                  correct: event.target.checked
+                }
+              }
+  
+              return alt
+            })
+          }
+        }
+  
+        return quiz
+      })
+  
+      setQuizzes(newQuizzes)
+    }
+
   return (
     <>
       <Navbar>
@@ -37,34 +163,49 @@ function AdicionarQuiz() {
       
       <Caixa>
         <Breadcrumbs>
-        <BCLink href="/skill">Skills</BCLink>
-          <BCLink href="/topicos">Inteligência Emocional</BCLink>
-          <BCLink href="/subtopicos">Introdução</BCLink>
-          <BCLink href="/objetosaprendizagem">O que vamos tratar no módulo?</BCLink>
-          <BCLink href="/quiz">Que conhecimentos prévios são importantes?</BCLink>
+          <BCLink to={'/skill'}> Skills </BCLink>
+          <BCLink to={`/topicos/:skillId`} >Inteligência Emocional</BCLink>
+          <BCLink to={`/subtopicos/:topicsId`} >Introdução</BCLink>
+          <BCLink to={`/objetosaprendizagem/:subtopicsId`}>O que vamos tratar no módulo?</BCLink>
+          <BCLink to={`/quiz/:contentId`}>Que conhecimentos prévios são importantes?</BCLink>
           <BCLink>Editar Quiz</BCLink>
         </Breadcrumbs>
 
-        <Form>
+        <Form onSubmit={updateQuiz}>
+      
+          <Titulo1> Editar Quiz </Titulo1>
+         <>
+         {
+            quizzes?.map( quiz => (
 
-          <Titulo1>Editar Quiz</Titulo1>
-          <TituloQuestao>Questão</TituloQuestao>
-          <Input placeholder="A inteligência emocional é um conceito da psicologia usado para designar a capacidade do ser humano de lidar com as emoções"></Input>
-          <TituloQuestao>Opções</TituloQuestao>
-            <CaixaInputCor>
-                <InputCaminho defaultValue={"Verdadeiro"} />
-                <Select type="checkbox" checked/>
-            </CaixaInputCor> 
-            <CaixaInputCor>
-          <InputCaminho defaultValue={"Falso"} />
-          <Select type="checkbox" />
-            </CaixaInputCor> 
-        <AddOpcao>Adicionar Alternativa</AddOpcao>
-        <AddQuestao>Adicionar Questão</AddQuestao>
-          <SalvarBtn type="Submit">Salvar</SalvarBtn>
+              <>
+               <TituloQuestao> {quiz.question} </TituloQuestao>
+               <Input value={quiz.question} onChange={event => handleQuestionNameChange(event, quiz.id)} />
+               <TituloQuestao> Opções </TituloQuestao>
 
-        </Form>        
-      </Caixa>
+               {
+                quiz.alternatives.map( alt => {
+
+                  return (
+                    <CaixaInputCor >
+                    <InputCaminho name={alt.id} value={alt.value} onChange={event => handleInputChange(event, quiz.id)} />
+                    <Select name={alt.id} type="checkbox" checked={alt.correct} onChange={event => handleCheckboxChange(event, quiz.id)} />
+                    </CaixaInputCor> 
+                  )
+
+                })
+               }
+               <AddOpcao type="button" onClick={() => handleAddAlternative(quiz.id)}> Adicionar Alternativa </AddOpcao>
+              </>
+            ))
+          }
+         </>
+
+              <AddQuestao type="button" onClick={handleAddQuestion}>Adicionar Questão</AddQuestao>
+              <SalvarBtn type="Submit">Salvar</SalvarBtn>
+        
+      </Form>        
+    </Caixa>
     </>
   );
 }
