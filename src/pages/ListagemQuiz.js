@@ -1,4 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import {  useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
+
+
 import Navbar from "../components/Navbar";
 import LogoMenu from "../components/LogoMenu";
 
@@ -34,12 +38,39 @@ import TituloPergunta from "../components/Quiz/TituloPergunta";
 import Alternativas from "../components/Quiz/Alternativas";
 import Alternativa from "../components/Quiz/Alternativa";
 
-function dropdownVisivel() {
-    const dropdown = document.getElementById("dropdown");
-    dropdown.classList.toggle("show");
-}
 
 export default function Quiz(){
+
+    const navigate = useNavigate();
+    const params = useParams();
+
+    const [quizzes, setQuizzes] = useState([]);
+    const [ isOpen, setIsOpen ] = useState(false);
+
+    useEffect(() => {
+        axios.get(`http://localhost:80/quizzes/`)
+           .then((response) => {
+             setQuizzes(response.data)
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+      }, []);
+
+      const handleGoToQuizzes = (event, quizzes) => {
+        event.preventDefault()
+        
+        navigate(`/editarquiz/${quizzes.id}`, {
+          state: quizzes
+        })
+      }
+
+    function handleOpenDropdown() {
+        setIsOpen(!isOpen)
+    }
+
+
+
     return(
         <>
             <Navbar>
@@ -54,72 +85,61 @@ export default function Quiz(){
             </Navbar>
             
             <CaixaConteudos>
-                <AddConteudoBtn onClick={dropdownVisivel}>
+                <AddConteudoBtn onClick={handleOpenDropdown}>
                     <img src={addIcon}/>
                     <TooltipAdd className="tooltip">Adicionar Conteúdos</TooltipAdd>
                 </AddConteudoBtn>
 
-                <DropdownConteudos id="dropdown">
+                <DropdownConteudos className={ isOpen? 'show' : ''}>
                     <LinkConteudos href="/adicionarconteudo">Adicionar Conteúdo</LinkConteudos>
                     <LinkConteudos href="/adicionarquiz">Adicionar Quiz</LinkConteudos>
                 </DropdownConteudos>
+                
             </CaixaConteudos>
 
 
 
             <Caixa>
                 <Breadcrumbs>
-                    <BCLink href="/skill">Skills</BCLink>
-                    <BCLink href="/topicos">Inteligência Emocional</BCLink>
-                    <BCLink href="/subtopicos">Introdução</BCLink>
-                    <BCLink href="/objetosaprendizagem">O que vamos tratar no módulo?</BCLink>
-                    <BCLink>Que conhecimentos prévios são importantes?</BCLink>
+                    <BCLink to={'/skill'}> Skills </BCLink>
+                    <BCLink to={`/topicos/:skillId`}> Inteligência Emocional </BCLink>
+                    <BCLink to={`/subtopicos/:topicsId`}> Introdução </BCLink>
+                    <BCLink to={`/objetosaprendizagem/:subtopicsId`}> O que vamos tratar no módulo? </BCLink>
+                    <BCLink> Que conhecimentos prévios são importantes? </BCLink>
                 </Breadcrumbs>
 
                 <CaixaTitulo>
-                    <TituloConteudos>Que conhecimentos prévios são importantes?</TituloConteudos>
+                    <TituloConteudos> Que conhecimentos prévios são importantes?</TituloConteudos>
                     
-                    <EditConteudo href="/editarquiz">
+                    <EditConteudo onClick={(event) => handleGoToQuizzes(event, quizzes)}>
                         <img src={editIcon}/>
                         <TooltipEdit className="tooltip">Alterar Conteúdos</TooltipEdit>
                     </EditConteudo>
                 </CaixaTitulo>
 
-                <Datas>
-                    <h1>Criado em 10/08/2020</h1>
-                    <h1>Editado em 07/06/2022</h1>
-                </Datas>
+                {quizzes.map(quiz => (
+                    <>
+                    <Datas key={quiz.id} >
+                    <h1>Criado em {quiz.created_at.slice(-25, 10)} </h1>
+                    <h1>Editado em {quiz.updated_at.slice(-25, 10)} </h1>
+                    </Datas>
 
                 <CaixaQuiz>
-                    <Questao>
-                        <TituloPergunta>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ult?</TituloPergunta>
-
-                        <Alternativas>
-                            <Alternativa><label for="alt1"><input type="checkbox" id="alt1" disabled />Verdadeiro</label></Alternativa>
-                            <Alternativa><label for="alt2"><input type="checkbox" id="alt2" checked disabled />Falso</label></Alternativa>
-                        </Alternativas>
-                    </Questao>
 
                     <Questao>
-                        <TituloPergunta>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed?</TituloPergunta>
+                        <TituloPergunta> {quiz.question} </TituloPergunta>
 
                         <Alternativas>
-                            <Alternativa><label for="alt1"><input type="checkbox" id="alt1" checked disabled />Alternativa 1</label></Alternativa>
-                            <Alternativa><label for="alt2"><input type="checkbox" id="alt2" checked disabled />Alternativa 2</label></Alternativa>
-                            <Alternativa><label for="alt3"><input type="checkbox" id="alt3" disabled />Alternativa 3</label></Alternativa>
-                        </Alternativas>
-                    </Questao>
-
-                    <Questao>
-                        <TituloPergunta>Lorem ipsum dolor sit amet?</TituloPergunta>
-
-                        <Alternativas>
-                            <Alternativa><label for="alt1"><input type="checkbox" id="alt1" checked disabled />Alternativa 1</label></Alternativa>
-                            <Alternativa><label for="alt2"><input type="checkbox" id="alt2" checked disabled />Alternativa 2</label></Alternativa>
-                            <Alternativa><label for="alt3"><input type="checkbox" id="alt3" checked disabled />Alternativa 3</label></Alternativa>
+                            <Alternativa>
+                            <label for="alternative"><input type="checkbox" checked={quiz.correct} /> 
+                            {quiz.alternative}
+                            </label>
+                            </Alternativa>
                         </Alternativas>
                     </Questao>
                 </CaixaQuiz>
+                </>
+                ))}
             </Caixa>
         </>
     );
