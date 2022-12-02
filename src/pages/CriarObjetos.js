@@ -60,11 +60,11 @@ function CriarObjetos() {
       <Caixa>
 
         <Breadcrumbs>
-        <BCLink href="/skill">Skills</BCLink>
-        <BCLink href="/topicos">Inteligência Emocional</BCLink>
-        <BCLink href="/subtopicos">Introdução</BCLink>
-        <BCLink href="/objetosaprendizagem">O que vamos tratar no módulo?</BCLink>
-        <BCLink>Criar Objeto de Aprendizagem</BCLink>
+          <BCLink to={'/skill'}> Skills </BCLink>
+          <BCLink to={`/topicos/:skillId`} >Inteligência Emocional</BCLink>
+          <BCLink to={`/subtopicos/:topicsId`} >Introdução</BCLink>
+          <BCLink to={`/objetosaprendizagem/:subtopicsId`}>O que vamos tratar no módulo?</BCLink>
+          <BCLink>Criar Objeto de Aprendizagem</BCLink>
         </Breadcrumbs>
 
         <Form onSubmit={createMethods} >
