@@ -79,8 +79,8 @@ function Topicos() {
         
         <Caixa>
             <Breadcrumbs>
-                <BCLink href="/skill">Skills</BCLink>
-                <BCLink>Inteligência Emocional</BCLink>
+                <BCLink to={'/skill'}> Skills </BCLink>
+                <BCLink to={`/topicos/:skillId`} >Inteligência Emocional</BCLink>
             </Breadcrumbs>
 
             
