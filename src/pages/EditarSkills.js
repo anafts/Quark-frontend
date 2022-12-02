@@ -62,9 +62,8 @@ function EditarSkills() {
 
       <Caixa>
         <Breadcrumbs>
-          <BCLink href="/skill">Skills</BCLink>
-          <BCLink href="/topicos">Inteligência Emocional</BCLink>
-          <BCLink>Editar Skill</BCLink>
+          <BCLink to={'/skill'}> Skills </BCLink>
+          <BCLink> Editar Skill</BCLink>
         </Breadcrumbs>
 
         <Form onSubmit={updateSkillSubmmit} >
