@@ -61,8 +61,8 @@ function CriarSkills() {
       
       <Caixa>
         <Breadcrumbs>
-          <BCLink href="/skill">Skills</BCLink>
-          <BCLink>Criar Skill</BCLink>
+          <BCLink to={'/skill'}> Skills </BCLink>
+          <BCLink> Criar Skill </BCLink>
         </Breadcrumbs>
 
         <Form onSubmit={createSkill} >
