@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import Navbar from "../components/Navbar";
@@ -73,7 +73,7 @@ function Skills() {
 
       <Caixa>
         <Breadcrumbs>
-          <BCLink href="/skill">Skills</BCLink>
+            <BCLink to={'/skill'}> Skills </BCLink>
         </Breadcrumbs>
 
         <Titulo>Skills</Titulo>
@@ -95,7 +95,7 @@ function Skills() {
                     <TooltipEdit className="tooltip">Editar Skill</TooltipEdit>
                 </CardEdit>
 
-              <CardTopicos> 3 Tópicos</CardTopicos>
+              <CardTopicos> 3 Tópicos </CardTopicos>
 
               <CardDatas>
                 <CardDataTitle>Criado em</CardDataTitle>
