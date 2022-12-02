@@ -34,7 +34,7 @@ function AdicionarConteudo() {
   const [ audio, setAudio ] = useState();
   const [ text, setText ] = useState();
 
-  const params = useParams()
+  const params = useParams();
   const navigate = useNavigate();
 
   const handleFileInputChange = (event) => {
@@ -81,11 +81,11 @@ function AdicionarConteudo() {
       
       <Caixa>
         <Breadcrumbs>
-        <BCLink href="/skill">Skills</BCLink>
-          <BCLink href="/topicos">Inteligência Emocional</BCLink>
-          <BCLink href="/subtopicos">Introdução</BCLink>
-          <BCLink href="/objetosaprendizagem">O que vamos tratar no módulo?</BCLink>
-          <BCLink href="/conteudos">O que vamos falar nesse módulo?</BCLink>
+          <BCLink to={'/skill'}> Skills </BCLink>
+          <BCLink to={`/topicos/:skillId`} >Inteligência Emocional</BCLink>
+          <BCLink to={`/subtopicos/:topicsId`} >Introdução</BCLink>
+          <BCLink to={`/objetosaprendizagem/:subtopicsId`}>O que vamos tratar no módulo?</BCLink>
+          <BCLink to={`/conteudos/:methodsId`}>O que vamos falar nesse módulo?</BCLink>
           <BCLink>Adicionar conteúdos</BCLink>
         </Breadcrumbs>
 
