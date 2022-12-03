@@ -14,7 +14,7 @@ import BCLink from "../components/Breadcrumbs/Link";
 import Caixa from "../components/Caixa";
 import Form from "../components/Form";
 import Titulo1 from "../components/Titulos/Titulo1";
-import SalvarBtn from "../components/Buttons/Salvar";
+import SaveButton from "../components/Buttons/Save";
 import Input from "../components/Form/Input";
 import DescriptionText from "../components/Form/TextArea";
 
@@ -73,7 +73,7 @@ function CriarObjetos() {
           <Input placeholder="Título" onChange={event => setTitle(event.currentTarget.value)} value={title} />
           <Input placeholder="Ordem" type="number"  onChange={event => setOrder(event.currentTarget.value)} value={order}/>
           <DescriptionText placeholder="Descrição"  onChange={event => setDescription(event.currentTarget.value)} value={description} />
-          <SalvarBtn type="Submit">Salvar</SalvarBtn>
+          <SaveButton type="Submit">Save</SaveButton>
 
         </Form>        
       </Caixa>

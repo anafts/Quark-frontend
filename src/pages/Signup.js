@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import Titulo1 from "../components/Titulos/Titulo1";
 import LoginLogo from "../components/Login/LoginLogo";
 import FormLogin from "../components/Login";
-import SalvarBtn from "../components/Buttons/Salvar"
+import SaveButton from "../components/Buttons/Save"
 import Logo from "../icons/logo.svg";
 import Input from "../components/Form/Input";
 import TituloPergunta from "../components/Quiz/TituloPergunta";
@@ -52,7 +52,7 @@ function Signup() {
         <Input type="password" placeholder="Senha" minLength="8" onChange={ event => setPassword (event.currentTarget.value)} value={password}></Input>
         </label>
 
-        <SalvarBtn type="Submit"> Criar </SalvarBtn>
+        <SaveButton type="Submit"> Criar </SaveButton>
 
 
         </FormLogin>

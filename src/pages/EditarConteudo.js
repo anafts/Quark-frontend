@@ -14,7 +14,7 @@ import BCLink from "../components/Breadcrumbs/Link";
 import Caixa from "../components/Caixa";
 import Form from "../components/Form";
 import Titulo1 from "../components/Titulos/Titulo1";
-import SalvarBtn from "../components/Buttons/Salvar";
+import SaveButton from "../components/Buttons/Save";
 
 import InputCaminho from "../components/Form/InputCaminho";
 import DescriptionText from "../components/Form/TextArea";
@@ -112,7 +112,7 @@ function EditarConteudo() {
           </CaixaInputArquivo>
 
           <DescriptionText onChange={event => setText(event.currentTarget.value)} value={text} />
-          <SalvarBtn type="Submit" onClick={updateContentSubmmit}> Salvar </SalvarBtn>
+          <SaveButton type="Submit" onClick={updateContentSubmmit}> Save </SaveButton>
 
         </Form>        
       </Caixa>

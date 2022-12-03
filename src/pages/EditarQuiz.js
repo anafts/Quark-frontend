@@ -14,7 +14,7 @@ import BCLink from "../components/Breadcrumbs/Link";
 import Caixa from "../components/Caixa";
 import Form from "../components/Form";
 import Titulo1 from "../components/Titulos/Titulo1";
-import SalvarBtn from "../components/Buttons/Salvar";
+import SaveButton from "../components/Buttons/Save";
 
 import InputCaminho from "../components/Form/InputCaminho";
 import CaixaInputCor from "../components/Form/CaixaInputCor";
@@ -202,7 +202,7 @@ function AdicionarQuiz() {
          </>
 
               <AddQuestao type="button" onClick={handleAddQuestion}>Adicionar Questão</AddQuestao>
-              <SalvarBtn type="Submit">Salvar</SalvarBtn>
+              <SaveButton type="Submit">Save</SaveButton>
         
       </Form>        
     </Caixa>

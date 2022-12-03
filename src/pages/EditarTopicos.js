@@ -16,7 +16,7 @@ import BCLink from "../components/Breadcrumbs/Link";
 import Caixa from "../components/Caixa";
 import Form from "../components/Form";
 import Titulo1 from "../components/Titulos/Titulo1";
-import SalvarBtn from "../components/Buttons/Salvar";
+import SaveButton from "../components/Buttons/Save";
 import Input from "../components/Form/Input";
 
 function EditarTopicos() {
@@ -74,7 +74,7 @@ function EditarTopicos() {
           <Input onChange={event => setActiveIcon(event.currentTarget.value)} value={active_icon}/>
           <Input onChange={event => setDisabledIcon(event.currentTarget.value)} value={disabled_icon} />
           
-          <SalvarBtn type="Submit">Salvar</SalvarBtn>
+          <SaveButton type="Submit">Save</SaveButton>
         </Form>        
       </Caixa>
     </>

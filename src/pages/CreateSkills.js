@@ -19,7 +19,7 @@ import Titulo1 from "../components/Titulos/Titulo1";
 import Input from "../components/Form/Input";
 
 import InputCor from "../components/Form/InputCor";
-import SalvarBtn from "../components/Buttons/Salvar";
+import SaveButton from "../components/Buttons/Save";
 import CaixaInputCor from "../components/Form/CaixaInputCor";
 
 
@@ -75,7 +75,7 @@ function CreateSkills() {
             <InputCor type="color" defaultValue="#7D71DA" onChange={event => setColor(event.currentTarget.value)} value={color} />
           </CaixaInputCor>
 
-          <SalvarBtn type="Submit">Salvar</SalvarBtn>
+          <SaveButton type="Submit">Save</SaveButton>
         </Form>        
       </Caixa>
     </>

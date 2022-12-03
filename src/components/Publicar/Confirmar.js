@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import Salvar from '../Buttons/Salvar'
+import Save from '../Buttons/Save'
 
-const Confirmar = styled(Salvar) `
+const Confirmar = styled(Save) `
     width: 206px;
     margin: 0;
 `

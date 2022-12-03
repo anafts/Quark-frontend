@@ -6,7 +6,7 @@ import FormLogin from "../components/Login";
 import LoginLogo from "../components/Login/LoginLogo";
 import Logo from "../icons/logo.svg";
 import Input from "../components/Form/Input";
-import SalvarBtn from "../components/Buttons/Salvar"
+import SaveButton from "../components/Buttons/Save"
 
 function Login() {
     const [login, setLogin] = useState()
@@ -36,7 +36,7 @@ function Login() {
                 <Input type="text" placeholder="Login" onChange={event => setLogin(event.currentTarget.value)} value={login} required />
                 <Input type="password" placeholder="Senha" minLength="8" onChange={event => setPassword(event.currentTarget.value)} value={password} required />
 
-                <SalvarBtn type="Submit">Entrar</SalvarBtn>
+                <SaveButton type="Submit">Entrar</SaveButton>
             </FormLogin>
         </>
     );

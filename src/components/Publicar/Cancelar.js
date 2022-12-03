@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import Salvar from '../Buttons/Salvar'
+import Save from '../Buttons/Save'
 
 const Cancelar = styled.a `
     width: 206px;
