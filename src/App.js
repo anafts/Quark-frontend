@@ -24,9 +24,9 @@ import Contents from "./pages/ListContent";
 import CreateContents from "./pages/CreateContents";
 import UpdateContents from "./pages/UpdateContents";
 
-import Quiz from "./pages/ListagemQuiz";
-import AdicionarQuiz from "./pages/AdicionarQuiz";
-import EditarQuiz from "./pages/EditarQuiz";
+import Quiz from "./pages/ListQuizzes";
+import CreateQuizzes from "./pages/CreateQuizzes";
+import UpdateQuizzes from "./pages/UpdateQuizzes";
 
 import NotFound from "./pages/NotFound";
 import Publicar from "./pages/Publicar";
@@ -60,8 +60,8 @@ const App = () => {
           <Route exact path="/editarconteudo/:id" element={<UpdateContents/>}/>
 
           <Route exact path="/quiz/:contentId" element={<Quiz/>}/>
-          <Route exact path="/adicionarquiz/:contentId" element={<AdicionarQuiz/>}/>
-          <Route exact path="/editarquiz/:id" element={<EditarQuiz/>}/>
+          <Route exact path="/adicionarquiz/:contentId" element={<CreateQuizzes/>}/>
+          <Route exact path="/editarquiz/:id" element={<UpdateQuizzes/>}/>
 
           <Route exact path="/publicar" element={<Publicar/>}/>
 
