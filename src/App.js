@@ -8,13 +8,13 @@ import Skills from "./pages/ListSkills";
 import CreateSkill from "./pages/CreateSkills";
 import UpdateSkills from "./pages/UpdateSkills";
 
-import Topics from "./pages/ListagemTopics";
+import Topics from "./pages/ListTopics";
 import CreateTopics from "./pages/CreateTopics";
 import UpdateTopics from "./pages/UpdateTopics";
 
-import Subtopicos from "./pages/ListagemSubTopics";
+import Subtopicos from "./pages/ListSubTopics";
 import CreateSubTopics from "./pages/CreateSubTopics";
-import EditarSubtopicos from "./pages/EditarSubTopics";
+import EditarSubtopicos from "./pages/UpdateSubTopics";
 
 import ObjetosAprendizagem from "./pages/ListagemObjetosAprendizagem";
 
