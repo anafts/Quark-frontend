@@ -1,12 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-import Skills from "./pages/ListagemSkills";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 
-import CriarSkill from "./pages/CriarSkills";
-import EditarSkills from "./pages/EditarSkills";
+import Skills from "./pages/ListSkills";
+import CreateSkill from "./pages/CreateSkills";
+import UpdateSkills from "./pages/UpdateSkills";
+
 import CriarTopicos from "./pages/CriarTopicos";
 import EditarTopicos from "./pages/EditarTopicos";
 
@@ -41,8 +42,8 @@ const App = () => {
          
           
           <Route exact path="/skill" element={<Skills/>}/>
-          <Route exact path="/criarskill" element={<CriarSkill/>}/>
-          <Route exact path="/editarskill/:id" element={<EditarSkills/>}/>
+          <Route exact path="/createskill" element={<CreateSkill/>}/>
+          <Route exact path="/updateskill/:id" element={<UpdateSkills/>}/>
 
           <Route exact path="/topicos/:skillId" element={<Topicos/>}/>
           <Route exact path="/criartopico/:skillId" element={<CriarTopicos/>}/>
