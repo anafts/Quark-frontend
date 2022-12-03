@@ -22,7 +22,7 @@ import CorSkill from "../components/Card/CorSkill";
 import CardTilte from "../components/Card/CardTitle";
 import CardLink from "../components/Card/CardLink";
 import Tooltip from "../components/Tooltip";
-import CardTopicos from "../components/Card/CardTopicos";
+import CardTopics from "../components/Card/CardTopics";
 import CardDatas from "../components/Card/CardDatas";
 import CardDataTitle from "../components/Card/CardDataTitle";
 import CardData from "../components/Card/CardData";
@@ -64,7 +64,7 @@ function Publicar() {
                         </CardLink>
                     </CardTilte>
 
-                    <CardTopicos>3 Tópicos</CardTopicos>
+                    <CardTopics>3 Tópicos</CardTopics>
 
                     <CardDatas>
                         <CardDataTitle>Criado em</CardDataTitle>
