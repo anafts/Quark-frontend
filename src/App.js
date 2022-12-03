@@ -12,24 +12,23 @@ import Topics from "./pages/ListTopics";
 import CreateTopics from "./pages/CreateTopics";
 import UpdateTopics from "./pages/UpdateTopics";
 
-import Subtopicos from "./pages/ListSubTopics";
+import Subtopics from "./pages/ListSubTopics";
 import CreateSubTopics from "./pages/CreateSubTopics";
-import EditarSubtopicos from "./pages/UpdateSubTopics";
+import EditarSubtopics from "./pages/UpdateSubTopics";
 
-import ObjetosAprendizagem from "./pages/ListagemObjetosAprendizagem";
+import Modules from "./pages/ListModules";
+import CreateModules from "./pages/CreateModules";
+import UpdateModules from "./pages/UpdateModules";
 
 import Conteudos from "./pages/ListagemConteudos";
-import CriarObjetos from "./pages/CriarObjetos";
-import EditarObjetos from "./pages/EditarObjetos";
-
-import NotFound from "./pages/NotFound";
-
 import AdicionarConteudo from "./pages/AdicionarConteudo";
+import EditarConteudo from "./pages/EditarConteudo";
+
 import Quiz from "./pages/ListagemQuiz";
 import AdicionarQuiz from "./pages/AdicionarQuiz";
 import EditarQuiz from "./pages/EditarQuiz";
-import EditarConteudo from "./pages/EditarConteudo";
 
+import NotFound from "./pages/NotFound";
 import Publicar from "./pages/Publicar";
 
 const App = () => {
@@ -48,13 +47,13 @@ const App = () => {
           <Route exact path="/criartopico/:skillId" element={<CreateTopics/>}/>
           <Route exact path="/editartopico/:id" element={<UpdateTopics/>}/>
 
-          <Route exact path="/subtopicos/:topicsId" element={<Subtopicos/>}/>
+          <Route exact path="/subtopicos/:topicsId" element={<Subtopics/>}/>
           <Route exact path="/criarsubtopico/:topicsId" element={<CreateSubTopics/>}/>
-          <Route exact path="/editarsubtopico/:id" element={<EditarSubtopicos/>}/>
+          <Route exact path="/editarsubtopico/:id" element={<EditarSubtopics/>}/>
 
-          <Route exact path="/objetosaprendizagem/:subtopicsId" element={<ObjetosAprendizagem/>}/>
-          <Route exact path="/criarobjeto/:subtopicsId" element={<CriarObjetos/>}/>
-          <Route exact path="/editarobjetos/:id" element={<EditarObjetos/>}/>
+          <Route exact path="/objetosaprendizagem/:subtopicsId" element={<Modules/>}/>
+          <Route exact path="/criarobjeto/:subtopicsId" element={<CreateModules/>}/>
+          <Route exact path="/editarobjetos/:id" element={<UpdateModules/>}/>
 
           <Route exact path="/conteudos/:methodsId" element={<Conteudos/>}/>
           <Route exact path="/adicionarconteudo/:methodsId" element={<AdicionarConteudo/>}/>
