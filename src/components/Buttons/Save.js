@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const SalvarBtn = styled.button `
+const SaveButton = styled.button `
     width: 121px;
     min-height: 37px;
     background-color: #342D68;
@@ -25,4 +25,4 @@ const SalvarBtn = styled.button `
     }
 `
 
-export default SalvarBtn;
+export default SaveButton;
