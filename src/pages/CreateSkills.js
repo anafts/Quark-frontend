@@ -23,7 +23,7 @@ import SalvarBtn from "../components/Buttons/Salvar";
 import CaixaInputCor from "../components/Form/CaixaInputCor";
 
 
-function CriarSkills() {
+function CreateSkills() {
 
   const navigate = useNavigate();
 
@@ -42,7 +42,7 @@ function CriarSkills() {
         navigate('/skill')
       })
       .catch((error) => {
-        navigate('/criarskill')
+        navigate('/createskill')
       })
  }
 
@@ -66,7 +66,7 @@ function CriarSkills() {
         </Breadcrumbs>
 
         <Form onSubmit={createSkill} >
-          <Titulo1>Criar Skill</Titulo1>
+          <Titulo1> Criar Skill </Titulo1>
 
           <Input type="text" placeholder="Título" onChange={event => setTitle(event.currentTarget.value)} value={title} />
           
@@ -82,4 +82,4 @@ function CriarSkills() {
   );
 }
 
-export default CriarSkills;
+export default CreateSkills;
