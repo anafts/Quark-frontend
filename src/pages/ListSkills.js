@@ -22,7 +22,7 @@ import Card from "../components/Card";
 import CardTilte from "../components/Card/CardTitle";
 import CardLink from "../components/Card/CardLink";
 import CorSkill from "../components/Card/CorSkill";
-import CardTopicos from "../components/Card/CardTopicos";
+import CardTopics from "../components/Card/CardTopics";
 import CardDatas from "../components/Card/CardDatas";
 import CardData from "../components/Card/CardData";
 import CardDataTitle from "../components/Card/CardDataTitle";
@@ -95,7 +95,7 @@ function Skills() {
                     <TooltipEdit className="tooltip">Editar Skill</TooltipEdit>
                 </CardEdit>
 
-              <CardTopicos> 3 Tópicos </CardTopicos>
+              <CardTopics> 3 Tópicos </CardTopics>
 
               <CardDatas>
                 <CardDataTitle>Criado em</CardDataTitle>
