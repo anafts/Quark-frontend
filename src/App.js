@@ -20,9 +20,9 @@ import Modules from "./pages/ListModules";
 import CreateModules from "./pages/CreateModules";
 import UpdateModules from "./pages/UpdateModules";
 
-import Conteudos from "./pages/ListagemConteudos";
-import AdicionarConteudo from "./pages/AdicionarConteudo";
-import EditarConteudo from "./pages/EditarConteudo";
+import Contents from "./pages/ListContent";
+import CreateContents from "./pages/CreateContents";
+import UpdateContents from "./pages/UpdateContents";
 
 import Quiz from "./pages/ListagemQuiz";
 import AdicionarQuiz from "./pages/AdicionarQuiz";
@@ -55,9 +55,9 @@ const App = () => {
           <Route exact path="/criarobjeto/:subtopicsId" element={<CreateModules/>}/>
           <Route exact path="/editarobjetos/:id" element={<UpdateModules/>}/>
 
-          <Route exact path="/conteudos/:methodsId" element={<Conteudos/>}/>
-          <Route exact path="/adicionarconteudo/:methodsId" element={<AdicionarConteudo/>}/>
-          <Route exact path="/editarconteudo/:id" element={<EditarConteudo/>}/>
+          <Route exact path="/conteudos/:methodsId" element={<Contents/>}/>
+          <Route exact path="/adicionarconteudo/:methodsId" element={<CreateContents/>}/>
+          <Route exact path="/editarconteudo/:id" element={<UpdateContents/>}/>
 
           <Route exact path="/quiz/:contentId" element={<Quiz/>}/>
           <Route exact path="/adicionarquiz/:contentId" element={<AdicionarQuiz/>}/>
