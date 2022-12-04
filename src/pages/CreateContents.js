@@ -109,7 +109,7 @@ function CreateContents() {
             <InputFile name="audio" type="file" id="arquivoAudio" onChange={handleFileInputChange} value={audio} accept="audio/mp3" />
           </BoxFileInput>
 
-          <DescriptionText placeholder="Adicionar Texto" onChange={event => setText(event.currentTarget.value)} value={text} />
+          <DescriptionText placeholder="Adicionar Text" onChange={event => setText(event.currentTarget.value)} value={text} />
           <SaveButton type="Submit" onClick={handleButtonClick}>Save</SaveButton>
 
         </Form>        

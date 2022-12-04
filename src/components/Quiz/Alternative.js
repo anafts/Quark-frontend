@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const Alternativas = styled.li `
+const AlternativesBox = styled.li `
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -19,4 +19,4 @@ const Alternativas = styled.li `
     }
 `
 
-export default Alternativas
+export default AlternativesBox;

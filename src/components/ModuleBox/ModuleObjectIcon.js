@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const ObjetoIcons = styled.ul `
+const ModuleObjectIcon = styled.ul `
     display: flex;
     flex-direction: row;
     width: 9em;
@@ -40,4 +40,4 @@ const ObjetoIcons = styled.ul `
 
 `
 
-export default ObjetoIcons;
+export default ModuleObjectIcon;

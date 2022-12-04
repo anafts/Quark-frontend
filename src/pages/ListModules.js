@@ -18,26 +18,26 @@ import AddObjetoBtn from "../components/Buttons/Add";
 import addIcon from '../icons/plus.svg';
 import TooltipAdd from "../components/Tooltip/TooltipAdd";
 
-import ModuleTitleMain from "../components/ObjetoDeAprendizagem/ModuleTitleMain";
+import ModuleTitleMain from "../components/ModuleBox/ModuleTitleMain";
 
-import ObjetoDeAprendizagem from "../components/ObjetoDeAprendizagem";
+import ModuleBox from "../components/ModuleBox";
 import CardLink from "../components/Card/CardLink";
-import ModuleTitle from "../components/ObjetoDeAprendizagem/ModuleTitle";
-import ModuleDescription from "../components/ObjetoDeAprendizagem/ModuleDescription";
+import ModuleTitle from "../components/ModuleBox/ModuleTitle";
+import ModuleDescription from "../components/ModuleBox/ModuleDescription";
 
-import ObjetoEdit from "../components/ObjetoDeAprendizagem/ObjetoEdit";
+import ObjectUpdate from "../components/ModuleBox/ObjectUpdate";
 import editIcon from '../icons/editar.svg';
 import TooltipEdit from "../components/Tooltip/TooltipEdit";
 import TooltipObjeto from "../components/Tooltip/TooltipObjeto";
-import ObjetoIcons from "../components/ObjetoDeAprendizagem/ObjetoIcons";
+import ModuleObjectIcon from "../components/ModuleBox/ModuleObjectIcon";
 
 import bookIcon from '../icons/book.svg';
 import videoIcon from '../icons/video.svg';
 import audioIcon from '../icons/microphone.svg';
 import quizIcon from '../icons/quiz.svg';
 
-import ObjetoRodape from "../components/ObjetoDeAprendizagem/ObjetoRodape";
-import ModuleDates from "../components/ObjetoDeAprendizagem/ModuleDates";
+import Footer from "../components/ModuleBox/Footer";
+import ModuleDates from "../components/ModuleBox/ModuleDates";
 import DataTitle from "../components/Card/CardDataTitle";
 import ObjetoData from "../components/Card/CardData";
 
@@ -97,7 +97,7 @@ export default function Modules(){
                 
                 <>
                 {modules.map(module => (
-                <ObjetoDeAprendizagem className="primeiro">
+                <ModuleBox className="primeiro">
                 
                     <ModuleTitle key={module.id} className="TituloObjetoAprendizagem"> 
                         <CardLink to={`/conteudos/${module.id}`} >
@@ -106,16 +106,16 @@ export default function Modules(){
                         </CardLink>
                     </ModuleTitle>
 
-                    <ObjetoEdit className="editar" onClick={(event) => handleGoToModules(event, module)} >
+                    <ObjectUpdate className="editar" onClick={(event) => handleGoToModules(event, module)} >
                         <img src={editIcon}/>
                         <TooltipEdit className="tooltip">Editar Objeto de Aprendizagem</TooltipEdit>
-                    </ObjetoEdit>
+                    </ObjectUpdate>
 
                     <ModuleDescription>
                     {module.description}
                     </ModuleDescription>
 
-                    <ObjetoRodape>
+                    <Footer>
                         <ModuleDates>
                             <DataTitle>Criado em</DataTitle>
                             <ObjetoData> {module.created_at.slice(-25, 10)} </ObjetoData>
@@ -126,17 +126,17 @@ export default function Modules(){
                             <ObjetoData> {module.updated_at.slice(-25, 10)} </ObjetoData>
                         </ModuleDates>
 
-                        <ObjetoIcons>
+                        <ModuleObjectIcon>
                             <img className="book" src={bookIcon}/>
                             <img className="video" src={videoIcon}/>
                             <img className="audio" src={audioIcon}/>
                             <img className="quiz" src={quizIcon}/>
-                        </ObjetoIcons>
+                        </ModuleObjectIcon>
                         
-                    </ObjetoRodape>
+                    </Footer>
                  
                 
-                </ObjetoDeAprendizagem>
+                </ModuleBox>
                 ))}
                 </>
 

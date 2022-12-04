@@ -19,29 +19,29 @@ import BoxContents from "../components/Buttons/BoxContents";
 import DropdownContents from "../components/Buttons/DropdowContents";
 import LinkContents from "../components/Buttons/LinkContents";
 
-import Dates from "../components/ObjetoDeAprendizagem/Dates";
+import Dates from "../components/ModuleBox/Dates";
 
 import Caixa from "../components/Caixa";
 import Breadcrumbs from "../components/Breadcrumbs";
 import BCLink from "../components/Breadcrumbs/Link";
 
-import BoxTitle from "../components/ObjetoDeAprendizagem/BoxTitle";
-import TituloContents from "../components/ObjetoDeAprendizagem/TituloContents";
-import ContentUpdate from "../components/ObjetoDeAprendizagem/ContentUpdate";
+import BoxTitle from "../components/ModuleBox/BoxTitle";
+import ContentTitle from "../components/ModuleBox/ContentTitle";
+import ContentUpdate from "../components/ModuleBox/ContentUpdate";
 import editIcon from "../icons/editar.svg";
 import TooltipEdit from "../components/Tooltip/TooltipEdit";
 
-import Video from "../components/ObjetoDeAprendizagem/Video";
-import Audio from "../components/ObjetoDeAprendizagem/Audio";
+import Video from "../components/ModuleBox/Video";
+import Audio from "../components/ModuleBox/Audio";
 
-import BoxText from "../components/ObjetoDeAprendizagem/BoxText";
-import Texto from "../components/ObjetoDeAprendizagem/Texto";
+import BoxText from "../components/ModuleBox/BoxText";
+import Text from "../components/ModuleBox/Text";
 
 import CaixaQuiz from "../components/Quiz";
 import Questao from "../components/Quiz/Questao";
 import TituloPergunta from "../components/Quiz/TituloPergunta";
-import Alternativas from "../components/Quiz/Alternativas";
-import Alternativa from "../components/Quiz/Alternativa";
+import AlternativesBox from "../components/Quiz/AlternativesBox";
+import Alternative from "../components/Quiz/Alternative";
 
 export default function Modules(){
 
@@ -135,7 +135,7 @@ export default function Modules(){
                 {contents.map(content => (
                     <>
                 <BoxTitle key={content.id}>
-                    <TituloContents>O que vamos falar nesse módulo?</TituloContents>
+                    <ContentTitle>O que vamos falar nesse módulo?</ContentTitle>
                     <ContentUpdate onClick={(event) => handleGoToContent(event, content)} >
                         <img src={editIcon}/>
                         <TooltipEdit className="tooltip">Alterar Conteúdos</TooltipEdit>
@@ -156,15 +156,15 @@ export default function Modules(){
                 </Audio>
                 
                 <BoxText>
-                    <Texto>
+                    <Text>
                         {content.text}
-                    </Texto>
+                    </Text>
                 </BoxText>
                 </>
                 ))}
            
                 <BoxTitle key={quizzes?.id}>
-                    <TituloContents> Quiz </TituloContents>
+                    <ContentTitle> Quiz </ContentTitle>
                     <ContentUpdate onClick={(event) => handleGoToQuizzes(event, quizzes)} >
                         <img src={editIcon}/>
                         <TooltipEdit className="tooltip"> Alterar Quiz </TooltipEdit>
@@ -178,16 +178,16 @@ export default function Modules(){
                     <Questao>
                         <TituloPergunta key={quiz.id}> {quiz.question} </TituloPergunta>
 
-                        <Alternativas>
+                        <AlternativesBox>
                         {quiz.alternatives.map( alt => (
 
-                            <Alternativa>
+                            <Alternative>
                             <label for="alternative"><input type="checkbox" checked={alt.correct} disabled /> 
                             {alt.alternative}
                             </label>
-                            </Alternativa>
+                            </Alternative>
                         ))}
-                        </Alternativas>
+                        </AlternativesBox>
                     </Questao>
                 </CaixaQuiz>
                 </>

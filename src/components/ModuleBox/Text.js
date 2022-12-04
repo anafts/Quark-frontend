@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const Texto = styled.p `
+const Text = styled.p `
     font-family: 'Rubik', sans-serif;
     line-height: 25px;
     color: #000000;
@@ -17,4 +17,4 @@ const Texto = styled.p `
     }
 `
 
-export default Texto;
+export default Text;

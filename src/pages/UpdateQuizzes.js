@@ -195,7 +195,7 @@ function CreateQuizzes() {
 
                 })
                }
-               <AddOption type="button" onClick={() => handleAddAlternative(quiz.id)}> Adicionar Alternativa </AddOption>
+               <AddOption type="button" onClick={() => handleAddAlternative(quiz.id)}> Adicionar Alternative </AddOption>
               </>
             ))
           }

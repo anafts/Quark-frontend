@@ -24,19 +24,19 @@ import Caixa from "../components/Caixa";
 import Breadcrumbs from "../components/Breadcrumbs";
 import BCLink from "../components/Breadcrumbs/Link";
 
-import BoxTitle from "../components/ObjetoDeAprendizagem/BoxTitle";
-import TituloContents from "../components/ObjetoDeAprendizagem/TituloContents";
-import ContentUpdate from "../components/ObjetoDeAprendizagem/ContentUpdate";
+import BoxTitle from "../components/ModuleBox/BoxTitle";
+import ContentTitle from "../components/ModuleBox/ContentTitle";
+import ContentUpdate from "../components/ModuleBox/ContentUpdate";
 import editIcon from "../icons/editar.svg";
 import TooltipEdit from "../components/Tooltip/TooltipEdit";
 
-import Dates from "../components/ObjetoDeAprendizagem/Dates";
+import Dates from "../components/ModuleBox/Dates";
 
 import CaixaQuiz from "../components/Quiz";
 import Questao from "../components/Quiz/Questao";
 import TituloPergunta from "../components/Quiz/TituloPergunta";
-import Alternativas from "../components/Quiz/Alternativas";
-import Alternativa from "../components/Quiz/Alternativa";
+import AlternativesBox from "../components/Quiz/AlternativesBox";
+import Alternative from "../components/Quiz/Alternative";
 
 
 export default function Quiz(){
@@ -109,7 +109,7 @@ export default function Quiz(){
                 </Breadcrumbs>
 
                 <BoxTitle>
-                    <TituloContents> Que conhecimentos prévios são importantes?</TituloContents>
+                    <ContentTitle> Que conhecimentos prévios são importantes?</ContentTitle>
                     
                     <ContentUpdate onClick={(event) => handleGoToQuizzes(event, quizzes)}>
                         <img src={editIcon}/>
@@ -129,13 +129,13 @@ export default function Quiz(){
                     <Questao>
                         <TituloPergunta> {quiz.question} </TituloPergunta>
 
-                        <Alternativas>
-                            <Alternativa>
+                        <AlternativesBox>
+                            <Alternative>
                             <label for="alternative"><input type="checkbox" checked={quiz.correct} /> 
                             {quiz.alternative}
                             </label>
-                            </Alternativa>
-                        </Alternativas>
+                            </Alternative>
+                        </AlternativesBox>
                     </Questao>
                 </CaixaQuiz>
                 </>

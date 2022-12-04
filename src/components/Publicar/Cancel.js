@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import Save from '../Buttons/Save'
 
-const Cancelar = styled.a `
+const Cancel = styled.a `
     width: 206px;
     margin: 0;
     color: #736F8A;
@@ -31,4 +31,4 @@ const Cancelar = styled.a `
     }
 `
 
-export default Cancelar
+export default Cancel

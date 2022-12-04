@@ -27,9 +27,9 @@ import CardDates from "../components/Card/CardDates";
 import CardDataTitle from "../components/Card/CardDataTitle";
 import CardData from "../components/Card/CardData";
 
-import CaixaBotoes from "../components/Publicar/CaixaBotoes";
-import Cancelar from "../components/Publicar/Cancelar";
-import Confirmar from "../components/Publicar/Confirmar";
+import ButtonBox from "../components/Publicar/ButtonBox";
+import Cancel from "../components/Publicar/Cancel";
+import Confirm from "../components/Publicar/Confirm";
 
 function Publicar() {
   return (
@@ -75,10 +75,10 @@ function Publicar() {
                     </CardDates>
                 </Card>
                 
-                <CaixaBotoes>
-                    <Cancelar href="javascript:history.back()">Cancelar</Cancelar>
-                    <Confirmar>Confirmar</Confirmar>
-                </CaixaBotoes>
+                <ButtonBox>
+                    <Cancel href="javascript:history.back()">Cancel</Cancel>
+                    <Confirm>Confirm</Confirm>
+                </ButtonBox>
 
             </CaixaPublicar>
             

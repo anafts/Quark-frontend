@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const Rodape = styled.section `
+const Footer = styled.section `
     width: 95%;
     min-height: 40px;
     margin: 15px 0 0 15px;
@@ -9,4 +9,4 @@ const Rodape = styled.section `
     justify-content: space-between;
 `
 
-export default Rodape;
+export default Footer;

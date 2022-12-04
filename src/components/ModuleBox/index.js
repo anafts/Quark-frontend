@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import Card from '../Card';
 
-const ObjetoDeAprendizagem = styled(Card) `
+const ModuleBox = styled(Card) `
     width: 40em;
     min-height: 8.6em;
     height: max-content;
@@ -13,4 +13,4 @@ const ObjetoDeAprendizagem = styled(Card) `
     }
 `
 
-export default ObjetoDeAprendizagem;
+export default ModuleBox;

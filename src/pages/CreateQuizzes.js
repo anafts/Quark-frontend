@@ -174,12 +174,12 @@ function CreateQuizzes() {
                     {
                       quiz.alternatives.map(alternative => (
                         <BoxInputColor>
-                          <PathInput placeholder ="Inserir Alternativa" name={alternative.name} value={alternative.value} onChange={event => handleInputChange(event, quiz.id)} />
+                          <PathInput placeholder ="Inserir Alternative" name={alternative.name} value={alternative.value} onChange={event => handleInputChange(event, quiz.id)} />
                           <Select type="checkbox" name={alternative.name} checked={alternative.correct} onChange={event => handleCheckboxChange(event, quiz.id)} />
                         </BoxInputColor> 
                       ))
                     }
-                  <AddOption type="button" onClick={() => handleAddAlternative(quiz.id)}>Adicionar Alternativa</AddOption>
+                  <AddOption type="button" onClick={() => handleAddAlternative(quiz.id)}>Adicionar Alternative</AddOption>
                 </>
               )
             })
