@@ -10,7 +10,7 @@ import BackBtn from "../components/Buttons/Back";
 import backIcon from "../icons/back.svg";
 import TooltipBack from "../components/Tooltip/TooltipBack";
 
-import PublishBtn from "../components/Buttons/Publicar";
+import PublishBtn from "../components/Buttons/Publish";
 
 import AddContentBtn from "../components/Buttons/AddContent";
 import addIcon from "../icons/plus.svg";
@@ -20,7 +20,7 @@ import BoxContents from "../components/Buttons/BoxContents";
 import DropdownContents from "../components/Buttons/DropdowContents";
 import LinkContents from "../components/Buttons/LinkContents";
 
-import Caixa from "../components/Caixa";
+import Box from "../components/Box";
 import Breadcrumbs from "../components/Breadcrumbs";
 import BCLink from "../components/Breadcrumbs/Link";
 
@@ -32,7 +32,7 @@ import TooltipEdit from "../components/Tooltip/TooltipEdit";
 
 import Dates from "../components/ModuleBox/Dates";
 
-import CaixaQuiz from "../components/Quiz";
+import BoxQuiz from "../components/Quiz";
 import Question from "../components/Quiz/Question";
 import QuestionTittle from "../components/Quiz/QuestionTittle";
 import AlternativesBox from "../components/Quiz/AlternativesBox";
@@ -81,7 +81,7 @@ export default function Quiz(){
 
                 <LogoMenu href="/skill"></LogoMenu>
 
-                <PublishBtn href="/publicar">Publicar</PublishBtn>
+                <PublishBtn href="/publicar">Publish</PublishBtn>
             </Navbar>
             
             <BoxContents>
@@ -99,7 +99,7 @@ export default function Quiz(){
 
 
 
-            <Caixa>
+            <Box>
                 <Breadcrumbs>
                     <BCLink to={'/skill'}> Skills </BCLink>
                     <BCLink to={`/topicos/:skillId`}> Inteligência Emocional </BCLink>
@@ -124,7 +124,7 @@ export default function Quiz(){
                     <h1>Editado em {quiz.updated_at.slice(-25, 10)} </h1>
                     </Dates>
 
-                <CaixaQuiz>
+                <BoxQuiz>
 
                     <Question>
                         <QuestionTittle> {quiz.question} </QuestionTittle>
@@ -137,10 +137,10 @@ export default function Quiz(){
                             </Alternative>
                         </AlternativesBox>
                     </Question>
-                </CaixaQuiz>
+                </BoxQuiz>
                 </>
                 ))}
-            </Caixa>
+            </Box>
         </>
     );
 };

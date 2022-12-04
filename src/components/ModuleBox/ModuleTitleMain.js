@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import ListTitle from '../Titulos/ListTitle'
+import ListTitle from '../Title/ListTitle'
 
 
 const ModuleTitleMain = styled(ListTitle)`

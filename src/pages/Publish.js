@@ -2,7 +2,7 @@ import React from "react";
 
 import Navbar from "../components/Navbar";
 import LogoMenu from "../components/LogoMenu";
-import PublishBtn from '../components/Buttons/Publicar';
+import PublishBtn from '../components/Buttons/Publish';
 
 import BackBtn from '../components/Buttons/Back';
 import backIcon from '../icons/back.svg';
@@ -11,11 +11,11 @@ import TooltipBack from "../components/Tooltip/TooltipBack";
 import Breadcrumbs from "../components/Breadcrumbs";
 import BCLink from "../components/Breadcrumbs/Link";
 
-import Caixa from "../components/Caixa";
+import Box from "../components/Box";
 
-import CaixaPublicar from "../components/Publicar";
+import BoxPublish from "../components/Publish";
 
-import Titulo from "../components/Titulos/ListTitle";
+import Titulo from "../components/Title/ListTitle";
 
 import Card from "../components/Card";
 import SkillColor from "../components/Card/SkillColor";
@@ -24,14 +24,14 @@ import CardLink from "../components/Card/CardLink";
 import Tooltip from "../components/Tooltip";
 import CardTopics from "../components/Card/CardTopics";
 import CardDates from "../components/Card/CardDates";
-import CardDataTitle from "../components/Card/CardDataTitle";
-import CardData from "../components/Card/CardData";
+import CardDateTitle from "../components/Card/CardDateTitle";
+import CardDate from "../components/Card/CardDate";
 
-import ButtonBox from "../components/Publicar/ButtonBox";
-import Cancel from "../components/Publicar/Cancel";
-import Confirm from "../components/Publicar/Confirm";
+import ButtonBox from "../components/Publish/ButtonBox";
+import Cancel from "../components/Publish/Cancel";
+import Confirm from "../components/Publish/Confirm";
 
-function Publicar() {
+function Publish() {
   return (
     <>
         <Navbar>
@@ -42,18 +42,18 @@ function Publicar() {
         
             <LogoMenu  href="/skill"></LogoMenu>
         
-            <PublishBtn href="/publicar" className="oculto">Publicar</PublishBtn>
+            <PublishBtn href="/publicar" className="oculto">Publish</PublishBtn>
         </Navbar>
         
-        <Caixa>
+        <Box>
             <Breadcrumbs>
                 <BCLink href="/skill">Skills</BCLink>
                 <BCLink href="/topicos">Inteligência Emocional</BCLink>
-                <BCLink>Publicar Skill</BCLink>
+                <BCLink>Publish Skill</BCLink>
             </Breadcrumbs>
 
-            <CaixaPublicar action="/skill">
-                <Titulo>Publicar Skill</Titulo>
+            <BoxPublish action="/skill">
+                <Titulo>Publish Skill</Titulo>
 
                 <Card>
                     <SkillColor className="cor" cor={'#FF9637'} />
@@ -67,11 +67,11 @@ function Publicar() {
                     <CardTopics>3 Tópicos</CardTopics>
 
                     <CardDates>
-                        <CardDataTitle>Criado em</CardDataTitle>
-                        <CardDataTitle>Editado em</CardDataTitle>
+                        <CardDateTitle>Criado em</CardDateTitle>
+                        <CardDateTitle>Editado em</CardDateTitle>
 
-                        <CardData>18/05/2022</CardData>
-                        <CardData>21/05/2022</CardData>
+                        <CardDate>18/05/2022</CardDate>
+                        <CardDate>21/05/2022</CardDate>
                     </CardDates>
                 </Card>
                 
@@ -80,11 +80,11 @@ function Publicar() {
                     <Confirm>Confirm</Confirm>
                 </ButtonBox>
 
-            </CaixaPublicar>
+            </BoxPublish>
             
-        </Caixa>
+        </Box>
     </>
   );
 }
 
-export default Publicar;
+export default Publish;

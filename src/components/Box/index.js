@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const Caixa = styled.section `
+const Box = styled.section `
     width: 100vw;
     min-height: 90vh;
     max-height: max-content;
@@ -12,4 +12,4 @@ const Caixa = styled.section `
     flex-direction: column;
 `
 
-export default Caixa;
+export default Box;

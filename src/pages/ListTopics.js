@@ -4,7 +4,7 @@ import axios from "axios";
 
 import Navbar from "../components/Navbar";
 import LogoMenu from "../components/LogoMenu";
-import PublishBtn from '../components/Buttons/Publicar';
+import PublishBtn from '../components/Buttons/Publish';
 
 import BackBtn from '../components/Buttons/Back';
 import backIcon from '../icons/back.svg';
@@ -17,7 +17,7 @@ import AddTopicoBtn from "../components/Buttons/Add";
 import addIcon from '../icons/plus.svg';
 import TooltipAdd from "../components/Tooltip/TooltipAdd";
 
-import Caixa from "../components/Caixa";
+import Box from "../components/Box";
 import GridTopics from "../components/GridSkills";
 
 import Card from "../components/Card/InternalCard";
@@ -25,10 +25,10 @@ import CardTilte from "../components/Card/CardTitle";
 import CardLink from "../components/Card/CardLink";
 import CardTopics from "../components/Card/CardTopics";
 import CardDates from "../components/Card/CardDates";
-import CardData from "../components/Card/CardData";
-import CardDataTitle from "../components/Card/CardDataTitle";
-import ListTitle from "../components/Titulos/ListTitle";
-import Tooltip from "../components/Tooltip/TooltipInterno";
+import CardDate from "../components/Card/CardDate";
+import CardDateTitle from "../components/Card/CardDateTitle";
+import ListTitle from "../components/Title/ListTitle";
+import Tooltip from "../components/Tooltip/TooltipInternal";
 
 import CardEdit from "../components/Card/InternalCardEdit";
 import editIcon from '../icons/editar.svg';
@@ -68,7 +68,7 @@ function Topics() {
         
             <LogoMenu  href="/skill"></LogoMenu>
         
-            <PublishBtn href="/publicar">Publicar</PublishBtn>
+            <PublishBtn href="/publicar">Publish</PublishBtn>
         </Navbar>
 
         <AddTopicoBtn to={`/criartopico/${params.skillId}`}>
@@ -77,7 +77,7 @@ function Topics() {
         </AddTopicoBtn>
 
         
-        <Caixa>
+        <Box>
             <Breadcrumbs>
                 <BCLink to={'/skill'}> Skills </BCLink>
                 <BCLink to={`/topicos/:skillId`} >Inteligência Emocional</BCLink>
@@ -104,16 +104,16 @@ function Topics() {
                     <CardTopics>8 Subtópicos</CardTopics>
 
                     <CardDates>
-                        <CardDataTitle>Criado em</CardDataTitle>
-                        <CardDataTitle>Editado em</CardDataTitle>
+                        <CardDateTitle>Criado em</CardDateTitle>
+                        <CardDateTitle>Editado em</CardDateTitle>
 
-                        <CardData> {topic.created_at.slice(-25, 10)} </CardData>
-                        <CardData> {topic.updated_at.slice(-25, 10)} </CardData>
+                        <CardDate> {topic.created_at.slice(-25, 10)} </CardDate>
+                        <CardDate> {topic.updated_at.slice(-25, 10)} </CardDate>
                     </CardDates>
                 </Card>
                 ))}
             </GridTopics>
-        </Caixa>
+        </Box>
     </>
   );
 }

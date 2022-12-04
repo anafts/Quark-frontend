@@ -4,7 +4,7 @@ import axios from "axios";
 
 import Navbar from "../components/Navbar";
 import LogoMenu from "../components/LogoMenu";
-import PublishBtn from '../components/Buttons/Publicar';
+import PublishBtn from '../components/Buttons/Publish';
 import MenuSpace from "../components/MenuSpace";
 
 import AddSkillBtn from "../components/Buttons/Add";
@@ -14,9 +14,9 @@ import TooltipAdd from "../components/Tooltip/TooltipAdd";
 import Breadcrumbs from "../components/Breadcrumbs";
 import BCLink from "../components/Breadcrumbs/Link";
 
-import Caixa from "../components/Caixa";
+import Box from "../components/Box";
 import GridSkills from "../components/GridSkills";
-import Titulo from "../components/Titulos/ListTitle";
+import Titulo from "../components/Title/ListTitle";
 
 import Card from "../components/Card";
 import CardTilte from "../components/Card/CardTitle";
@@ -24,8 +24,8 @@ import CardLink from "../components/Card/CardLink";
 import SkillColor from "../components/Card/SkillColor";
 import CardTopics from "../components/Card/CardTopics";
 import CardDates from "../components/Card/CardDates";
-import CardData from "../components/Card/CardData";
-import CardDataTitle from "../components/Card/CardDataTitle";
+import CardDate from "../components/Card/CardDate";
+import CardDateTitle from "../components/Card/CardDateTitle";
 import Tooltip from "../components/Tooltip";
 
 import CardEdit from "../components/Card/CardEdit";
@@ -51,7 +51,7 @@ function Skills() {
   const handleGoToSkill = (event, skill) => {
     event.preventDefault()
     
-    navigate(`/updateskill/${skill.id}`, {
+    navigate(`/editarskill/${skill.id}`, {
       state: skill
     })
   }
@@ -63,15 +63,15 @@ function Skills() {
         
         <LogoMenu  href="/skill"></LogoMenu>
         
-        <PublishBtn href="/publicar" className="oculto">Publicar</PublishBtn>
+        <PublishBtn href="/publicar" className="oculto">Publish</PublishBtn>
       </Navbar>
 
-      <AddSkillBtn to={'/createskill'}>
+      <AddSkillBtn to={'/criarskill'}>
         <img src={addIcon}/>
         <TooltipAdd className="tooltip">Criar Skill</TooltipAdd>
       </AddSkillBtn>
 
-      <Caixa>
+      <Box>
         <Breadcrumbs>
             <BCLink to={'/skill'}> Skills </BCLink>
         </Breadcrumbs>
@@ -98,16 +98,16 @@ function Skills() {
               <CardTopics> 3 Tópicos </CardTopics>
 
               <CardDates>
-                <CardDataTitle>Criado em</CardDataTitle>
-                <CardDataTitle>Editado em</CardDataTitle>
+                <CardDateTitle>Criado em</CardDateTitle>
+                <CardDateTitle>Editado em</CardDateTitle>
 
-                <CardData> {skill.created_at.slice(-25, 10)} </CardData>
-                <CardData> {skill.updated_at.slice(-25, 10)} </CardData>
+                <CardDate> {skill.created_at.slice(-25, 10)} </CardDate>
+                <CardDate> {skill.updated_at.slice(-25, 10)} </CardDate>
               </CardDates>
             </Card>
           ))}
         </GridSkills>
-      </Caixa>
+      </Box>
 
     </>
   );

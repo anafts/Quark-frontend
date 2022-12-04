@@ -4,13 +4,13 @@ import axios from "axios";
 
 import Navbar from "../components/Navbar";
 import LogoMenu from "../components/LogoMenu";
-import PublishBtn from "../components/Buttons/Publicar";
+import PublishBtn from "../components/Buttons/Publish";
 
 import BackBtn from '../components/Buttons/Back';
 import backIcon from '../icons/back.svg';
 import TooltipBack from "../components/Tooltip/TooltipBack";
 
-import Caixa from "../components/Caixa";
+import Box from "../components/Box";
 import Breadcrumbs from "../components/Breadcrumbs";
 import BCLink from "../components/Breadcrumbs/Link";
 
@@ -28,7 +28,7 @@ import ModuleDescription from "../components/ModuleBox/ModuleDescription";
 import ObjectUpdate from "../components/ModuleBox/ObjectUpdate";
 import editIcon from '../icons/editar.svg';
 import TooltipEdit from "../components/Tooltip/TooltipEdit";
-import TooltipObjeto from "../components/Tooltip/TooltipObjeto";
+import TooltipObject from "../components/Tooltip/TooltipObject";
 import ModuleObjectIcon from "../components/ModuleBox/ModuleObjectIcon";
 
 import bookIcon from '../icons/book.svg';
@@ -38,8 +38,8 @@ import quizIcon from '../icons/quiz.svg';
 
 import Footer from "../components/ModuleBox/Footer";
 import ModuleDates from "../components/ModuleBox/ModuleDates";
-import DataTitle from "../components/Card/CardDataTitle";
-import ObjetoData from "../components/Card/CardData";
+import DataTitle from "../components/Card/CardDateTitle";
+import ObjetoData from "../components/Card/CardDate";
 
 export default function Modules(){
 
@@ -76,7 +76,7 @@ export default function Modules(){
 
                 <LogoMenu href="/skill"></LogoMenu>
 
-                <PublishBtn href="/publicar">Publicar</PublishBtn>
+                <PublishBtn href="/publicar">Publish</PublishBtn>
             </Navbar>
             
             <AddObjetoBtn to={`/criarobjeto/${params.subtopicsId}`}>
@@ -84,7 +84,7 @@ export default function Modules(){
                 <TooltipAdd className="tooltip">Criar Objeto de Aprendizagem</TooltipAdd>
             </AddObjetoBtn>
 
-            <Caixa>
+            <Box>
                 <Breadcrumbs>
                     <BCLink to={'/skill'}> Skills </BCLink>
                     <BCLink to={`/topicos/:skillId`} >Inteligência Emocional</BCLink>
@@ -102,7 +102,7 @@ export default function Modules(){
                     <ModuleTitle key={module.id} className="TituloObjetoAprendizagem"> 
                         <CardLink to={`/conteudos/${module.id}`} >
                         {module.title}
-                            <TooltipObjeto className="tooltipTitulo"> {module.title} </TooltipObjeto>
+                            <TooltipObject className="tooltipTitulo"> {module.title} </TooltipObject>
                         </CardLink>
                     </ModuleTitle>
 
@@ -140,7 +140,7 @@ export default function Modules(){
                 ))}
                 </>
 
-            </Caixa>
+            </Box>
         </>
     );
 };

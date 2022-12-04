@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-const CaixaQuiz = styled.section`
+const BoxQuiz = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
 `
 
-export default CaixaQuiz
+export default BoxQuiz

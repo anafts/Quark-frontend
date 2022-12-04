@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom'
 
-import MainTitle from "../components/Titulos/MainTitle";
+import MainTitle from "../components/Title/MainTitle";
 import LoginLogo from "../components/Login/LoginLogo";
 import FormLogin from "../components/Login";
 import SaveButton from "../components/Buttons/Save"

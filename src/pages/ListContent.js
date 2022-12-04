@@ -9,7 +9,7 @@ import BackBtn from "../components/Buttons/Back";
 import backIcon from "../icons/back.svg";
 import TooltipBack from "../components/Tooltip/TooltipBack";
 
-import PublishBtn from "../components/Buttons/Publicar";
+import PublishBtn from "../components/Buttons/Publish";
 
 import AddContentBtn from "../components/Buttons/AddContent";
 import addIcon from "../icons/plus.svg";
@@ -21,7 +21,7 @@ import LinkContents from "../components/Buttons/LinkContents";
 
 import Dates from "../components/ModuleBox/Dates";
 
-import Caixa from "../components/Caixa";
+import Box from "../components/Box";
 import Breadcrumbs from "../components/Breadcrumbs";
 import BCLink from "../components/Breadcrumbs/Link";
 
@@ -37,7 +37,7 @@ import Audio from "../components/ModuleBox/Audio";
 import BoxText from "../components/ModuleBox/BoxText";
 import Text from "../components/ModuleBox/Text";
 
-import CaixaQuiz from "../components/Quiz";
+import BoxQuiz from "../components/Quiz";
 import Question from "../components/Quiz/Question";
 import QuestionTittle from "../components/Quiz/QuestionTittle";
 import AlternativesBox from "../components/Quiz/AlternativesBox";
@@ -103,7 +103,7 @@ export default function Modules(){
 
                 <LogoMenu href="/skill"></LogoMenu>
 
-                <PublishBtn href="/publicar">Publicar</PublishBtn>
+                <PublishBtn href="/publicar">Publish</PublishBtn>
             </Navbar>
             
             <BoxContents>
@@ -122,7 +122,7 @@ export default function Modules(){
 
 
 
-            <Caixa>
+            <Box>
                 <Breadcrumbs>
                     <BCLink to={'/skill'}> Skills </BCLink>
                     <BCLink to={`/topicos/:skillId`} >Inteligência Emocional</BCLink>
@@ -173,7 +173,7 @@ export default function Modules(){
 
                  {quizzes?.questions.map(quiz => (
                     <>
-                <CaixaQuiz>
+                <BoxQuiz>
 
                     <Question>
                         <QuestionTittle key={quiz.id}> {quiz.question} </QuestionTittle>
@@ -189,10 +189,10 @@ export default function Modules(){
                         ))}
                         </AlternativesBox>
                     </Question>
-                </CaixaQuiz>
+                </BoxQuiz>
                 </>
                 ))}
-                </Caixa>
+                </Box>
         </>
 
     );

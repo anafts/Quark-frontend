@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const TooltipInterno = styled.span `
+const TooltipInternal = styled.span `
     
     font-family: 'Rubik', sans-serif;
     font-weight: 400;
@@ -31,4 +31,4 @@ const TooltipInterno = styled.span `
 
 `
 
-export default TooltipInterno;
+export default TooltipInternal;

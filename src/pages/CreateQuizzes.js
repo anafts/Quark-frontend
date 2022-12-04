@@ -4,22 +4,22 @@ import { useNavigate, useParams } from 'react-router-dom'
 
 import Navbar from "../components/Navbar";
 import LogoMenu from "../components/LogoMenu";
-import PublishBtn from '../components/Buttons/Publicar';
+import PublishBtn from '../components/Buttons/Publish';
 import BackBtn from '../components/Buttons/Back';
 import { ReactComponent } from '../icons/back.svg';
 
 import Breadcrumbs from "../components/Breadcrumbs";
 import BCLink from "../components/Breadcrumbs/Link";
 
-import Caixa from "../components/Caixa";
+import Box from "../components/Box";
 import Form from "../components/Form";
-import MainTitle from "../components/Titulos/MainTitle";
+import MainTitle from "../components/Title/MainTitle";
 import SaveButton from "../components/Buttons/Save";
 
 import PathInput from "../components/Form/PathInput";
 import BoxInputColor from "../components/Form/BoxInputColor";
 import Input from "../components/Form/Input";
-import QuestionTitle from "../components/Titulos/QuestionTitle";
+import QuestionTitle from "../components/Title/QuestionTitle";
 import Select from "../components/Form/Select";
 import AddOption from "../components/Buttons/AddOption";
 import AddQuestion from "../components/Buttons/AddQuestion";
@@ -148,10 +148,10 @@ function CreateQuizzes() {
         
         <LogoMenu href="/skill"></LogoMenu>
 
-        <PublishBtn href="/publicar" className="oculto">Publicar</PublishBtn>
+        <PublishBtn href="/publicar" className="oculto">Publish</PublishBtn>
       </Navbar>
       
-      <Caixa>
+      <Box>
         <Breadcrumbs>
           <BCLink to={'/skill'}> Skills </BCLink>
           <BCLink to={`/topicos/:skillId`}> Inteligência Emocional </BCLink>
@@ -188,7 +188,7 @@ function CreateQuizzes() {
           <SaveButton type="Submit">Save</SaveButton>
 
         </Form>        
-      </Caixa>
+      </Box>
     </>
   );
 }

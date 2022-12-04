@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const Publicar = styled.form `
+const Publish = styled.form `
     width: 520px;
     height: 560px;
     margin-top: 29px;
@@ -14,4 +14,4 @@ const Publicar = styled.form `
 
 `
 
-export default Publicar;
+export default Publish;

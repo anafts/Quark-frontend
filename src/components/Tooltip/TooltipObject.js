@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 import Tooltip from '.'
 
-const TooltipObjeto = styled(Tooltip) `
+const TooltipObject = styled(Tooltip) `
     transform: translateY(-20px);
 `
 
-export default TooltipObjeto
+export default TooltipObject

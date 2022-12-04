@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import QuestionTitle from '../Titulos/QuestionTitle';
+import QuestionTitle from '../Title/QuestionTitle';
 
 const QuestionTittle = styled(QuestionTitle)`
     width: 100%;

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 import Navbar from "../components/Navbar";
 import LogoMenu from "../components/LogoMenu";
-import PublishBtn from '../components/Buttons/Publicar';
+import PublishBtn from '../components/Buttons/Publish';
 
 import BackBtn from '../components/Buttons/Back';
 import backIcon from '../icons/back.svg';
@@ -13,9 +13,9 @@ import TooltipBack from "../components/Tooltip/TooltipBack";
 import Breadcrumbs from "../components/Breadcrumbs";
 import BCLink from "../components/Breadcrumbs/Link";
 
-import Caixa from "../components/Caixa";
+import Box from "../components/Box";
 import Form from "../components/Form";
-import MainTitle from "../components/Titulos/MainTitle";
+import MainTitle from "../components/Title/MainTitle";
 import Input from "../components/Form/Input";
 
 import InputColor from "../components/Form/InputColor";
@@ -42,7 +42,7 @@ function CreateSkills() {
         navigate('/skill')
       })
       .catch((error) => {
-        navigate('/createskill')
+        navigate('/criarskill')
       })
  }
 
@@ -56,10 +56,10 @@ function CreateSkills() {
         
         <LogoMenu href="/skill"></LogoMenu>
 
-        <PublishBtn href="/publicar" className="oculto">Publicar</PublishBtn>
+        <PublishBtn href="/publicar" className="oculto">Publish</PublishBtn>
       </Navbar>
       
-      <Caixa>
+      <Box>
         <Breadcrumbs>
           <BCLink to={'/skill'}> Skills </BCLink>
           <BCLink> Criar Skill </BCLink>
@@ -77,7 +77,7 @@ function CreateSkills() {
 
           <SaveButton type="Submit">Save</SaveButton>
         </Form>        
-      </Caixa>
+      </Box>
     </>
   );
 }

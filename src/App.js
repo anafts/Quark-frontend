@@ -29,7 +29,7 @@ import CreateQuizzes from "./pages/CreateQuizzes";
 import UpdateQuizzes from "./pages/UpdateQuizzes";
 
 import NotFound from "./pages/NotFound";
-import Publicar from "./pages/Publish";
+import Publish from "./pages/Publish";
 
 const App = () => {
   return (
@@ -40,8 +40,8 @@ const App = () => {
           <Route exact path="/signup" element={<Signup/>}/>
           
           <Route exact path="/skill" element={<Skills/>}/>
-          <Route exact path="/createskill" element={<CreateSkill/>}/>
-          <Route exact path="/updateskill/:id" element={<UpdateSkills/>}/>
+          <Route exact path="/criarskill" element={<CreateSkill/>}/>
+          <Route exact path="/editarskill/:id" element={<UpdateSkills/>}/>
 
           <Route exact path="/topicos/:skillId" element={<Topics/>}/>
           <Route exact path="/criartopico/:skillId" element={<CreateTopics/>}/>
@@ -63,7 +63,7 @@ const App = () => {
           <Route exact path="/adicionarquiz/:contentId" element={<CreateQuizzes/>}/>
           <Route exact path="/editarquiz/:id" element={<UpdateQuizzes/>}/>
 
-          <Route exact path="/publicar" element={<Publicar/>}/>
+          <Route exact path="/publicar" element={<Publish/>}/>
 
           <Route path='*' exact={true} element={<NotFound />} />
         </Routes>
