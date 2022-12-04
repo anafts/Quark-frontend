@@ -93,8 +93,8 @@ export default function Quiz(){
                 </AddContentBtn>
 
                 <DropdownContents className={ isOpen? 'show' : ''}>
-                    <LinkContents href="/adicionarconteudo">Adicionar Conteúdo</LinkContents>
-                    <LinkContents href="/adicionarquiz">Adicionar Quiz</LinkContents>
+                    <LinkContents to="/adicionarconteudo">Adicionar Conteúdo</LinkContents>
+                    <LinkContents to="/adicionarquiz">Adicionar Quiz</LinkContents>
                 </DropdownContents>
                 
             </BoxContents>
@@ -107,7 +107,7 @@ export default function Quiz(){
                     <BCLink to={`/topicos/:skillId`}> Inteligência Emocional </BCLink>
                     <BCLink to={`/subtopicos/:topicsId`}> Introdução </BCLink>
                     <BCLink to={`/objetosaprendizagem/:subtopicsId`}> O que vamos tratar no módulo? </BCLink>
-                    <BCLink> Que conhecimentos prévios são importantes? </BCLink>
+                    <BCLink to="#"> Que conhecimentos prévios são importantes? </BCLink>
                 </Breadcrumbs>
 
                 <BoxTitle>

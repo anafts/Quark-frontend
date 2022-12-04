@@ -64,7 +64,7 @@ function CriarSubTopics() {
           <BCLink to={'/skill'}> Skills </BCLink>
           <BCLink to={`/topicos/:skillId`}> Inteligência Emocional </BCLink>
           <BCLink to={`/subtopicos/:topicsId`} >Introdução</BCLink>
-          <BCLink href="#">Criar subtópico</BCLink>
+          <BCLink to="#">Criar subtópico</BCLink>
         </Breadcrumbs>
 
         <Form onSubmit={createSubTopics} >

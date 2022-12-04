@@ -66,7 +66,7 @@ function CreateTopics() {
         <Breadcrumbs>
           <BCLink to={'/skill'}> Skills </BCLink>
           <BCLink to={`/topicos/:skillId`}> Inteligência Emocional </BCLink>
-          <BCLink href="#"> Criar Tópico </BCLink>
+          <BCLink to="#"> Criar Tópico </BCLink>
         </Breadcrumbs>
 
         <Form onSubmit={createTopics}>

@@ -47,9 +47,9 @@ function Publish() {
         
         <Box>
             <Breadcrumbs>
-                <BCLink href="/skill">Skills</BCLink>
-                <BCLink href="/topicos">Inteligência Emocional</BCLink>
-                <BCLink>Publish Skill</BCLink>
+                <BCLink to="/skill">Skills</BCLink>
+                <BCLink to="/topicos">Inteligência Emocional</BCLink>
+                <BCLink to="#">Publish Skill</BCLink>
             </Breadcrumbs>
 
             <BoxPublish action="/skill">

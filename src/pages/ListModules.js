@@ -92,7 +92,7 @@ export default function Modules(){
                     <BCLink to={`/topicos/:skillId`} >Inteligência Emocional</BCLink>
                     <BCLink to={`/subtopicos/:topicsId`} >Introdução</BCLink>
 
-                    <BCLink href="#">O que vamos tratar no módulo?</BCLink>
+                    <BCLink to="#">O que vamos tratar no módulo?</BCLink>
                 </Breadcrumbs>
 
                 <ModuleTitleMain>O que vamos tratar no módulo?</ModuleTitleMain>
