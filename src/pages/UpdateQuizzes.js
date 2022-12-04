@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 
 import Navbar from "../components/Navbar";
 import LogoMenu from "../components/LogoMenu";
-import PublicarBtn from '../components/Buttons/Publicar';
+import PublishBtn from '../components/Buttons/Publicar';
 import BackBtn from '../components/Buttons/Back';
 import { ReactComponent } from '../icons/back.svg';
 
@@ -17,12 +17,12 @@ import Titulo1 from "../components/Titulos/Titulo1";
 import SaveButton from "../components/Buttons/Save";
 
 import InputCaminho from "../components/Form/InputCaminho";
-import CaixaInputCor from "../components/Form/CaixaInputCor";
+import BoxInputColor from "../components/Form/BoxInputColor";
 import Input from "../components/Form/Input";
 import TituloQuestao from "../components/Titulos/TituloQuestao";
 import Select from "../components/Form/Select";
-import AddOpcao from "../components/Buttons/AddOpcao";
-import AddQuestao from "../components/Buttons/AddQuestao";
+import AddOption from "../components/Buttons/AddOption";
+import AddQuestion from "../components/Buttons/AddQuestion";
 
 function CreateQuizzes() {
 
@@ -158,7 +158,7 @@ function CreateQuizzes() {
         
         <LogoMenu href="/skill"></LogoMenu>
 
-        <PublicarBtn href="/publicar" className="oculto">Publicar</PublicarBtn>
+        <PublishBtn href="/publicar" className="oculto">Publicar</PublishBtn>
       </Navbar>
       
       <Caixa>
@@ -187,21 +187,21 @@ function CreateQuizzes() {
                 quiz.alternatives.map( alt => {
 
                   return (
-                    <CaixaInputCor >
+                    <BoxInputColor >
                     <InputCaminho name={alt.id} value={alt.value} onChange={event => handleInputChange(event, quiz.id)} />
                     <Select name={alt.id} type="checkbox" checked={alt.correct} onChange={event => handleCheckboxChange(event, quiz.id)} />
-                    </CaixaInputCor> 
+                    </BoxInputColor> 
                   )
 
                 })
                }
-               <AddOpcao type="button" onClick={() => handleAddAlternative(quiz.id)}> Adicionar Alternativa </AddOpcao>
+               <AddOption type="button" onClick={() => handleAddAlternative(quiz.id)}> Adicionar Alternativa </AddOption>
               </>
             ))
           }
          </>
 
-              <AddQuestao type="button" onClick={handleAddQuestion}>Adicionar Questão</AddQuestao>
+              <AddQuestion type="button" onClick={handleAddQuestion}>Adicionar Questão</AddQuestion>
               <SaveButton type="Submit">Save</SaveButton>
         
       </Form>        

@@ -4,7 +4,7 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom'
 
 import Navbar from "../components/Navbar";
 import LogoMenu from "../components/LogoMenu";
-import PublicarBtn from '../components/Buttons/Publicar';
+import PublishBtn from '../components/Buttons/Publicar';
 
 import BackBtn from '../components/Buttons/Back';
 import backIcon from '../icons/back.svg';
@@ -18,7 +18,7 @@ import Form from "../components/Form";
 import Titulo1 from "../components/Titulos/Titulo1";
 import Input from "../components/Form/Input";
 import InputCor from "../components/Form/InputCor";
-import CaixaInputCor from "../components/Form/CaixaInputCor";
+import BoxInputColor from "../components/Form/BoxInputColor";
 
 import SaveButton from "../components/Buttons/Save";
 
@@ -57,7 +57,7 @@ function UpdateSkills() {
         
         <LogoMenu href="/skill"></LogoMenu>
 
-        <PublicarBtn href="/publicar" className="oculto">Publicar</PublicarBtn>
+        <PublishBtn href="/publicar" className="oculto">Publicar</PublishBtn>
       </Navbar>
 
       <Caixa>
@@ -71,10 +71,10 @@ function UpdateSkills() {
 
           <Input type="text" placeholder="Título" onChange={event => setTitle(event.currentTarget.value)} value={title} />
           
-          <CaixaInputCor>
+          <BoxInputColor>
             <InputCor type="text" onChange={event => setColor(event.currentTarget.value)} value={color} />
             <InputCor type="color" onChange={event => setColor(event.currentTarget.value)} value={color} />
-          </CaixaInputCor>
+          </BoxInputColor>
 
           <SaveButton type="Submit">Editar</SaveButton>
         </Form>        

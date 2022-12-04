@@ -4,7 +4,7 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
 import Navbar from "../components/Navbar";
 import LogoMenu from "../components/LogoMenu";
-import PublicarBtn from '../components/Buttons/Publicar';
+import PublishBtn from '../components/Buttons/Publicar';
 import BackBtn from '../components/Buttons/Back';
 import { ReactComponent } from '../icons/back.svg';
 
@@ -18,13 +18,13 @@ import SaveButton from "../components/Buttons/Save";
 
 import InputCaminho from "../components/Form/InputCaminho";
 import DescriptionText from "../components/Form/TextArea";
-import CaixaInputCor from "../components/Form/CaixaInputCor";
-import AddContBtn from "../components/Buttons/AddConteudo";
+import BoxInputColor from "../components/Form/BoxInputColor";
+import AddContBtn from "../components/Buttons/AddContent";
 
-import CaixaInputArquivo from "../components/Form/CaixaInputArquivo";
-import NomeArquivo from "../components/Form/NomeArquivo";
-import LabelInputArquivo from "../components/Form/LabelInputArquivo";
-import InputArquivo from "../components/Form/InputArquivo";
+import BoxFileInput from "../components/Form/BoxFileInput";
+import FileName from "../components/Form/FileName";
+import LabelInputFile from "../components/Form/LabelInputFile";
+import InputFile from "../components/Form/InputFile";
 import addAudio from "../icons/add_audio.svg";
 import addVideo from "../icons/add_video.svg";
 
@@ -78,7 +78,7 @@ function UpdateContents() {
         
         <LogoMenu href="/skill"></LogoMenu>
 
-        <PublicarBtn href="/publicar" className="oculto">Publicar</PublicarBtn>
+        <PublishBtn href="/publicar" className="oculto">Publicar</PublishBtn>
       </Navbar>
       
       <Caixa>
@@ -95,21 +95,21 @@ function UpdateContents() {
 
           <Titulo1>Alterar conteúdos</Titulo1>
           
-          <CaixaInputArquivo>
-            <NomeArquivo id="nomeArquivoVideo"/>
-            <LabelInputArquivo for="arquivoVideo">
+          <BoxFileInput>
+            <FileName id="nomeArquivoVideo"/>
+            <LabelInputFile for="arquivoVideo">
               <img src={addVideo} />
-            </LabelInputArquivo>
-            <InputArquivo type="file" id="arquivoVideo" onChange={handleFileInputChange} name="video" accept="video/mp4" />
-          </CaixaInputArquivo>
+            </LabelInputFile>
+            <InputFile type="file" id="arquivoVideo" onChange={handleFileInputChange} name="video" accept="video/mp4" />
+          </BoxFileInput>
 
-          <CaixaInputArquivo>
-            <NomeArquivo id="nomeArquivoAudio"/>
-            <LabelInputArquivo for="arquivoAudio">
+          <BoxFileInput>
+            <FileName id="nomeArquivoAudio"/>
+            <LabelInputFile for="arquivoAudio">
               <img src={addAudio} />
-            </LabelInputArquivo>
-            <InputArquivo type="file" id="arquivoAudio" onChange={handleFileInputChange} name="audio" accept="audio/mp3" />
-          </CaixaInputArquivo>
+            </LabelInputFile>
+            <InputFile type="file" id="arquivoAudio" onChange={handleFileInputChange} name="audio" accept="audio/mp3" />
+          </BoxFileInput>
 
           <DescriptionText onChange={event => setText(event.currentTarget.value)} value={text} />
           <SaveButton type="Submit" onClick={updateContentSubmmit}> Save </SaveButton>
