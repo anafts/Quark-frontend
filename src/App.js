@@ -29,7 +29,7 @@ import CreateQuizzes from "./pages/CreateQuizzes";
 import UpdateQuizzes from "./pages/UpdateQuizzes";
 
 import NotFound from "./pages/NotFound";
-import Publicar from "./pages/Publicar";
+import Publicar from "./pages/Publish";
 
 const App = () => {
   return (

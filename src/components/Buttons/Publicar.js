@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const PublicarBtn = styled.a `
+const PublishBtn = styled.a `
     width: 121px;
     height: 37px;
     background-color: #342D68;
@@ -26,4 +26,4 @@ const PublicarBtn = styled.a `
     }
 `
 
-export default PublicarBtn;
+export default PublishBtn;
