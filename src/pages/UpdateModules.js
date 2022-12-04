@@ -4,7 +4,7 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
 import Navbar from "../components/Navbar";
 import LogoMenu from "../components/LogoMenu";
-import PublicarBtn from '../components/Buttons/Publicar';
+import PublishBtn from '../components/Buttons/Publicar';
 import BackBtn from '../components/Buttons/Back';
 import { ReactComponent } from '../icons/back.svg';
 
@@ -53,7 +53,7 @@ function UpdateModules() {
         
         <LogoMenu href="/skill"></LogoMenu>
 
-        <PublicarBtn href="/publicar" className="oculto">Publicar</PublicarBtn>
+        <PublishBtn href="/publicar" className="oculto">Publicar</PublishBtn>
       </Navbar>
       
       <Caixa>

@@ -2,7 +2,7 @@ import React from "react";
 
 import Navbar from "../components/Navbar";
 import LogoMenu from "../components/LogoMenu";
-import PublicarBtn from '../components/Buttons/Publicar';
+import PublishBtn from '../components/Buttons/Publicar';
 
 import BackBtn from '../components/Buttons/Back';
 import backIcon from '../icons/back.svg';
@@ -10,8 +10,8 @@ import TooltipBack from "../components/Tooltip/TooltipBack";
 
 import Caixa from "../components/Caixa";
 import Erro from "../components/Erro/index";
-import ErroCodigo from "../components/Erro/ErroCodigo";
-import ErroMensagem from "../components/Erro/ErroMensagem";
+import CodeError from "../components/Erro/CodeError";
+import ErrorMessage from "../components/Erro/ErrorMessage";
 
 function NotFound() {
   return (
@@ -24,14 +24,14 @@ function NotFound() {
         
         <LogoMenu href="/skill"></LogoMenu>
 
-        <PublicarBtn href="/publicar" className="oculto">Publicar</PublicarBtn>
+        <PublishBtn href="/publicar" className="oculto">Publicar</PublishBtn>
       </Navbar>
       
       <Caixa>
           <Erro>
-              <ErroCodigo>404</ErroCodigo>
-              <ErroMensagem>Oops!</ErroMensagem>
-              <ErroMensagem>Página não encontrada :(</ErroMensagem>
+              <CodeError>404</CodeError>
+              <ErrorMessage>Oops!</ErrorMessage>
+              <ErrorMessage>Página não encontrada :(</ErrorMessage>
           </Erro>
       </Caixa>
     </>

@@ -4,7 +4,7 @@ import axios from "axios";
 
 import Navbar from "../components/Navbar";
 import LogoMenu from "../components/LogoMenu";
-import PublicarBtn from "../components/Buttons/Publicar";
+import PublishBtn from "../components/Buttons/Publicar";
 
 import BackBtn from '../components/Buttons/Back';
 import backIcon from '../icons/back.svg';
@@ -76,7 +76,7 @@ export default function Modules(){
 
                 <LogoMenu href="/skill"></LogoMenu>
 
-                <PublicarBtn href="/publicar">Publicar</PublicarBtn>
+                <PublishBtn href="/publicar">Publicar</PublishBtn>
             </Navbar>
             
             <AddObjetoBtn to={`/criarobjeto/${params.subtopicsId}`}>

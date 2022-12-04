@@ -10,13 +10,13 @@ import BackBtn from "../components/Buttons/Back";
 import backIcon from "../icons/back.svg";
 import TooltipBack from "../components/Tooltip/TooltipBack";
 
-import PublicarBtn from "../components/Buttons/Publicar";
+import PublishBtn from "../components/Buttons/Publicar";
 
-import AddConteudoBtn from "../components/Buttons/AddConteudo";
+import AddContentBtn from "../components/Buttons/AddContent";
 import addIcon from "../icons/plus.svg";
 import TooltipAdd from "../components/Tooltip/TooltipAdd";
 
-import CaixaContents from "../components/Buttons/CaixaContents";
+import BoxContents from "../components/Buttons/BoxContents";
 import DropdownContents from "../components/Buttons/DropdowContents";
 import LinkContents from "../components/Buttons/LinkContents";
 
@@ -81,21 +81,21 @@ export default function Quiz(){
 
                 <LogoMenu href="/skill"></LogoMenu>
 
-                <PublicarBtn href="/publicar">Publicar</PublicarBtn>
+                <PublishBtn href="/publicar">Publicar</PublishBtn>
             </Navbar>
             
-            <CaixaContents>
-                <AddConteudoBtn onClick={handleOpenDropdown}>
+            <BoxContents>
+                <AddContentBtn onClick={handleOpenDropdown}>
                     <img src={addIcon}/>
                     <TooltipAdd className="tooltip">Adicionar Conteúdos</TooltipAdd>
-                </AddConteudoBtn>
+                </AddContentBtn>
 
                 <DropdownContents className={ isOpen? 'show' : ''}>
                     <LinkContents href="/adicionarconteudo">Adicionar Conteúdo</LinkContents>
                     <LinkContents href="/adicionarquiz">Adicionar Quiz</LinkContents>
                 </DropdownContents>
                 
-            </CaixaContents>
+            </BoxContents>
 
 
 

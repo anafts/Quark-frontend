@@ -4,8 +4,8 @@ import axios from "axios";
 
 import Navbar from "../components/Navbar";
 import LogoMenu from "../components/LogoMenu";
-import PublicarBtn from '../components/Buttons/Publicar';
-import EspacoMenu from "../components/EspacoMenu";
+import PublishBtn from '../components/Buttons/Publicar';
+import MenuSpace from "../components/MenuSpace";
 
 import AddSkillBtn from "../components/Buttons/Add";
 import addIcon from '../icons/plus.svg';
@@ -21,7 +21,7 @@ import Titulo from "../components/Titulos/TituloListagens";
 import Card from "../components/Card";
 import CardTilte from "../components/Card/CardTitle";
 import CardLink from "../components/Card/CardLink";
-import CorSkill from "../components/Card/CorSkill";
+import SkillColor from "../components/Card/SkillColor";
 import CardTopics from "../components/Card/CardTopics";
 import CardDatas from "../components/Card/CardDatas";
 import CardData from "../components/Card/CardData";
@@ -59,11 +59,11 @@ function Skills() {
   return (
     <>
       <Navbar>
-        <EspacoMenu />
+        <MenuSpace />
         
         <LogoMenu  href="/skill"></LogoMenu>
         
-        <PublicarBtn href="/publicar" className="oculto">Publicar</PublicarBtn>
+        <PublishBtn href="/publicar" className="oculto">Publicar</PublishBtn>
       </Navbar>
 
       <AddSkillBtn to={'/createskill'}>
@@ -81,7 +81,7 @@ function Skills() {
         <GridSkills>
           {skills.map(skill => (
             <Card key={skill.id}>
-              <CorSkill className="cor" cor={skill.color} />
+              <SkillColor className="cor" cor={skill.color} />
               
               <CardTilte>
                 <CardLink to={`/topicos/${skill.id}`}>
