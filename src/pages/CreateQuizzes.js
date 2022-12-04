@@ -160,7 +160,7 @@ function CreateQuizzes() {
           <BCLink to={`/subtopicos/:topicsId`}> Introdução </BCLink>
           <BCLink to={`/objetosaprendizagem/:subtopicsId`}> O que vamos tratar no módulo? </BCLink>
           <BCLink to={`/quiz/:contentId`}> Que conhecimentos prévios são importantes? </BCLink>
-          <BCLink> Adicionar Quiz </BCLink>
+          <BCLink to="#"> Adicionar Quiz </BCLink>
         </Breadcrumbs>
 
         <Form onSubmit={createQuizzes} >

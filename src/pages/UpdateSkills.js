@@ -64,7 +64,7 @@ function UpdateSkills() {
       <Box>
         <Breadcrumbs>
           <BCLink to={'/skill'}> Skills </BCLink>
-          <BCLink> Editar Skill</BCLink>
+          <BCLink to="#"> Editar Skill</BCLink>
         </Breadcrumbs>
 
         <Form onSubmit={updateSkillSubmmit} >

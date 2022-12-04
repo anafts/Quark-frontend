@@ -64,7 +64,7 @@ function CreateSkills() {
       <Box>
         <Breadcrumbs>
           <BCLink to={'/skill'}> Skills </BCLink>
-          <BCLink> Criar Skill </BCLink>
+          <BCLink to="#"> Criar Skill </BCLink>
         </Breadcrumbs>
 
         <Form onSubmit={createSkill} >
