@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 
-const TituloListagens = styled.h1 `
+const ListTitle = styled.h1 `
     font-family: 'Rubik', sans-serif;
     font-size: 32px;
     font-weight: 700;
@@ -9,4 +9,4 @@ const TituloListagens = styled.h1 `
     color: #342D68;    
 `
 
-export default TituloListagens;
+export default ListTitle;

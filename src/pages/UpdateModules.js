@@ -13,7 +13,7 @@ import BCLink from "../components/Breadcrumbs/Link";
 
 import Caixa from "../components/Caixa";
 import Form from "../components/Form";
-import Titulo1 from "../components/Titulos/Titulo1";
+import MainTitle from "../components/Titulos/MainTitle";
 import SaveButton from "../components/Buttons/Save";
 import Input from "../components/Form/Input";
 import DescriptionText from "../components/Form/TextArea";
@@ -66,7 +66,7 @@ function UpdateModules() {
         </Breadcrumbs>
 
         <Form onSubmit={updateModulesSubmmit} >
-          <Titulo1>Editar Objeto de Aprendizagem</Titulo1>
+          <MainTitle>Editar Objeto de Aprendizagem</MainTitle>
 
           <Input  onChange={event => setTitle(event.currentTarget.value)} value={title}  />
           <Input type="number"  onChange={event => setOrder(event.currentTarget.value)} value={order} />

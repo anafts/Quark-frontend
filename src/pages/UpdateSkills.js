@@ -15,7 +15,7 @@ import BCLink from "../components/Breadcrumbs/Link";
 
 import Caixa from "../components/Caixa";
 import Form from "../components/Form";
-import Titulo1 from "../components/Titulos/Titulo1";
+import MainTitle from "../components/Titulos/MainTitle";
 import Input from "../components/Form/Input";
 import InputColor from "../components/Form/InputColor";
 import BoxInputColor from "../components/Form/BoxInputColor";
@@ -67,7 +67,7 @@ function UpdateSkills() {
         </Breadcrumbs>
 
         <Form onSubmit={updateSkillSubmmit} >
-          <Titulo1>Editar Skill</Titulo1>
+          <MainTitle>Editar Skill</MainTitle>
 
           <Input type="text" placeholder="Título" onChange={event => setTitle(event.currentTarget.value)} value={title} />
           

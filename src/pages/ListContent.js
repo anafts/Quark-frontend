@@ -38,8 +38,8 @@ import BoxText from "../components/ModuleBox/BoxText";
 import Text from "../components/ModuleBox/Text";
 
 import CaixaQuiz from "../components/Quiz";
-import Questao from "../components/Quiz/Questao";
-import TituloPergunta from "../components/Quiz/TituloPergunta";
+import Question from "../components/Quiz/Question";
+import QuestionTittle from "../components/Quiz/QuestionTittle";
 import AlternativesBox from "../components/Quiz/AlternativesBox";
 import Alternative from "../components/Quiz/Alternative";
 
@@ -175,8 +175,8 @@ export default function Modules(){
                     <>
                 <CaixaQuiz>
 
-                    <Questao>
-                        <TituloPergunta key={quiz.id}> {quiz.question} </TituloPergunta>
+                    <Question>
+                        <QuestionTittle key={quiz.id}> {quiz.question} </QuestionTittle>
 
                         <AlternativesBox>
                         {quiz.alternatives.map( alt => (
@@ -188,7 +188,7 @@ export default function Modules(){
                             </Alternative>
                         ))}
                         </AlternativesBox>
-                    </Questao>
+                    </Question>
                 </CaixaQuiz>
                 </>
                 ))}

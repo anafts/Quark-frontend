@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import TituloListagens from '../Titulos/TituloListagens'
+import ListTitle from '../Titulos/ListTitle'
 
 
-const ModuleTitleMain = styled(TituloListagens)`
+const ModuleTitleMain = styled(ListTitle)`
     padding-bottom: 1.9vh;
 `
 

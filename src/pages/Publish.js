@@ -15,7 +15,7 @@ import Caixa from "../components/Caixa";
 
 import CaixaPublicar from "../components/Publicar";
 
-import Titulo from "../components/Titulos/TituloListagens";
+import Titulo from "../components/Titulos/ListTitle";
 
 import Card from "../components/Card";
 import SkillColor from "../components/Card/SkillColor";

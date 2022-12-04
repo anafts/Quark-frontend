@@ -33,8 +33,8 @@ import TooltipEdit from "../components/Tooltip/TooltipEdit";
 import Dates from "../components/ModuleBox/Dates";
 
 import CaixaQuiz from "../components/Quiz";
-import Questao from "../components/Quiz/Questao";
-import TituloPergunta from "../components/Quiz/TituloPergunta";
+import Question from "../components/Quiz/Question";
+import QuestionTittle from "../components/Quiz/QuestionTittle";
 import AlternativesBox from "../components/Quiz/AlternativesBox";
 import Alternative from "../components/Quiz/Alternative";
 
@@ -126,8 +126,8 @@ export default function Quiz(){
 
                 <CaixaQuiz>
 
-                    <Questao>
-                        <TituloPergunta> {quiz.question} </TituloPergunta>
+                    <Question>
+                        <QuestionTittle> {quiz.question} </QuestionTittle>
 
                         <AlternativesBox>
                             <Alternative>
@@ -136,7 +136,7 @@ export default function Quiz(){
                             </label>
                             </Alternative>
                         </AlternativesBox>
-                    </Questao>
+                    </Question>
                 </CaixaQuiz>
                 </>
                 ))}

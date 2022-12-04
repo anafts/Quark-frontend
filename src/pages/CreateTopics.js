@@ -15,7 +15,7 @@ import BCLink from "../components/Breadcrumbs/Link";
 
 import Caixa from "../components/Caixa";
 import Form from "../components/Form";
-import Titulo1 from "../components/Titulos/Titulo1";
+import MainTitle from "../components/Titulos/MainTitle";
 import SaveButton from "../components/Buttons/Save";
 import Input from "../components/Form/Input";
 
@@ -68,7 +68,7 @@ function CreateTopics() {
         </Breadcrumbs>
 
         <Form onSubmit={createTopics}>
-          <Titulo1>Criar Tópico</Titulo1>
+          <MainTitle>Criar Tópico</MainTitle>
 
           <Input placeholder="Título" onChange={event => setTitle(event.currentTarget.value)} value={title}  />
           <Input  placeholder="Ordem" type="number" onChange={event => setOrder(event.currentTarget.value)} value={order}  />

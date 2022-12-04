@@ -27,7 +27,7 @@ import CardTopics from "../components/Card/CardTopics";
 import CardDates from "../components/Card/CardDates";
 import CardData from "../components/Card/CardData";
 import CardDataTitle from "../components/Card/CardDataTitle";
-import TituloListagens from "../components/Titulos/TituloListagens";
+import ListTitle from "../components/Titulos/ListTitle";
 import Tooltip from "../components/Tooltip/TooltipInterno";
 
 import CardEdit from "../components/Card/InternalCardEdit";
@@ -87,7 +87,7 @@ function SubTopics() {
             </Breadcrumbs>
 
             
-            <TituloListagens>Introdução</TituloListagens>
+            <ListTitle> Introdução </ListTitle>
             
             <GridSubTopics>
             {subtopics.map(subtopic => (

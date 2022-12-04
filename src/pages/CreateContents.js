@@ -13,7 +13,7 @@ import BCLink from "../components/Breadcrumbs/Link";
 
 import Caixa from "../components/Caixa";
 import Form from "../components/Form";
-import Titulo1 from "../components/Titulos/Titulo1";
+import MainTitle from "../components/Titulos/MainTitle";
 import SaveButton from "../components/Buttons/Save";
 
 import PathInput from "../components/Form/PathInput";
@@ -91,7 +91,7 @@ function CreateContents() {
 
         <Form>
 
-          <Titulo1>Adicionar conteúdos</Titulo1>
+          <MainTitle>Adicionar conteúdos</MainTitle>
           
           <BoxFileInput>
             <FileName id="nomeArquivoVideo" placeholder="Adicionar Vídeo" disabled/>

@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import TituloListagens from '../Titulos/TituloListagens'
+import ListTitle from '../Titulos/ListTitle'
 
 
-const ContentTitle = styled(TituloListagens) `
+const ContentTitle = styled(ListTitle) `
     padding: 1.5vh 0 5px 0;
 `
 

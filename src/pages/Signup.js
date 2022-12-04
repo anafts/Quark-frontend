@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom'
 
-import Titulo1 from "../components/Titulos/Titulo1";
+import MainTitle from "../components/Titulos/MainTitle";
 import LoginLogo from "../components/Login/LoginLogo";
 import FormLogin from "../components/Login";
 import SaveButton from "../components/Buttons/Save"
 import Logo from "../icons/logo.svg";
 import Input from "../components/Form/Input";
-import TituloPergunta from "../components/Quiz/TituloPergunta";
+import QuestionTittle from "../components/Quiz/QuestionTittle";
 
 
 
@@ -40,15 +40,15 @@ function Signup() {
         <FormLogin onSubmit={handleFormSignup}>
 
         <LoginLogo src={Logo} />
-        <Titulo1> Crie sua conta!</Titulo1>
+        <MainTitle> Crie sua conta!</MainTitle>
 
         <label htmlFor="email"> 
-        <TituloPergunta> Digite o seu e-mail </TituloPergunta>
+        <QuestionTittle> Digite o seu e-mail </QuestionTittle>
         <Input type="text" placeholder="email" onChange={ event => setEmail (event.currentTarget.value)} value={email}></Input>
         </label>
 
         <label htmlFor="password"> 
-        <TituloPergunta> Crie uma senha </TituloPergunta>
+        <QuestionTittle> Crie uma senha </QuestionTittle>
         <Input type="password" placeholder="Senha" minLength="8" onChange={ event => setPassword (event.currentTarget.value)} value={password}></Input>
         </label>
 

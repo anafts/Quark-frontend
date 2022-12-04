@@ -27,7 +27,7 @@ import CardTopics from "../components/Card/CardTopics";
 import CardDates from "../components/Card/CardDates";
 import CardData from "../components/Card/CardData";
 import CardDataTitle from "../components/Card/CardDataTitle";
-import TituloListagens from "../components/Titulos/TituloListagens";
+import ListTitle from "../components/Titulos/ListTitle";
 import Tooltip from "../components/Tooltip/TooltipInterno";
 
 import CardEdit from "../components/Card/InternalCardEdit";
@@ -84,7 +84,7 @@ function Topics() {
             </Breadcrumbs>
 
             
-            <TituloListagens>Inteligência Emocional</TituloListagens>
+            <ListTitle>Inteligência Emocional</ListTitle>
             
             <GridTopics>
             {topics.map(topic => (

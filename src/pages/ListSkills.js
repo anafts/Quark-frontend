@@ -16,7 +16,7 @@ import BCLink from "../components/Breadcrumbs/Link";
 
 import Caixa from "../components/Caixa";
 import GridSkills from "../components/GridSkills";
-import Titulo from "../components/Titulos/TituloListagens";
+import Titulo from "../components/Titulos/ListTitle";
 
 import Card from "../components/Card";
 import CardTilte from "../components/Card/CardTitle";

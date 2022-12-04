@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 
-const TituloQuestao = styled.h2 `
+const QuestionTitle = styled.h2 `
     font-family: 'Rubik', sans-serif;
     font-size: 25px;
     font-weight: 700;
@@ -12,4 +12,4 @@ const TituloQuestao = styled.h2 `
     margin-top: 10px;
 `
 
-export default TituloQuestao;
+export default QuestionTitle;

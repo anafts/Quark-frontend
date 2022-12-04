@@ -13,13 +13,13 @@ import BCLink from "../components/Breadcrumbs/Link";
 
 import Caixa from "../components/Caixa";
 import Form from "../components/Form";
-import Titulo1 from "../components/Titulos/Titulo1";
+import MainTitle from "../components/Titulos/MainTitle";
 import SaveButton from "../components/Buttons/Save";
 
 import PathInput from "../components/Form/PathInput";
 import BoxInputColor from "../components/Form/BoxInputColor";
 import Input from "../components/Form/Input";
-import TituloQuestao from "../components/Titulos/TituloQuestao";
+import QuestionTitle from "../components/Titulos/QuestionTitle";
 import Select from "../components/Form/Select";
 import AddOption from "../components/Buttons/AddOption";
 import AddQuestion from "../components/Buttons/AddQuestion";
@@ -163,14 +163,14 @@ function CreateQuizzes() {
 
         <Form onSubmit={createQuizzes} >
 
-          <Titulo1>Adicionar Quiz</Titulo1>
+          <MainTitle>Adicionar Quiz</MainTitle>
           {
             quizzes.map(quiz => {
               return (
                 <>
-                  <TituloQuestao>{quiz.question}</TituloQuestao>
+                  <QuestionTitle>{quiz.question}</QuestionTitle>
                   <Input onChange={(event) => handleQuestionNameChange(event, quiz.id)} placeholder="Inserir pergunta"></Input>
-                  <TituloQuestao>Opções</TituloQuestao>
+                  <QuestionTitle>Opções</QuestionTitle>
                     {
                       quiz.alternatives.map(alternative => (
                         <BoxInputColor>
