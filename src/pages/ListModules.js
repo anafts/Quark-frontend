@@ -50,7 +50,7 @@ export default function Modules(){
     const params = useParams();
 
     useEffect(() => {
-        axios.get("${API_URL}/modules")
+        axios.get(`${API_URL}/modules`)
            .then((response) => {
             setModules(response.data)
           })

@@ -43,7 +43,7 @@ function Topics() {
     const params = useParams();
 
     useEffect(() => {
-        axios.get("${API_URL}/topics")
+        axios.get(`${API_URL}/topics`)
            .then((response) => {
              setTopics(response.data)
           })

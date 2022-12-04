@@ -23,7 +23,7 @@ function Signup() {
     const handleFormSignup = (event) => {
         event.preventDefault();
 
-        axios.post('${API_URL}/signup', {
+        axios.post(`${API_URL}/signup`, {
             email: email,
             password: password
         })

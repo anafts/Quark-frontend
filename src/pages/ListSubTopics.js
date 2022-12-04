@@ -43,7 +43,7 @@ function SubTopics() {
     const params = useParams();
 
     useEffect(() => {
-        axios.get("${API_URL}/subtopics")
+        axios.get(`${API_URL}/subtopics`)
            .then((response) => {
              setSubTopics(response.data)
           })

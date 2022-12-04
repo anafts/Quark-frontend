@@ -41,7 +41,7 @@ function Skills() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get("${API_URL}/skills")
+    axios.get(`${API_URL}/skills`)
        .then((response) => {
          setSkills(response.data)
       })
