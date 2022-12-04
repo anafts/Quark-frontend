@@ -19,8 +19,9 @@ import MainTitle from "../components/Title/MainTitle";
 import Input from "../components/Form/Input";
 import InputColor from "../components/Form/InputColor";
 import BoxInputColor from "../components/Form/BoxInputColor";
-
 import SaveButton from "../components/Buttons/Save";
+
+import { API_URL } from '../conts';
 
 function UpdateSkills() {
 
@@ -33,7 +34,7 @@ function UpdateSkills() {
     const updateSkillSubmmit = (event) => {
       event.preventDefault()
    
-      axios.put(`http://localhost:80/updateSkill/${params.id}`, {
+      axios.put(`${API_URL}/updateSkill/${params.id}`, {
                title: title,
                color: color
            })

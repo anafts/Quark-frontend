@@ -22,6 +22,8 @@ import InputColor from "../components/Form/InputColor";
 import SaveButton from "../components/Buttons/Save";
 import BoxInputColor from "../components/Form/BoxInputColor";
 
+import { API_URL } from '../conts'
+
 
 function CreateSkills() {
 
@@ -33,7 +35,7 @@ function CreateSkills() {
     const createSkill = (event) => {
       event.preventDefault();
 
-      axios.post('http://localhost:80/createSkill', {
+      axios.post('${API_URL}/createSkill', {
        title: title,
        color: color
 

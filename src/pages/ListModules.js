@@ -41,6 +41,8 @@ import ModuleDates from "../components/ModuleBox/ModuleDates";
 import DataTitle from "../components/Card/CardDateTitle";
 import ObjetoData from "../components/Card/CardDate";
 
+import { API_URL } from '../conts'
+
 export default function Modules(){
 
     const [modules, setModules] = useState([]);
@@ -48,7 +50,7 @@ export default function Modules(){
     const params = useParams();
 
     useEffect(() => {
-        axios.get("http://localhost:80/modules")
+        axios.get("${API_URL}/modules")
            .then((response) => {
             setModules(response.data)
           })

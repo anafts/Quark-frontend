@@ -34,6 +34,8 @@ import CardEdit from "../components/Card/InternalCardEdit";
 import editIcon from '../icons/editar.svg';
 import TooltipEdit from "../components/Tooltip/TooltipEdit";
 
+import { API_URL } from '../conts'
+
 function SubTopics() {
 
     const [subtopics, setSubTopics] = useState([]);
@@ -41,7 +43,7 @@ function SubTopics() {
     const params = useParams();
 
     useEffect(() => {
-        axios.get("http://localhost:80/subtopics")
+        axios.get("${API_URL}/subtopics")
            .then((response) => {
              setSubTopics(response.data)
           })

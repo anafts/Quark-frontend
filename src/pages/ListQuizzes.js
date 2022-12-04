@@ -38,6 +38,8 @@ import QuestionTittle from "../components/Quiz/QuestionTittle";
 import AlternativesBox from "../components/Quiz/AlternativesBox";
 import Alternative from "../components/Quiz/Alternative";
 
+import { API_URL } from '../conts'
+
 
 export default function Quiz(){
 
@@ -48,7 +50,7 @@ export default function Quiz(){
     const [ isOpen, setIsOpen ] = useState(false);
 
     useEffect(() => {
-        axios.get(`http://localhost:80/quizzes/`)
+        axios.get(`${API_URL}/quizzes/`)
            .then((response) => {
              setQuizzes(response.data)
           })

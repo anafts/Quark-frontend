@@ -19,6 +19,8 @@ import MainTitle from "../components/Title/MainTitle";
 import SaveButton from "../components/Buttons/Save";
 import Input from "../components/Form/Input";
 
+import { API_URL } from '../conts';
+
 function UpdateSubTopics() {
 
   const navigate = useNavigate();
@@ -31,7 +33,7 @@ function UpdateSubTopics() {
   const updateSubTopicsSubmmit = (event) => {
     event.preventDefault()
  
-    axios.put(`http://localhost:80/updateSubTopics/${params.id}`, {
+    axios.put(`${API_URL}/updateSubTopics/${params.id}`, {
         title: title,
         order: order,
          })

@@ -28,6 +28,8 @@ import InputFile from "../components/Form/InputFile";
 import addAudio from "../icons/add_audio.svg";
 import addVideo from "../icons/add_video.svg";
 
+import { API_URL } from '../conts';
+
 
 function CreateContents() {
   const [ video, setVideo ] = useState();
@@ -58,7 +60,7 @@ function CreateContents() {
     if (audio) formData.append('audio', audio)
     if (text) formData.append('text', text)
 
-    axios.post(`http://localhost:80/createContent/${params.methodsId}`, formData)
+    axios.post(`${API_URL}/createContent/${params.methodsId}`, formData)
       .then((response) => {
         navigate(`/conteudos/${params.methodsId}`)
       })

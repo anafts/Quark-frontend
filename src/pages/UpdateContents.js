@@ -28,6 +28,8 @@ import InputFile from "../components/Form/InputFile";
 import addAudio from "../icons/add_audio.svg";
 import addVideo from "../icons/add_video.svg";
 
+import { API_URL } from '../conts';
+
 
 function UpdateContents() {
 
@@ -60,7 +62,7 @@ function UpdateContents() {
     if (audio) formData.append('audio', audio)
     if (text) formData.append('text', text)
 
-    axios.put(`http://localhost:80/updateContent/${params.id}`, formData)
+    axios.put(`${API_URL}/updateContent/${params.id}`, formData)
       .then((response) => {
         navigate(`/conteudos/${params.id}`)
       })

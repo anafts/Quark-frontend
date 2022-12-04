@@ -10,6 +10,8 @@ import Logo from "../icons/logo.svg";
 import Input from "../components/Form/Input";
 import QuestionTittle from "../components/Quiz/QuestionTittle";
 
+import { API_URL } from '../conts';
+
 
 
 function Signup() {
@@ -21,7 +23,7 @@ function Signup() {
     const handleFormSignup = (event) => {
         event.preventDefault();
 
-        axios.post('http://localhost:80/signup', {
+        axios.post('${API_URL}/signup', {
             email: email,
             password: password
         })

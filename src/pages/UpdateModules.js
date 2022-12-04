@@ -18,6 +18,8 @@ import SaveButton from "../components/Buttons/Save";
 import Input from "../components/Form/Input";
 import DescriptionText from "../components/Form/TextArea";
 
+import { API_URL } from '../conts';
+
 function UpdateModules() {
 
   const navigate = useNavigate();
@@ -31,7 +33,7 @@ function UpdateModules() {
   const updateModulesSubmmit = (event) => {
     event.preventDefault()
  
-    axios.put(`http://localhost:80/updateModules/${params.id}`, {
+    axios.put(`${API_URL}/updateModules/${params.id}`, {
         title: title,
         order: order,
         description: description

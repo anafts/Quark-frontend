@@ -19,6 +19,8 @@ import MainTitle from "../components/Title/MainTitle";
 import SaveButton from "../components/Buttons/Save";
 import Input from "../components/Form/Input";
 
+import { API_URL } from '../conts'
+
 function CreateTopics() {
 
   const navigate = useNavigate();
@@ -32,7 +34,7 @@ function CreateTopics() {
     const createTopics = (event) => {
       event.preventDefault();
 
-      axios.post(`http://localhost:80/createTopics/${params.skillId}`, {
+      axios.post(`${API_URL}/createTopics/${params.skillId}`, {
         title: title,
         order: order,
         active_icon: active_icon,

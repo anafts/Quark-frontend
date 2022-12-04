@@ -43,6 +43,8 @@ import QuestionTittle from "../components/Quiz/QuestionTittle";
 import AlternativesBox from "../components/Quiz/AlternativesBox";
 import Alternative from "../components/Quiz/Alternative";
 
+import { API_URL } from '../conts'
+
 export default function Modules(){
 
     const [ isOpen, setIsOpen ] = useState(false);
@@ -58,7 +60,7 @@ export default function Modules(){
     const params = useParams();
 
     useEffect(() => {
-        axios.get("http://localhost:80/content")
+        axios.get("${API_URL}/content")
            .then((response) => {
              setContent(response.data)
           })
@@ -68,7 +70,7 @@ export default function Modules(){
       }, []);
     
       useEffect(() => {
-        axios.get(`http://localhost:80/quizzes/${contents[0]?.id}`)
+        axios.get(`${API_URL}/quizzes/${contents[0]?.id}`)
            .then((response) => {
              setQuizzes(response.data)
           })

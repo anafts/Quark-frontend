@@ -34,6 +34,8 @@ import CardEdit from "../components/Card/InternalCardEdit";
 import editIcon from '../icons/editar.svg';
 import TooltipEdit from "../components/Tooltip/TooltipEdit";
 
+import { API_URL } from '../conts'
+
 function Topics() {
 
     const [topics, setTopics] = useState([]);
@@ -41,7 +43,7 @@ function Topics() {
     const params = useParams();
 
     useEffect(() => {
-        axios.get("http://localhost:80/topics")
+        axios.get("${API_URL}/topics")
            .then((response) => {
              setTopics(response.data)
           })

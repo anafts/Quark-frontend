@@ -18,6 +18,8 @@ import SaveButton from "../components/Buttons/Save";
 import Input from "../components/Form/Input";
 import DescriptionText from "../components/Form/TextArea";
 
+import { API_URL } from '../conts'
+
 function CreateModules() {
 
   const navigate = useNavigate();
@@ -31,7 +33,7 @@ function CreateModules() {
   const createModules = (event) => {
     event.preventDefault();
 
-    axios.post(`http://localhost:80/createModules/${params.subtopicsId}`, {
+    axios.post(`${API_URL}/createModules/${params.subtopicsId}`, {
       title: title,
       order: order,
       description: description

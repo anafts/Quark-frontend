@@ -32,6 +32,8 @@ import CardEdit from "../components/Card/CardEdit";
 import editIcon from '../icons/editar.svg';
 import TooltipEdit from "../components/Tooltip/TooltipEdit";
 
+import { API_URL } from '../conts'
+
 
 function Skills() {
 
@@ -39,7 +41,7 @@ function Skills() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get("http://localhost:80/skills")
+    axios.get("${API_URL}/skills")
        .then((response) => {
          setSkills(response.data)
       })

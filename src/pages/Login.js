@@ -6,7 +6,9 @@ import FormLogin from "../components/Login";
 import LoginLogo from "../components/Login/LoginLogo";
 import Logo from "../icons/logo.svg";
 import Input from "../components/Form/Input";
-import SaveButton from "../components/Buttons/Save"
+import SaveButton from "../components/Buttons/Save";
+
+import { API_URL } from '../conts';
 
 function Login() {
     const [login, setLogin] = useState()
@@ -16,7 +18,7 @@ function Login() {
     const handleFormSubmit = (event) => {
         event.preventDefault()
 
-        axios.post('http://localhost:80/login', {
+        axios.post('${API_URL}/login', {
             email: login,
             password: password
         })

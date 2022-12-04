@@ -19,6 +19,8 @@ import MainTitle from "../components/Title/MainTitle";
 import SaveButton from "../components/Buttons/Save";
 import Input from "../components/Form/Input";
 
+import { API_URL } from '../conts'
+
 function CriarSubTopics() {
 
   const navigate = useNavigate();
@@ -30,7 +32,7 @@ function CriarSubTopics() {
   const createSubTopics = (event) => {
     event.preventDefault();
 
-    axios.post(`http://localhost:80/createSubTopics/${params.topicsId}`, {
+    axios.post(`${API_URL}/createSubTopics/${params.topicsId}`, {
       title: title,
       order: order  
 

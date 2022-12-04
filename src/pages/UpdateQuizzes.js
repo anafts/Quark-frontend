@@ -24,6 +24,8 @@ import Select from "../components/Form/Select";
 import AddOption from "../components/Buttons/AddOption";
 import AddQuestion from "../components/Buttons/AddQuestion";
 
+import { API_URL } from '../conts';
+
 function CreateQuizzes() {
 
   const params = useParams();
@@ -34,7 +36,7 @@ function CreateQuizzes() {
   const updateQuiz = (event) => {
     event.preventDefault();
 
-    axios.put(`http://localhost:80/updateQuizzes/${params.id}`, quizzes)
+    axios.put(`${API_URL}/updateQuizzes/${params.id}`, quizzes)
     .then((response) => {
       navigate(`/conteudos/${params.id}`)
     })
@@ -44,7 +46,7 @@ function CreateQuizzes() {
   }
 
     useEffect(() => {
-      axios.get(`http://localhost:80/quiz/${params.id}`)
+      axios.get(`${API_URL}/quiz/${params.id}`)
       .then((response) => {
         setQuizzes(response.data)
       })

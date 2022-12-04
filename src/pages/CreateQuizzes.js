@@ -24,6 +24,8 @@ import Select from "../components/Form/Select";
 import AddOption from "../components/Buttons/AddOption";
 import AddQuestion from "../components/Buttons/AddQuestion";
 
+import { API_URL } from '../conts'
+
 function CreateQuizzes() {
 
   const params = useParams();
@@ -34,7 +36,7 @@ function CreateQuizzes() {
   const createQuizzes = (event) => {
     event.preventDefault();
 
-    axios.post(`http://localhost:80/createQuizzes/${params.contentId}`, quizzes)
+    axios.post(`${API_URL}/createQuizzes/${params.contentId}`, quizzes)
     .then((response) => {
       navigate(`/quiz/${params.contentId}`)
     })
