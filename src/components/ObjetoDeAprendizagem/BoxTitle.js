@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-const CaixaTitulo = styled.div `
+const BoxTitle = styled.div `
     display: flex;
 `
 
-export default CaixaTitulo
+export default BoxTitle;

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import CardEdit from '../Card/CardEdit'
 
-const EditConteudo = styled(CardEdit) `
+const ContentUpdate = styled(CardEdit) `
     width: max-content;
     max-height: 35px;
     visibility: visible;
@@ -11,4 +11,4 @@ const EditConteudo = styled(CardEdit) `
     transform: translateX(20%);
 `
 
-export default EditConteudo;
+export default ContentUpdate;

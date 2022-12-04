@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const CaixaTexto = styled.section `
+const BoxText = styled.section `
     width: calc(35vw - 60px);
     height: max-content;
     margin-bottom: 5vh;
@@ -17,4 +17,4 @@ const CaixaTexto = styled.section `
     }
 `
 
-export default CaixaTexto;
+export default BoxText;

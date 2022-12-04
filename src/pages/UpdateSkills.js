@@ -17,7 +17,7 @@ import Caixa from "../components/Caixa";
 import Form from "../components/Form";
 import Titulo1 from "../components/Titulos/Titulo1";
 import Input from "../components/Form/Input";
-import InputCor from "../components/Form/InputCor";
+import InputColor from "../components/Form/InputColor";
 import BoxInputColor from "../components/Form/BoxInputColor";
 
 import SaveButton from "../components/Buttons/Save";
@@ -72,8 +72,8 @@ function UpdateSkills() {
           <Input type="text" placeholder="Título" onChange={event => setTitle(event.currentTarget.value)} value={title} />
           
           <BoxInputColor>
-            <InputCor type="text" onChange={event => setColor(event.currentTarget.value)} value={color} />
-            <InputCor type="color" onChange={event => setColor(event.currentTarget.value)} value={color} />
+            <InputColor type="text" onChange={event => setColor(event.currentTarget.value)} value={color} />
+            <InputColor type="color" onChange={event => setColor(event.currentTarget.value)} value={color} />
           </BoxInputColor>
 
           <SaveButton type="Submit">Editar</SaveButton>

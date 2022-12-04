@@ -18,12 +18,12 @@ import AddObjetoBtn from "../components/Buttons/Add";
 import addIcon from '../icons/plus.svg';
 import TooltipAdd from "../components/Tooltip/TooltipAdd";
 
-import TituloListagemObjetos from "../components/ObjetoDeAprendizagem/TituloListagemObjetos";
+import ModuleTitleMain from "../components/ObjetoDeAprendizagem/ModuleTitleMain";
 
 import ObjetoDeAprendizagem from "../components/ObjetoDeAprendizagem";
 import CardLink from "../components/Card/CardLink";
-import ObjetoTitle from "../components/ObjetoDeAprendizagem/ObjetoTitle";
-import ObjetoDescricao from "../components/ObjetoDeAprendizagem/ObjetoDescricao";
+import ModuleTitle from "../components/ObjetoDeAprendizagem/ModuleTitle";
+import ModuleDescription from "../components/ObjetoDeAprendizagem/ModuleDescription";
 
 import ObjetoEdit from "../components/ObjetoDeAprendizagem/ObjetoEdit";
 import editIcon from '../icons/editar.svg';
@@ -37,7 +37,7 @@ import audioIcon from '../icons/microphone.svg';
 import quizIcon from '../icons/quiz.svg';
 
 import ObjetoRodape from "../components/ObjetoDeAprendizagem/ObjetoRodape";
-import ObjetoDatas from "../components/ObjetoDeAprendizagem/ObjetoDatas";
+import ModuleDates from "../components/ObjetoDeAprendizagem/ModuleDates";
 import DataTitle from "../components/Card/CardDataTitle";
 import ObjetoData from "../components/Card/CardData";
 
@@ -93,38 +93,38 @@ export default function Modules(){
                     <BCLink href="#">O que vamos tratar no módulo?</BCLink>
                 </Breadcrumbs>
 
-                <TituloListagemObjetos>O que vamos tratar no módulo?</TituloListagemObjetos>
+                <ModuleTitleMain>O que vamos tratar no módulo?</ModuleTitleMain>
                 
                 <>
                 {modules.map(module => (
                 <ObjetoDeAprendizagem className="primeiro">
                 
-                    <ObjetoTitle key={module.id} className="TituloObjetoAprendizagem"> 
+                    <ModuleTitle key={module.id} className="TituloObjetoAprendizagem"> 
                         <CardLink to={`/conteudos/${module.id}`} >
                         {module.title}
                             <TooltipObjeto className="tooltipTitulo"> {module.title} </TooltipObjeto>
                         </CardLink>
-                    </ObjetoTitle>
+                    </ModuleTitle>
 
                     <ObjetoEdit className="editar" onClick={(event) => handleGoToModules(event, module)} >
                         <img src={editIcon}/>
                         <TooltipEdit className="tooltip">Editar Objeto de Aprendizagem</TooltipEdit>
                     </ObjetoEdit>
 
-                    <ObjetoDescricao>
+                    <ModuleDescription>
                     {module.description}
-                    </ObjetoDescricao>
+                    </ModuleDescription>
 
                     <ObjetoRodape>
-                        <ObjetoDatas>
+                        <ModuleDates>
                             <DataTitle>Criado em</DataTitle>
                             <ObjetoData> {module.created_at.slice(-25, 10)} </ObjetoData>
-                        </ObjetoDatas>
+                        </ModuleDates>
 
-                        <ObjetoDatas>
+                        <ModuleDates>
                             <DataTitle>Editado em</DataTitle>
                             <ObjetoData> {module.updated_at.slice(-25, 10)} </ObjetoData>
-                        </ObjetoDatas>
+                        </ModuleDates>
 
                         <ObjetoIcons>
                             <img className="book" src={bookIcon}/>

@@ -19,22 +19,22 @@ import BoxContents from "../components/Buttons/BoxContents";
 import DropdownContents from "../components/Buttons/DropdowContents";
 import LinkContents from "../components/Buttons/LinkContents";
 
-import Datas from "../components/ObjetoDeAprendizagem/Datas";
+import Dates from "../components/ObjetoDeAprendizagem/Dates";
 
 import Caixa from "../components/Caixa";
 import Breadcrumbs from "../components/Breadcrumbs";
 import BCLink from "../components/Breadcrumbs/Link";
 
-import CaixaTitulo from "../components/ObjetoDeAprendizagem/CaixaTitulo";
+import BoxTitle from "../components/ObjetoDeAprendizagem/BoxTitle";
 import TituloContents from "../components/ObjetoDeAprendizagem/TituloContents";
-import EditConteudo from "../components/ObjetoDeAprendizagem/EditConteudo";
+import ContentUpdate from "../components/ObjetoDeAprendizagem/ContentUpdate";
 import editIcon from "../icons/editar.svg";
 import TooltipEdit from "../components/Tooltip/TooltipEdit";
 
 import Video from "../components/ObjetoDeAprendizagem/Video";
 import Audio from "../components/ObjetoDeAprendizagem/Audio";
 
-import CaixaTexto from "../components/ObjetoDeAprendizagem/CaixaTexto";
+import BoxText from "../components/ObjetoDeAprendizagem/BoxText";
 import Texto from "../components/ObjetoDeAprendizagem/Texto";
 
 import CaixaQuiz from "../components/Quiz";
@@ -134,18 +134,18 @@ export default function Modules(){
                 
                 {contents.map(content => (
                     <>
-                <CaixaTitulo key={content.id}>
+                <BoxTitle key={content.id}>
                     <TituloContents>O que vamos falar nesse módulo?</TituloContents>
-                    <EditConteudo onClick={(event) => handleGoToContent(event, content)} >
+                    <ContentUpdate onClick={(event) => handleGoToContent(event, content)} >
                         <img src={editIcon}/>
                         <TooltipEdit className="tooltip">Alterar Conteúdos</TooltipEdit>
-                    </EditConteudo>
-                </CaixaTitulo>
+                    </ContentUpdate>
+                </BoxTitle>
                 
-                <Datas>
+                <Dates>
                     <h1> Criado em {content.created_at.slice(-25, 10)}</h1>
                     <h1>Editado em {content.updated_at.slice(-25, 10)}</h1>
-                </Datas>
+                </Dates>
 
                 <Video controls controlsList="nodownload">
                     <source src={content.videoURL} type="video/mp4" />
@@ -155,21 +155,21 @@ export default function Modules(){
                     <source src={content.audioURL} type="audio/mpeg" />
                 </Audio>
                 
-                <CaixaTexto>
+                <BoxText>
                     <Texto>
                         {content.text}
                     </Texto>
-                </CaixaTexto>
+                </BoxText>
                 </>
                 ))}
            
-                <CaixaTitulo key={quizzes?.id}>
+                <BoxTitle key={quizzes?.id}>
                     <TituloContents> Quiz </TituloContents>
-                    <EditConteudo onClick={(event) => handleGoToQuizzes(event, quizzes)} >
+                    <ContentUpdate onClick={(event) => handleGoToQuizzes(event, quizzes)} >
                         <img src={editIcon}/>
                         <TooltipEdit className="tooltip"> Alterar Quiz </TooltipEdit>
-                    </EditConteudo>
-                </CaixaTitulo>
+                    </ContentUpdate>
+                </BoxTitle>
 
                  {quizzes?.questions.map(quiz => (
                     <>

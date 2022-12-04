@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const CardDatas = styled.div `
+const CardDates = styled.div `
     max-width: 250px;
     display: grid;
     margin: 15px 15px 0 15px;
@@ -9,4 +9,4 @@ const CardDatas = styled.div `
     grid-column-gap: 30px;
 `
 
-export default CardDatas
+export default CardDates

@@ -18,7 +18,7 @@ import Form from "../components/Form";
 import Titulo1 from "../components/Titulos/Titulo1";
 import Input from "../components/Form/Input";
 
-import InputCor from "../components/Form/InputCor";
+import InputColor from "../components/Form/InputColor";
 import SaveButton from "../components/Buttons/Save";
 import BoxInputColor from "../components/Form/BoxInputColor";
 
@@ -71,8 +71,8 @@ function CreateSkills() {
           <Input type="text" placeholder="Título" onChange={event => setTitle(event.currentTarget.value)} value={title} />
           
           <BoxInputColor>
-            <InputCor type="text"  placeholder="Cor" onChange={event => setColor(event.currentTarget.value)} value={color} />
-            <InputCor type="color" defaultValue="#7D71DA" onChange={event => setColor(event.currentTarget.value)} value={color} />
+            <InputColor type="text"  placeholder="Cor" onChange={event => setColor(event.currentTarget.value)} value={color} />
+            <InputColor type="color" defaultValue="#7D71DA" onChange={event => setColor(event.currentTarget.value)} value={color} />
           </BoxInputColor>
 
           <SaveButton type="Submit">Save</SaveButton>

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const InputCaminho = styled.input `
+const PathInput = styled.input `
     margin: 0 0 2vh 0;
     font-family: 'Rubik', sans-serif;
     font-weight: 400;
@@ -20,4 +20,4 @@ const InputCaminho = styled.input `
 
 `
 
-export default InputCaminho;
+export default PathInput;

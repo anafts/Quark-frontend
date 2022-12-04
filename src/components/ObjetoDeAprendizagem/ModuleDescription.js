@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const ObjetoDescricao = styled.p `
+const ModuleDescription = styled.p `
     font-family: 'Rubik', sans-serif;
     max-width: 94%;
     font-weight: 400;
@@ -10,4 +10,4 @@ const ObjetoDescricao = styled.p `
     text-align: justify;
 `
 
-export default ObjetoDescricao;
+export default ModuleDescription;

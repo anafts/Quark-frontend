@@ -16,7 +16,7 @@ import Form from "../components/Form";
 import Titulo1 from "../components/Titulos/Titulo1";
 import SaveButton from "../components/Buttons/Save";
 
-import InputCaminho from "../components/Form/InputCaminho";
+import PathInput from "../components/Form/PathInput";
 import DescriptionText from "../components/Form/TextArea";
 import BoxInputColor from "../components/Form/BoxInputColor";
 import AddContBtn from "../components/Buttons/AddContent";

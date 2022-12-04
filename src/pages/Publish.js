@@ -23,7 +23,7 @@ import CardTilte from "../components/Card/CardTitle";
 import CardLink from "../components/Card/CardLink";
 import Tooltip from "../components/Tooltip";
 import CardTopics from "../components/Card/CardTopics";
-import CardDatas from "../components/Card/CardDatas";
+import CardDates from "../components/Card/CardDates";
 import CardDataTitle from "../components/Card/CardDataTitle";
 import CardData from "../components/Card/CardData";
 
@@ -66,13 +66,13 @@ function Publicar() {
 
                     <CardTopics>3 Tópicos</CardTopics>
 
-                    <CardDatas>
+                    <CardDates>
                         <CardDataTitle>Criado em</CardDataTitle>
                         <CardDataTitle>Editado em</CardDataTitle>
 
                         <CardData>18/05/2022</CardData>
                         <CardData>21/05/2022</CardData>
-                    </CardDatas>
+                    </CardDates>
                 </Card>
                 
                 <CaixaBotoes>

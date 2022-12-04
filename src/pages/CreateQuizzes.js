@@ -16,7 +16,7 @@ import Form from "../components/Form";
 import Titulo1 from "../components/Titulos/Titulo1";
 import SaveButton from "../components/Buttons/Save";
 
-import InputCaminho from "../components/Form/InputCaminho";
+import PathInput from "../components/Form/PathInput";
 import BoxInputColor from "../components/Form/BoxInputColor";
 import Input from "../components/Form/Input";
 import TituloQuestao from "../components/Titulos/TituloQuestao";
@@ -174,7 +174,7 @@ function CreateQuizzes() {
                     {
                       quiz.alternatives.map(alternative => (
                         <BoxInputColor>
-                          <InputCaminho placeholder ="Inserir Alternativa" name={alternative.name} value={alternative.value} onChange={event => handleInputChange(event, quiz.id)} />
+                          <PathInput placeholder ="Inserir Alternativa" name={alternative.name} value={alternative.value} onChange={event => handleInputChange(event, quiz.id)} />
                           <Select type="checkbox" name={alternative.name} checked={alternative.correct} onChange={event => handleCheckboxChange(event, quiz.id)} />
                         </BoxInputColor> 
                       ))

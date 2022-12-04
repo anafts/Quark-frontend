@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Datas = styled.section `
+const Dates = styled.section `
     font-family: 'Rubik', sans-serif;
     font-size: 16px;
     font-weight: 400;
@@ -18,4 +18,4 @@ const Datas = styled.section `
     }
 `
 
-export default Datas;
+export default Dates;

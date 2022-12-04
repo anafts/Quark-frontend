@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-const ObjetoDatas = styled.div `
+const ModuleDates = styled.div `
     width: max-content;
     display: flex;
     flex-direction: column;
 `
 
-export default ObjetoDatas;
+export default ModuleDates;

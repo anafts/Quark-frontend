@@ -24,7 +24,7 @@ import Card from "../components/Card/InternalCard";
 import CardTilte from "../components/Card/CardTitle";
 import CardLink from "../components/Card/CardLink";
 import CardTopics from "../components/Card/CardTopics";
-import CardDatas from "../components/Card/CardDatas";
+import CardDates from "../components/Card/CardDates";
 import CardData from "../components/Card/CardData";
 import CardDataTitle from "../components/Card/CardDataTitle";
 import TituloListagens from "../components/Titulos/TituloListagens";
@@ -103,13 +103,13 @@ function Topics() {
 
                     <CardTopics>8 Subtópicos</CardTopics>
 
-                    <CardDatas>
+                    <CardDates>
                         <CardDataTitle>Criado em</CardDataTitle>
                         <CardDataTitle>Editado em</CardDataTitle>
 
                         <CardData> {topic.created_at.slice(-25, 10)} </CardData>
                         <CardData> {topic.updated_at.slice(-25, 10)} </CardData>
-                    </CardDatas>
+                    </CardDates>
                 </Card>
                 ))}
             </GridTopics>

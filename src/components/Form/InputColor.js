@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const InputCor = styled.input `
+const InputColor = styled.input `
     font-family: 'Rubik', sans-serif;
     font-weight: 400;
     width: 207px;
@@ -60,4 +60,4 @@ const InputCor = styled.input `
     }
 `
 
-export default InputCor;
+export default InputColor;

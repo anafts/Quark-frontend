@@ -24,13 +24,13 @@ import Caixa from "../components/Caixa";
 import Breadcrumbs from "../components/Breadcrumbs";
 import BCLink from "../components/Breadcrumbs/Link";
 
-import CaixaTitulo from "../components/ObjetoDeAprendizagem/CaixaTitulo";
+import BoxTitle from "../components/ObjetoDeAprendizagem/BoxTitle";
 import TituloContents from "../components/ObjetoDeAprendizagem/TituloContents";
-import EditConteudo from "../components/ObjetoDeAprendizagem/EditConteudo";
+import ContentUpdate from "../components/ObjetoDeAprendizagem/ContentUpdate";
 import editIcon from "../icons/editar.svg";
 import TooltipEdit from "../components/Tooltip/TooltipEdit";
 
-import Datas from "../components/ObjetoDeAprendizagem/Datas";
+import Dates from "../components/ObjetoDeAprendizagem/Dates";
 
 import CaixaQuiz from "../components/Quiz";
 import Questao from "../components/Quiz/Questao";
@@ -108,21 +108,21 @@ export default function Quiz(){
                     <BCLink> Que conhecimentos prévios são importantes? </BCLink>
                 </Breadcrumbs>
 
-                <CaixaTitulo>
+                <BoxTitle>
                     <TituloContents> Que conhecimentos prévios são importantes?</TituloContents>
                     
-                    <EditConteudo onClick={(event) => handleGoToQuizzes(event, quizzes)}>
+                    <ContentUpdate onClick={(event) => handleGoToQuizzes(event, quizzes)}>
                         <img src={editIcon}/>
                         <TooltipEdit className="tooltip">Alterar Conteúdos</TooltipEdit>
-                    </EditConteudo>
-                </CaixaTitulo>
+                    </ContentUpdate>
+                </BoxTitle>
 
                 {quizzes.map(quiz => (
                     <>
-                    <Datas key={quiz.id} >
+                    <Dates key={quiz.id} >
                     <h1>Criado em {quiz.created_at.slice(-25, 10)} </h1>
                     <h1>Editado em {quiz.updated_at.slice(-25, 10)} </h1>
-                    </Datas>
+                    </Dates>
 
                 <CaixaQuiz>
 

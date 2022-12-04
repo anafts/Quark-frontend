@@ -23,7 +23,7 @@ import CardTilte from "../components/Card/CardTitle";
 import CardLink from "../components/Card/CardLink";
 import SkillColor from "../components/Card/SkillColor";
 import CardTopics from "../components/Card/CardTopics";
-import CardDatas from "../components/Card/CardDatas";
+import CardDates from "../components/Card/CardDates";
 import CardData from "../components/Card/CardData";
 import CardDataTitle from "../components/Card/CardDataTitle";
 import Tooltip from "../components/Tooltip";
@@ -97,13 +97,13 @@ function Skills() {
 
               <CardTopics> 3 Tópicos </CardTopics>
 
-              <CardDatas>
+              <CardDates>
                 <CardDataTitle>Criado em</CardDataTitle>
                 <CardDataTitle>Editado em</CardDataTitle>
 
                 <CardData> {skill.created_at.slice(-25, 10)} </CardData>
                 <CardData> {skill.updated_at.slice(-25, 10)} </CardData>
-              </CardDatas>
+              </CardDates>
             </Card>
           ))}
         </GridSkills>
