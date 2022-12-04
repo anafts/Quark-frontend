@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 import Navbar from "../components/Navbar";
 import LogoMenu from "../components/LogoMenu";
-import PublicarBtn from '../components/Buttons/Publicar';
+import PublishBtn from '../components/Buttons/Publicar';
 
 import BackBtn from '../components/Buttons/Back';
 import backIcon from '../icons/back.svg';
@@ -20,7 +20,7 @@ import Input from "../components/Form/Input";
 
 import InputCor from "../components/Form/InputCor";
 import SaveButton from "../components/Buttons/Save";
-import CaixaInputCor from "../components/Form/CaixaInputCor";
+import BoxInputColor from "../components/Form/BoxInputColor";
 
 
 function CreateSkills() {
@@ -56,7 +56,7 @@ function CreateSkills() {
         
         <LogoMenu href="/skill"></LogoMenu>
 
-        <PublicarBtn href="/publicar" className="oculto">Publicar</PublicarBtn>
+        <PublishBtn href="/publicar" className="oculto">Publicar</PublishBtn>
       </Navbar>
       
       <Caixa>
@@ -70,10 +70,10 @@ function CreateSkills() {
 
           <Input type="text" placeholder="Título" onChange={event => setTitle(event.currentTarget.value)} value={title} />
           
-          <CaixaInputCor>
+          <BoxInputColor>
             <InputCor type="text"  placeholder="Cor" onChange={event => setColor(event.currentTarget.value)} value={color} />
             <InputCor type="color" defaultValue="#7D71DA" onChange={event => setColor(event.currentTarget.value)} value={color} />
-          </CaixaInputCor>
+          </BoxInputColor>
 
           <SaveButton type="Submit">Save</SaveButton>
         </Form>        
