@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 
-const CardEdit = styled(Link) `
+const CardEdit = styled.a`
     max-width: 35px;
     max-height: 35px;
     border-radius: 100%;
