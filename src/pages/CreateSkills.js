@@ -35,7 +35,7 @@ function CreateSkills() {
     const createSkill = (event) => {
       event.preventDefault();
 
-      axios.post('${API_URL}/createSkill', {
+      axios.post(`${API_URL}/createSkill`, {
        title: title,
        color: color
 
