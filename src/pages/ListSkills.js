@@ -97,7 +97,7 @@ function Skills() {
                     <TooltipEdit className="tooltip">Editar Skill</TooltipEdit>
                 </CardEdit>
 
-              <CardTopics> 3 Tópicos </CardTopics>
+              <CardTopics> Tópicos </CardTopics>
 
               <CardDates>
                 <CardDateTitle>Criado em</CardDateTitle>

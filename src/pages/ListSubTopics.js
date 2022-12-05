@@ -106,7 +106,7 @@ function SubTopics() {
                         <TooltipEdit className="tooltip">Editar Subtópico</TooltipEdit>
                     </CardEdit>
 
-                    <CardTopics>4 Objetos</CardTopics>
+                    <CardTopics> Objetos de aprendizagem </CardTopics>
 
                     <CardDates>
                         <CardDateTitle>Criado em</CardDateTitle>

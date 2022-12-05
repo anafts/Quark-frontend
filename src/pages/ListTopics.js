@@ -103,7 +103,7 @@ function Topics() {
                         <TooltipEdit className="tooltip">Editar Tópico</TooltipEdit>
                     </CardEdit>
 
-                    <CardTopics>8 Subtópicos</CardTopics>
+                    <CardTopics> Subtópicos</CardTopics>
 
                     <CardDates>
                         <CardDateTitle>Criado em</CardDateTitle>

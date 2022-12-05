@@ -116,9 +116,7 @@ export default function Modules(){
 
                 <DropdownContents className={isOpen ? 'show' : ''}>
                     <LinkContents to={`/adicionarconteudo/${params.methodsId}`}> Adicionar Conteúdo </LinkContents>
-                    <LinkContents style={{
-                        display: quizzes ? 'none' : 'block'
-                    }} to={`/adicionarquiz/${contents[0]?.id}`}> Adicionar Quiz </LinkContents>
+                    <LinkContents to={`/adicionarquiz/${contents[0]?.id}`}> Adicionar Quiz </LinkContents>
                 </DropdownContents>
             </BoxContents>
 
