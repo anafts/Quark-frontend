@@ -182,7 +182,7 @@ function CreateQuizzes() {
             quizzes?.map( quiz => (
 
               <>
-               <Question> {quiz.question} </Question>
+               <QuestionTitle> {quiz.question} </QuestionTitle>
                <Input value={quiz.question} onChange={event => handleQuestionNameChange(event, quiz.id)} />
                <QuestionTitle> Opções </QuestionTitle>
 
