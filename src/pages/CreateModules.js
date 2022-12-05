@@ -66,7 +66,7 @@ function CreateModules() {
           <BCLink to={`/topicos/:skillId`} >Inteligência Emocional</BCLink>
           <BCLink to={`/subtopicos/:topicsId`} >Introdução</BCLink>
           <BCLink to={`/objetosaprendizagem/:subtopicsId`}>O que vamos tratar no módulo?</BCLink>
-          <BCLink>Criar Objeto de Aprendizagem</BCLink>
+          <BCLink to="#">Criar Objeto de Aprendizagem</BCLink>
         </Breadcrumbs>
 
         <Form onSubmit={createModules} >

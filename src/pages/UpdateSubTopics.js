@@ -62,7 +62,7 @@ function UpdateSubTopics() {
           <BCLink to={'/skill'}> Skills </BCLink>
           <BCLink to={`/topicos/:skillId`}> Inteligência Emocional </BCLink>
           <BCLink to={`/subtopicos/:topicsId`} >Introdução</BCLink>
-          <BCLink>Editar subtópico</BCLink>
+          <BCLink to="#">Editar subtópico</BCLink>
         </Breadcrumbs>
 
         <Form onSubmit={updateSubTopicsSubmmit}  >

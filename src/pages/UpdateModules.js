@@ -64,7 +64,7 @@ function UpdateModules() {
           <BCLink to={`/topicos/:skillId`} >Inteligência Emocional</BCLink>
           <BCLink to={`/subtopicos/:topicsId`} >Introdução</BCLink>
           <BCLink to={`/objetosaprendizagem/:subtopicsId`}>O que vamos tratar no módulo?</BCLink>
-        <BCLink>Editar Objeto de Aprendizagem</BCLink>
+          <BCLink to="#">Editar Objeto de Aprendizagem</BCLink>
         </Breadcrumbs>
 
         <Form onSubmit={updateModulesSubmmit} >

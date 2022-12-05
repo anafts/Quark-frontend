@@ -90,7 +90,7 @@ function UpdateContents() {
           <BCLink to={`/subtopicos/:topicsId`} >Introdução</BCLink>
           <BCLink to={`/objetosaprendizagem/:subtopicsId`}>O que vamos tratar no módulo?</BCLink>
           <BCLink to={`/conteudos/:methodsId`}>O que vamos falar nesse módulo?</BCLink>
-          <BCLink>Alterar conteúdos</BCLink>
+          <BCLink to="#">Alterar conteúdos</BCLink>
         </Breadcrumbs>
 
         <Form>

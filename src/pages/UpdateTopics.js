@@ -66,7 +66,7 @@ function UpdateTopics() {
         <Breadcrumbs>
           <BCLink to={'/skill'}> Skills </BCLink>
           <BCLink to={`/topicos/:skillId`}> Inteligência Emocional </BCLink>
-          <BCLink>Editar Tópico</BCLink>
+          <BCLink to="#" >Editar Tópico</BCLink>
         </Breadcrumbs>
 
         <Form onSubmit={updateTopicsSubmmit} >
