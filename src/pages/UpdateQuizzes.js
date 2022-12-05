@@ -20,6 +20,7 @@ import PathInput from "../components/Form/PathInput";
 import BoxInputColor from "../components/Form/BoxInputColor";
 import Input from "../components/Form/Input";
 import QuestionTitle from "../components/Title/QuestionTitle";
+import Question from "../components/Title/Question";
 import Select from "../components/Form/Select";
 import AddOption from "../components/Buttons/AddOption";
 import AddQuestion from "../components/Buttons/AddQuestion";
@@ -181,7 +182,7 @@ function CreateQuizzes() {
             quizzes?.map( quiz => (
 
               <>
-               <QuestionTitle> {quiz.question} </QuestionTitle>
+               <Question> {quiz.question} </Question>
                <Input value={quiz.question} onChange={event => handleQuestionNameChange(event, quiz.id)} />
                <QuestionTitle> Opções </QuestionTitle>
 
