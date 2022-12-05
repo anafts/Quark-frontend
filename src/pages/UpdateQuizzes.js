@@ -20,7 +20,7 @@ import PathInput from "../components/Form/PathInput";
 import BoxInputColor from "../components/Form/BoxInputColor";
 import Input from "../components/Form/Input";
 import QuestionTitle from "../components/Title/QuestionTitle";
-import Question from "../components/Title/Question";
+import Question from "../components/Quiz/Question";
 import Select from "../components/Form/Select";
 import AddOption from "../components/Buttons/AddOption";
 import AddQuestion from "../components/Buttons/AddQuestion";
